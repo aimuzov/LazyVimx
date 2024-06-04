@@ -1,3 +1,3 @@
-# Lazyvim recipes
+# LazyVim (enhanced)
 
 TBD...
