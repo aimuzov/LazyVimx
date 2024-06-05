@@ -1,7 +1,7 @@
 const fs = require("node:fs");
 
 const scopes = fs
-  .readdirSync("./lua/lazyvimenhanced/plugins/extras", { withFileTypes: true })
+  .readdirSync("./lua/lazyvimenhanced/extras", { withFileTypes: true })
   .filter((dirent) => dirent.isDirectory())
   .map((dirent) => dirent.name);
 
