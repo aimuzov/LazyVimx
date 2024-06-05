@@ -18,3 +18,6 @@ vim.keymap.set({ "n" }, "<leader>\\", "<C-W>v", { desc = "Split window right" })
 vim.keymap.set({ "n" }, "<leader>w\\", "<C-W>v", { desc = "Split window right" })
 
 vim.keymap.set({ "n" }, "<leader>uR", "<cmd>LspRestart<cr>", { desc = "Restart LSP" })
+
+vim.keymap.set({ "n" }, "H", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+vim.keymap.set({ "n" }, "L", "<cmd>bnext<cr>", { desc = "Next Buffer" })
