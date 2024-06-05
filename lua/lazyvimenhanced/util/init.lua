@@ -40,33 +40,11 @@ function M.os_theme_is_dark()
 end
 
 function M.colorscheme_get_household()
-	local colorschemes_available = {
-		catppuccin = { "catppuccin-frappe", "catppuccin-latte" },
-		tokyonight = { "tokyonight-storm", "tokyonight-day" },
-	}
-
-	local colorschemes_enabled = {}
-
-	for key, value in pairs(colorschemes_available) do
-		local success, result = pcall(M.extras_enabled, "lazyvimenhanced.plugins.extras.colorschemes." .. key)
-
-		if not success then
-			table.insert(colorschemes_enabled, colorschemes_available["catppuccin"])
-			break
-		end
-
-		if result then
-			table.insert(colorschemes_enabled, value)
-		end
+	if LazyVim.has("catppuccin") then
+		return { "catppuccin-frappe", "catppuccin-latte" }
+	elseif LazyVim.has("tokyonight") then
+		return { "tokyonight-storm", "tokyonight-day" }
 	end
-
-	if #colorschemes_enabled ~= 1 then
-		vim.schedule(function()
-			error("Unexpected behaviour: multiple active colorschemes")
-		end)
-	end
-
-	return colorschemes_enabled[1]
 end
 
 function M.colorscheme_get_name()
@@ -74,10 +52,6 @@ function M.colorscheme_get_name()
 	local colorscheme_household = M.colorscheme_get_household()
 
 	return is_dark and colorscheme_household[1] or colorscheme_household[2]
-end
-
-function M.extras_enabled(extras_name)
-	return vim.tbl_contains(LazyVim.config.json.data.extras, extras_name)
 end
 
 return M
