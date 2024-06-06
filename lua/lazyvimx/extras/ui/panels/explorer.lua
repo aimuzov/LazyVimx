@@ -236,6 +236,7 @@ return {
 					["l"] = "node_open_or_file_open",
 					["Y"] = "copy_selector",
 					["O"] = "system_open",
+					["P"] = { "toggle_preview", config = { use_float = false } },
 					["<s-h>"] = "prev_source",
 					["<s-l>"] = "next_source",
 				},
