@@ -36,11 +36,7 @@ return {
 		for opt_name, opt_value in pairs(options) do
 			local ok, _ = pcall(vim.api.nvim_get_option_info2, opt_name, {})
 			if ok then
-				if opt_name == "fillchars" then
-					vim.opt[opt_name]:append(opt_value)
-				else
-					vim.opt[opt_name] = opt_value
-				end
+				vim.opt[opt_name] = opt_value
 			else
 				vim.notify("Option " .. opt_name .. " is not supported", vim.log.levels.WARN)
 			end

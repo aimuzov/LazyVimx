@@ -1,14 +1,20 @@
-local listchars = vim.opt.listchars:get()
-
 return {
 	{
 		"mcauley-penney/visual-whitespace.nvim",
 		opts = {
 			highlight = { link = "VisualWhitespace" },
-			space_char = listchars.space,
-			tab_char = listchars.tab,
 			nl_char = "↩",
 		},
+	},
+
+	{
+		"mcauley-penney/visual-whitespace.nvim",
+		opts = function(_, opts)
+			local listchars = vim.opt.listchars:get()
+
+			opts.space_char = listchars.space
+			opts.tab_char = listchars.tab
+		end,
 	},
 
 	{
