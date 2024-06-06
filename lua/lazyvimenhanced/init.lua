@@ -1,13 +1,7 @@
-return {
-	"LazyVim/LazyVim",
-	import = "lazyvim.plugins",
-	opts = function(_, opts)
-		table.insert(require("lazyvim.util.extras").sources, {
-			name = "Enhanced",
-			desc = "Some recipes (extras) for enhance lazyvim",
-			module = "lazyvimenhanced.extras",
-		})
+local M = {}
 
-		opts.colorscheme = require("lazyvimenhanced.util.colorscheme").get_name()
-	end,
-}
+function M.setup(_)
+	--
+end
+
+return M
