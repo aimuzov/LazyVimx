@@ -7,7 +7,9 @@ return {
 		ignore = {
 			cursorline = {
 				"lazy",
+				"lazyterm",
 				"neo-tree",
+				"neo-tree-popup",
 				"TelescopePrompt",
 				"trouble",
 			},
