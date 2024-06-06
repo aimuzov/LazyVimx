@@ -30,7 +30,7 @@ local options = {
 }
 
 return {
-	"aimuzov/LazyVimEnhanced",
+	"aimuzov/LazyVimx",
 
 	opts = function()
 		for opt_name, opt_value in pairs(options) do

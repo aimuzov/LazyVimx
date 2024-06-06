@@ -1,4 +1,4 @@
-local blend = require("lazyvimenhanced.util.color").blend
+local blend = require("lazyvimx.util.color").blend
 
 local colors_get = function(flavor)
 	return require("catppuccin.palettes").get_palette(flavor)
@@ -217,7 +217,7 @@ end
 local alpha_header_animate = function()
 	local c = colors_get()
 	local colors = { c.blue, c.sky, c.green, c.yellow, c.peach, c.red }
-	local limit = require("lazyvimenhanced.util.system").theme_is_dark() and 100 or 20
+	local limit = require("lazyvimx.util.system").theme_is_dark() and 100 or 20
 
 	for i = 5, limit do
 		vim.schedule(function()

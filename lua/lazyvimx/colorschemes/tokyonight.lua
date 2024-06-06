@@ -1,4 +1,4 @@
-local blend = require("lazyvimenhanced.util.color").blend
+local blend = require("lazyvimx.util.color").blend
 
 local override_highlights = function(hl, c)
 	hl.AlphaFooter = { fg = c.fg, style = {} }

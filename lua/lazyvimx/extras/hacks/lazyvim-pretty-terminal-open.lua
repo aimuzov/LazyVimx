@@ -12,7 +12,7 @@ local function override_terminal_open()
 		})
 
 		if cmd ~= nil and cmd[1] == "lazygit" then
-			local theme = require("lazyvimenhanced.util.system").theme_is_dark() and "dark" or "light"
+			local theme = require("lazyvimx.util.system").theme_is_dark() and "dark" or "light"
 			local cfg_dir = vim.fn.getenv("HOME") .. "/.config/lazygit"
 
 			opts = vim.tbl_deep_extend("force", opts or {}, {

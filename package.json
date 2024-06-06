@@ -1,5 +1,5 @@
 {
-  "name": "lazyvim-enhanced",
+  "name": "lazyvimx",
   "version": "0.0.1",
   "description": "TBD...",
   "scripts": {
@@ -7,16 +7,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aimuzov/LazyVimEnhanced.git"
+    "url": "git+https://github.com/aimuzov/LazyVimx.git"
   },
   "keywords": [
     "nvim"
   ],
   "author": "Aleksey Imuzov",
   "bugs": {
-    "url": "https://github.com/aimuzov/LazyVimEnhanced/issues"
+    "url": "https://github.com/aimuzov/LazyVimx/issues"
   },
-  "homepage": "https://github.com/aimuzov/LazyVimEnhanced#readme",
+  "homepage": "https://github.com/aimuzov/LazyVimx#readme",
   "devDependencies": {
     "@commitlint/config-conventional": "18.4.4",
     "commitizen": "4.3.0",
