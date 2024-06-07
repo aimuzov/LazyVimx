@@ -1,4 +1,4 @@
-local diagnostic_is_disabled = false
+local diagnostic_is_enabled = true
 
 return {
 	{
@@ -24,13 +24,11 @@ return {
 				wezterm = { enabled = true, font = "+2" },
 			},
 
-			on_open = function(win)
-				local bufnr = vim.fn.winbufnr(win)
-
-				diagnostic_is_disabled = vim.diagnostic.is_disabled(bufnr)
+			on_open = function()
+				diagnostic_is_enabled = vim.diagnostic.is_enabled()
 
 				vim.keymap.set("n", "q", "<cmd>close<cr>", { silent = true })
-				vim.diagnostic.disable()
+				vim.diagnostic.enable(false)
 
 				if vim.fn.exists(":IBLDisable") > 0 then
 					vim.cmd("IBLDisable")
@@ -44,7 +42,7 @@ return {
 			on_close = function()
 				vim.keymap.del("n", "q", { silent = true })
 
-				if not diagnostic_is_disabled then
+				if diagnostic_is_enabled then
 					vim.diagnostic.enable()
 				end
 
