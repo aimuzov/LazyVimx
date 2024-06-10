@@ -33,6 +33,7 @@ return {
 
 		opts = {
 			options = {
+				always_show_bufferline = true,
 				truncate_names = false,
 				indicator = { icon = "▎", style = "icon" },
 				separator_style = "thin",
