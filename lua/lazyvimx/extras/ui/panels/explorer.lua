@@ -230,7 +230,6 @@ return {
 
 			window = {
 				mappings = {
-					["<space>"] = false,
 					["<cr>"] = "open_nofocus",
 					["h"] = "node_close_or_goto_parent",
 					["l"] = "node_open_or_file_open",
