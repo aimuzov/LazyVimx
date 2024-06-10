@@ -4,9 +4,9 @@ local function langmap_create()
 		return vim.fn.escape(str, escape_chars)
 	end
 
-	local en = [[`qwertyuiop[]asdfghjkl;'zxcvbnm]]
+	local en = [[\qwertyuiop[]asdfghjkl;'zxcvbnm]]
 	local ru = [[ёйцукенгшщзхъфывапролджэячсмить]]
-	local en_shift = [[~QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>]]
+	local en_shift = [[|QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>]]
 	local ru_shift = [[ËЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ]]
 
 	local langmap = vim.fn.join({
@@ -31,7 +31,7 @@ return {
 		lazy = false,
 
 		opts = {
-			default_layout = [[ABCDEFGHIJKLMNOPQRSTUVWXYZ<>:"{}~abcdefghijklmnopqrstuvwxyz,.;'[]`]],
+			default_layout = [[ABCDEFGHIJKLMNOPQRSTUVWXYZ<>:"{}~abcdefghijklmnopqrstuvwxyz,.;'[]\]],
 
 			layouts = {
 				ru = {
