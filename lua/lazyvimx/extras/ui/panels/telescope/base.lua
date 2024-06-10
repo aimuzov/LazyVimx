@@ -15,6 +15,10 @@ local function open_selected(prompt_bufnr)
 	end
 end
 
+local mappings = {
+	["<cr>"] = open_selected,
+}
+
 return {
 	"nvim-telescope/telescope.nvim",
 
@@ -27,7 +31,8 @@ return {
 				preview_cutoff = 20,
 			},
 			mappings = {
-				i = { ["<cr>"] = open_selected },
+				i = mappings,
+				n = mappings,
 			},
 		},
 	},
