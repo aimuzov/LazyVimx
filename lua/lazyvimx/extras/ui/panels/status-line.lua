@@ -18,6 +18,10 @@ local mode_icon_map = {
 	["TERMINAL"] = "󰰤",
 }
 
+local function cond_hidden_always()
+	return false
+end
+
 return {
 	"nvim-lualine/lualine.nvim",
 
@@ -60,6 +64,9 @@ return {
 				padding = { left = 1, right = 1 },
 			},
 		}
+
+		opts.sections.lualine_c[4].cond = cond_hidden_always
+		opts.sections.lualine_c[3].cond = cond_hidden_always
 
 		opts.sections.lualine_z = {}
 	end,
