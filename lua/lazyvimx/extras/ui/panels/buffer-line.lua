@@ -43,9 +43,14 @@ local function matcher_create(match)
 	end
 end
 
+local priority = 0
+
 local function item_create(name, match)
+	priority = priority + 1
+
 	return {
 		name = name,
+		priority = priority,
 		matcher = matcher_create(match),
 		separator = { style = separator_style },
 	}
@@ -82,6 +87,7 @@ return {
 						item_create("lib", "/lib/"),
 						item_create("types", "/types/"),
 						item_create("ui", ".svelte"),
+						item_create("", ".+"),
 					},
 				},
 			},
