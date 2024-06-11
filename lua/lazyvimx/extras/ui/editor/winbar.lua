@@ -33,7 +33,7 @@ return {
 			},
 
 			{
-				LazyVim.lualine.pretty_path(),
+				LazyVim.lualine.pretty_path({ length = 6, relative = "root" }),
 				color = { bg = "none", gui = "bold" },
 			},
 		}
