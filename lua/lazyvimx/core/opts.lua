@@ -15,6 +15,7 @@ local options = {
 
 	pumblend = 15,
 	winblend = 5,
+	winbar = " ",
 
 	timeout = true,
 	timeoutlen = 350,
