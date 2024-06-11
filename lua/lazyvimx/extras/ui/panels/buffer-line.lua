@@ -26,6 +26,31 @@ local buffer_move_create = function(dir)
 	end
 end
 
+local function separator_style(group, hls)
+	return {
+		sep_start = {
+			{ highlight = hls.pick.hl_group, text = "   " },
+			{ highlight = hls.trunc_marker.hl_group, text = group.name },
+			{ highlight = hls.pick.hl_group, text = " › " },
+		},
+		sep_end = {},
+	}
+end
+
+local function matcher_create(match)
+	return function(buf)
+		return string.find(buf.path, match)
+	end
+end
+
+local function item_create(name, match)
+	return {
+		name = name,
+		matcher = matcher_create(match),
+		separator = { style = separator_style },
+	}
+end
+
 return {
 	{
 		"akinsho/bufferline.nvim",
@@ -48,18 +73,12 @@ return {
 
 				groups = {
 					options = { toggle_hidden_on_enter = true },
-					items = {},
+					items = {
+						item_create("lib", "/lib/"),
+						item_create("types", "/types/"),
+						item_create("ui", ".svelte"),
+					},
 				},
-
-				custom_filter = function(buf)
-					local ft = vim.bo[buf].filetype
-
-					if ft == "alpha" then
-						return false
-					end
-
-					return true
-				end,
 			},
 		},
 
