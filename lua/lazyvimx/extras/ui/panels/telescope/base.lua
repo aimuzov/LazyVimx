@@ -19,6 +19,11 @@ local mappings = {
 	["<cr>"] = open_selected,
 }
 
+local picker_dropdown = {
+	theme = "dropdown",
+	previewer = false,
+}
+
 return {
 	"nvim-telescope/telescope.nvim",
 
@@ -34,6 +39,12 @@ return {
 				i = mappings,
 				n = mappings,
 			},
+		},
+
+		pickers = {
+			buffers = picker_dropdown,
+			git_files = picker_dropdown,
+			find_files = picker_dropdown,
 		},
 	},
 

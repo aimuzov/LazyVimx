@@ -4,6 +4,6 @@ return {
 
 	keys = {
 		{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers (per tab)" },
-		{ "<leader>fB", "<cmd>Telescope scope buffers<cr>", desc = "Buffers (all)" },
+		{ "<leader>fB", "<cmd>Telescope scope buffers theme=dropdown previewer=false<cr>", desc = "Buffers (all)" },
 	},
 }

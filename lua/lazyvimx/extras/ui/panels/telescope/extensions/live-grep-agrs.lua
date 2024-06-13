@@ -11,18 +11,12 @@ return {
 
 		opts.extensions.live_grep_args = {
 			mappings = {
-				i = {
-					["<c-k>"] = lga_actions.quote_prompt({ postfix = " --iglob *" }),
-				},
+				i = { ["<c-k>"] = lga_actions.quote_prompt({ postfix = " --iglob *" }) },
 			},
 		}
 	end,
 
 	keys = {
-		{
-			"<leader>sg",
-			[[<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>]],
-			desc = "Grep (with args)",
-		},
+		{ "<leader>sg", "<cmd>Telescope live_grep_args<cr>", desc = "Grep (with args)" },
 	},
 }

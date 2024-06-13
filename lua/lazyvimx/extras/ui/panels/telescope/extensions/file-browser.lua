@@ -8,6 +8,8 @@ return {
 				path = "%:p:h",
 				select_buffer = true,
 				display_stat = { size = true, date = true },
+				theme = "dropdown",
+				previewer = false,
 			},
 		},
 	},
