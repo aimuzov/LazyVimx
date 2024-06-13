@@ -82,7 +82,6 @@ return {
 				end,
 
 				groups = {
-					options = { toggle_hidden_on_enter = true },
 					items = {
 						item_create("lib", "/lib/"),
 						item_create("types", "/types/"),

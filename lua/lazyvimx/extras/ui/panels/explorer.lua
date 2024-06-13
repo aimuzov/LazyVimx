@@ -149,7 +149,6 @@ return {
 		opts = {
 			show_scrolled_off_parent_node = true,
 			use_popups_for_input = true,
-			hide_root_node = true,
 
 			default_component_configs = {
 				indent = {
