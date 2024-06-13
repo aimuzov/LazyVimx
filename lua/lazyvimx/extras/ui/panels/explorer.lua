@@ -251,6 +251,7 @@ return {
 				{
 					event = "neo_tree_popup_input_ready",
 					handler = function()
+						vim.api.nvim_win_set_cursor(0, { 1, 2 })
 						vim.cmd("stopinsert")
 					end,
 				},
