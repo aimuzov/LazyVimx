@@ -120,6 +120,11 @@ end
 local open_nofocus = function(state)
 	local node = state.tree:get_node()
 
+	if node.name:match("%d+ hidden item") ~= nil then
+		state.commands["toggle_hidden"](state)
+		return
+	end
+
 	if require("neo-tree.utils").is_expandable(node) then
 		state.commands["toggle_node"](state)
 	else
