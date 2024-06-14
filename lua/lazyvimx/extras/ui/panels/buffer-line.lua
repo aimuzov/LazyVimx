@@ -29,9 +29,9 @@ end
 local function separator_style(group, hls)
 	return {
 		sep_start = {
-			{ highlight = hls.pick.hl_group, text = "   " },
+			{ highlight = hls.pick.hl_group, text = "   " },
 			{ highlight = hls.trunc_marker.hl_group, text = group.name },
-			{ highlight = hls.pick.hl_group, text = " › " },
+			{ highlight = hls.pick.hl_group, text = group.hidden and "  " or "  " },
 		},
 		sep_end = {},
 	}
@@ -43,14 +43,9 @@ local function matcher_create(match)
 	end
 end
 
-local priority = 0
-
 local function item_create(name, match)
-	priority = priority + 1
-
 	return {
 		name = name,
-		priority = priority,
 		matcher = matcher_create(match),
 		separator = { style = separator_style },
 	}
@@ -80,15 +75,6 @@ return {
 				name_formatter = function(buf)
 					return buf.name:match("(.+)%..+$")
 				end,
-
-				groups = {
-					items = {
-						item_create("lib", "/lib/"),
-						item_create("types", "/types/"),
-						item_create("ui", ".svelte"),
-						item_create("", ".+"),
-					},
-				},
 			},
 		},
 
@@ -105,8 +91,16 @@ return {
 		opts = function(_, opts)
 			local bufferline_groups = require("bufferline.groups")
 
-			table.insert(opts.options.groups, bufferline_groups.builtin.pinned:with({ icon = "" }))
-			table.insert(opts.options.groups, bufferline_groups.builtin.ungrouped)
+			opts.options.groups = {
+				items = {
+					bufferline_groups.builtin.pinned:with({ icon = "" }),
+					bufferline_groups.builtin.ungrouped,
+					item_create("lib", "/lib/"),
+					item_create("types", "/types/"),
+					item_create("ui", ".svelte"),
+					item_create("term", "term"),
+				},
+			}
 		end,
 	},
 }
