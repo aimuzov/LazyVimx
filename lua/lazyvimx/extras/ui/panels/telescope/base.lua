@@ -45,6 +45,7 @@ return {
 			buffers = picker_dropdown,
 			git_files = picker_dropdown,
 			find_files = picker_dropdown,
+			lsp_document_symbols = { layout_strategy = "horizontal" },
 		},
 	},
 
@@ -73,6 +74,10 @@ return {
 
 		if LazyVim.has("scope.nvim") then
 			require("telescope").load_extension("scope")
+		end
+
+		if LazyVim.has("advanced-git-search.nvim") then
+			require("telescope").load_extension("advanced_git_search")
 		end
 	end,
 }
