@@ -2,7 +2,7 @@ local M = {}
 
 function M.get_household()
 	if LazyVim.has("catppuccin") then
-		return { "catppuccin-frappe", "catppuccin-latte" }
+		return { "catppuccin-macchiato", "catppuccin-latte" }
 	elseif LazyVim.has("tokyonight") then
 		return { "tokyonight-storm", "tokyonight-day" }
 	end
