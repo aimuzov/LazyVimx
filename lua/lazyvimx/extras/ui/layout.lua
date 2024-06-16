@@ -54,7 +54,7 @@ return {
 			},
 
 			left = {
-				{ ft = "neo-tree" },
+				{ ft = "neo-tree", wo = { winhighlight = "Normal:NeoTreeNormal" } },
 				{ ft = "dapui_scopes" },
 				{ ft = "dapui_breakpoints" },
 				{ ft = "dapui_stacks" },
