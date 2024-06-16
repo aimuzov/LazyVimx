@@ -39,6 +39,10 @@ end
 
 local function matcher_create(match)
 	return function(buf)
+		if match == "term" and buf.buftype == "terminal" then
+			return true
+		end
+
 		return string.find(buf.path, match)
 	end
 end
