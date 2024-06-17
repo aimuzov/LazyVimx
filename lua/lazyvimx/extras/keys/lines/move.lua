@@ -1,5 +1,6 @@
 return {
 	"LazyVim/LazyVim",
+
 	keys = {
 		-- stylua: ignore start
 		{ "<c-s-j>", ":m '>+1<cr>gv=gv",		desc = "Move down", mode = { "v" }, silent = true },

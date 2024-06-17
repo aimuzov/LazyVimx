@@ -137,15 +137,6 @@ return {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 
-		keys = {
-			{
-				"<c-e>",
-				[[<cmd>lua require("neo-tree.command").execute({ toggle = true, dir = LazyVim.root() })<cr>]],
-				mode = { "n", "v", "t" },
-				desc = "Toggle explorer",
-			},
-		},
-
 		opts = {
 			show_scrolled_off_parent_node = true,
 			use_popups_for_input = true,
@@ -175,12 +166,12 @@ return {
 			},
 
 			buffers = {
-				display_name = "  󰈚  BUF",
+				display_name = "   󰈚 bufs",
 				show_unloaded = true,
 			},
 
 			filesystem = {
-				display_name = " 󰉓   DIR",
+				display_name = "  󰉓 files",
 
 				filtered_items = {
 					hide_dotfiles = false,
@@ -207,7 +198,7 @@ return {
 			},
 
 			git_status = {
-				display_name = "  󰊢  GIT",
+				display_name = "   󰊢 git",
 			},
 
 			sources = {

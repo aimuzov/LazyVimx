@@ -1,4 +1,4 @@
-local size = { left = 40, right = 40, top = 10, bottom = 10 }
+local layout = require("lazyvimx.util.layout")
 
 return {
 	{
@@ -13,25 +13,6 @@ return {
 					break
 				end
 			end
-
-			opts.keys = {
-				["<c-a-l>"] = function(win)
-					size[win.view.edgebar.pos] = win.width + 3
-					win:resize("width", 3)
-				end,
-				["<c-a-h>"] = function(win)
-					size[win.view.edgebar.pos] = win.width - 3
-					win:resize("width", -3)
-				end,
-				["<c-a-k>"] = function(win)
-					size[win.view.edgebar.pos] = win.height + 3
-					win:resize("height", 3)
-				end,
-				["<c-a-j>"] = function(win)
-					size[win.view.edgebar.pos] = win.height - 3
-					win:resize("height", -3)
-				end,
-			}
 		end,
 	},
 
@@ -45,12 +26,10 @@ return {
 			wo = { winfixwidth = false, winbar = false },
 
 			options = {
-				-- stylua: ignore start
-				left =		{ size = function() return size.left end, },
-				right =		{ size = function() return size.right end, },
-				top =		{ size = function() return size.top end, },
-				bottom =	{ size = function() return size.bottom end, },
-				-- stylua: ignore end
+				left = { size = layout.get_size_create("left") },
+				right = { size = layout.get_size_create("right") },
+				top = { size = layout.get_size_create("top") },
+				bottom = { size = layout.get_size_create("bottom") },
 			},
 
 			left = {
@@ -64,13 +43,6 @@ return {
 			right = {
 				{ ft = "neotest-summary" },
 			},
-		},
-
-		keys = {
-			{ "<c-a-k>", "<cmd>resize +3<cr>", mode = { "n", "v", "t" }, desc = "Increase window height" },
-			{ "<c-a-j>", "<cmd>resize -3<cr>", mode = { "n", "v", "t" }, desc = "Decrease window height" },
-			{ "<c-a-h>", "<cmd>vertical resize -3<cr>", mode = { "n", "v", "t" }, desc = "Decrease window width" },
-			{ "<c-a-l>", "<cmd>vertical resize +3<cr>", mode = { "n", "v", "t" }, desc = "Increase window width" },
 		},
 	},
 
