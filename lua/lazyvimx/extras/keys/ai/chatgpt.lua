@@ -2,6 +2,10 @@ return {
 	"jackMort/ChatGPT.nvim",
 	optional = true,
 
+	recommended = function()
+		return require("lazyvimx.util.extra").has("ai.chatgpt")
+	end,
+
 	dependencies = {
 		{
 			"folke/which-key.nvim",
@@ -12,8 +16,18 @@ return {
 
 	keys = {
 		{ "<leader>ac", "<cmd>ChatGPT<cr>", desc = "ChatGPT", mode = { "n", "v" } },
-		{ "<leader>ae", "<cmd>ChatGPTEditWithInstruction<cr>", desc = "Edit with instruction", mode = { "n", "v" } },
-		{ "<leader>ag", "<cmd>ChatGPTRun grammar_correction<cr>", desc = "Grammar Correction", mode = { "n", "v" } },
+		{
+			"<leader>ae",
+			"<cmd>ChatGPTEditWithInstruction<cr>",
+			desc = "Edit with instruction",
+			mode = { "n", "v" },
+		},
+		{
+			"<leader>ag",
+			"<cmd>ChatGPTRun grammar_correction<cr>",
+			desc = "Grammar Correction",
+			mode = { "n", "v" },
+		},
 		{ "<leader>at", "<cmd>ChatGPTRun translate<cr>", desc = "Translate", mode = { "n", "v" } },
 		{ "<leader>ak", "<cmd>ChatGPTRun keywords<cr>", desc = "Keywords", mode = { "n", "v" } },
 		{ "<leader>ad", "<cmd>ChatGPTRun docstring<cr>", desc = "Docstring", mode = { "n", "v" } },

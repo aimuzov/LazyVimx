@@ -2,6 +2,10 @@ return {
 	"piersolenski/wtf.nvim",
 	optional = true,
 
+	recommended = function()
+		return require("lazyvimx.util.extra").has("ai.wtf")
+	end,
+
 	keys = {
 		{
 			"<leader>cD",
