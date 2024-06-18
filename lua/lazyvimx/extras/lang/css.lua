@@ -23,4 +23,18 @@ return {
 			vim.list_extend(opts.ensure_installed, { "css" })
 		end,
 	},
+
+	{
+		"stevearc/conform.nvim",
+		optional = true,
+
+		opts = function(_, opts)
+			if LazyVim.has_extra("formatting.prettier") then
+				opts.formatters_by_ft = opts.formatters_by_ft or {}
+				opts.formatters_by_ft.css = opts.formatters_by_ft.css or {}
+
+				vim.list_extend(opts.formatters_by_ft.css, { "stylelint" })
+			end
+		end,
+	},
 }
