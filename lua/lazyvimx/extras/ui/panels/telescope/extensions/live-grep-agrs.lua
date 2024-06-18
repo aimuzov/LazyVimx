@@ -1,6 +1,7 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = { "nvim-telescope/telescope-live-grep-args.nvim" },
+	optional = true,
 
 	opts = function(_, opts)
 		local lga_actions = require("telescope-live-grep-args.actions")

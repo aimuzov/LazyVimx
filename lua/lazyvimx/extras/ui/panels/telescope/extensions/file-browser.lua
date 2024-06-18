@@ -1,6 +1,12 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	dependencies = { { "nvim-telescope/telescope-file-browser.nvim", dependencies = { "nvim-lua/plenary.nvim" } } },
+	optional = true,
+	dependencies = {
+		{
+			"nvim-telescope/telescope-file-browser.nvim",
+			dependencies = { "nvim-lua/plenary.nvim" },
+		},
+	},
 
 	opts = {
 		extensions = {

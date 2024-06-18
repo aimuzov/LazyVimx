@@ -26,6 +26,7 @@ local picker_dropdown = {
 
 return {
 	"nvim-telescope/telescope.nvim",
+	optional = true,
 
 	opts = {
 		defaults = {
