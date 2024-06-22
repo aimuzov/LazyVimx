@@ -29,12 +29,14 @@ return {
 		optional = true,
 
 		opts = function(_, opts)
-			if LazyVim.has_extra("formatting.prettier") then
-				opts.formatters_by_ft = opts.formatters_by_ft or {}
-				opts.formatters_by_ft.css = opts.formatters_by_ft.css or {}
+			opts.formatters_by_ft = opts.formatters_by_ft or {}
+			opts.formatters_by_ft.css = opts.formatters_by_ft.css or {}
 
-				vim.list_extend(opts.formatters_by_ft.css, { "stylelint" })
+			if LazyVim.has_extra("formatting.prettier") then
+				vim.list_extend(opts.formatters_by_ft.css, { "prettier" })
 			end
+
+			vim.list_extend(opts.formatters_by_ft.css, { "stylelint" })
 		end,
 	},
 }

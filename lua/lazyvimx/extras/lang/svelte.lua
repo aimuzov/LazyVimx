@@ -26,8 +26,8 @@ end
 
 return {
 	{ import = "lazyvim.plugins.extras.lang.svelte" },
+	{ import = "lazyvim.plugins.extras.lang.typescript" },
 
-	{ import = "lazyvimx.extras.lang.typescript" },
 	{ import = "lazyvimx.extras.hacks.conform-stylelint-custom-syntax-for-svelte" },
 
 	{
