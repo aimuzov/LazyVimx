@@ -17,7 +17,7 @@ local options = {
 	winblend = 5,
 
 	timeout = true,
-	timeoutlen = 350,
+	timeoutlen = 500,
 	ttimeoutlen = 0,
 
 	showmode = false,
