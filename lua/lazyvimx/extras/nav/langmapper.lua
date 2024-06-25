@@ -56,18 +56,15 @@ return {
 
 		opts = function(_, opts)
 			local lmu = require("langmapper.utils")
-
-			opts.triggers_blacklist = {
-				o = lmu.trans_list({ ";", ".", '"', "'", "j", "k", "D", "s", "S" }),
-				i = lmu.trans_list({ ";", ".", '"', "'", "j", "k", "D", "s", "S" }),
-				n = lmu.trans_list({ ";", ".", '"', "'", "j", "k", "D", "s", "S" }),
-				v = lmu.trans_list({ ";", ".", '"', "'", "j", "k", "D", "s", "S" }),
+			local whichkey_blacklisted = require("lazyvimx.util.keys").whichkey_blacklisted
+			local triggers_blacklist = {
+				o = lmu.trans_list(whichkey_blacklisted),
+				i = lmu.trans_list(whichkey_blacklisted),
+				n = lmu.trans_list(whichkey_blacklisted),
+				v = lmu.trans_list(whichkey_blacklisted),
 			}
 
-			opts.plugins = { spelling = false }
-			opts.icons = { group = " " }
-			opts.layout = { spacing = 5 }
-			opts.window = { winblend = 15 }
+			opts.triggers_blacklist = triggers_blacklist
 		end,
 
 		config = function(_, opts)
