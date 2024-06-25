@@ -15,10 +15,6 @@ local function open_selected(prompt_bufnr)
 	end
 end
 
-local mappings = {
-	["<cr>"] = open_selected,
-}
-
 local picker_dropdown = {
 	theme = "dropdown",
 	previewer = false,
@@ -37,8 +33,15 @@ return {
 				preview_cutoff = 20,
 			},
 			mappings = {
-				i = mappings,
-				n = mappings,
+				i = {
+					["<c-s>"] = nil,
+					["<cr>"] = open_selected,
+				},
+
+				n = {
+					["s"] = nil,
+					["<cr>"] = open_selected,
+				},
 			},
 		},
 
