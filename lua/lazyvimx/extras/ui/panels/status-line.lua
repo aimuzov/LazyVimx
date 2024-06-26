@@ -48,6 +48,12 @@ return {
 
 		opts.sections.lualine_b = { { "branch", icon = "" } }
 
+		table.insert(opts.sections.lualine_x, {
+			function()
+				return os.date("%R")
+			end,
+		})
+
 		opts.sections.lualine_y = {
 			{ "location", padding = { left = 1, right = 1 } },
 			{
