@@ -1,5 +1,5 @@
 local function open_path(buf, path)
-	if vim.fn.filereadable(path) == 1 then
+	if vim.uv.fs_stat(vim.fn.fnamemodify(path, ":p")) then
 		local cursor = vim.api.nvim_win_get_cursor(0)
 		local line = vim.api.nvim_buf_get_lines(buf, cursor[1] - 1, cursor[1], false)[1]
 
