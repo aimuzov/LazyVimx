@@ -18,6 +18,8 @@ local override_all = function(c)
 		AlphaHeader8 = { fg = c.surface2 },
 		AlphaShortcut = { bg = blend(c.base, c.crust, 50), fg = blend(c.base, c.surface1, 50) },
 		AlphaShortcutBorder = { fg = blend(c.base, c.surface1, 50) },
+		BufferLineCustomGroupSep = { bg = c.mantle, fg = c.maroon },
+		BufferLineCustomGroupLabel = { bg = c.mantle, fg = c.text, style = { "bold" } },
 		ChatGPTQuestion = { fg = c.mauve },
 		ChatGPTTotalTokens = { bg = "none", fg = c.overlay2 },
 		ChatGPTTotalTokensBorder = { fg = c.text },

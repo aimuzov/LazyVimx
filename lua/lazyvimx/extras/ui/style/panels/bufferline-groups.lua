@@ -1,9 +1,9 @@
-local function separator_style(group, hls)
+local function separator_style(group)
 	return {
 		sep_start = {
-			{ highlight = hls.pick.hl_group, text = "   " },
-			{ highlight = hls.trunc_marker.hl_group, text = group.name },
-			{ highlight = hls.pick.hl_group, text = group.hidden and "  " or "  " },
+			{ highlight = "BufferLineCustomGroupSep", text = "   " },
+			{ highlight = "BufferLineCustomGroupLabel", text = group.name },
+			{ highlight = "BufferLineCustomGroupSep", text = group.hidden and "  " or "  " },
 		},
 		sep_end = {},
 	}
