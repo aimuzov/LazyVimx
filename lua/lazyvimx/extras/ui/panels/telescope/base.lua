@@ -47,8 +47,9 @@ return {
 
 		pickers = {
 			buffers = picker_dropdown,
-			git_files = picker_dropdown,
 			find_files = picker_dropdown,
+			git_files = picker_dropdown,
+			highlights = picker_dropdown,
 			lsp_document_symbols = { layout_strategy = "horizontal" },
 		},
 	},
