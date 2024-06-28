@@ -50,7 +50,10 @@ return {
 
 		table.insert(opts.sections.lualine_x, {
 			function()
-				return os.date("%R")
+				local time = os.time()
+				local sep = math.fmod(time, 2) == 0 and ":" or " "
+
+				return os.date("%H" .. sep .. "%M", time)
 			end,
 		})
 
