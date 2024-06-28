@@ -123,7 +123,7 @@ end
 local override_dark = function(c)
 	return {
 		AerialGuide = { fg = c.surface0 },
-		FloatBorder = { fg = blend(c.base, c.lavender, 50) },
+		FloatBorder = { bg = c.base, fg = blend(c.base, c.lavender, 50) },
 		FloatTitle = { fg = c.lavender, style = { "bold" } },
 		GitSignsCurrentLineBlame = { fg = c.surface2 },
 		IlluminatedWordRead = { bg = blend(c.base, c.surface2, 25) },
