@@ -6,6 +6,7 @@ return {
 		always_highlight_number = true,
 		ignore = {
 			cursorline = {
+				"alpha",
 				"chatgpt-input",
 				"lazy",
 				"lazyterm",
