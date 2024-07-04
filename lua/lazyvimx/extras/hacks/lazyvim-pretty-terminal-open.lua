@@ -19,7 +19,7 @@ local function override_terminal_open()
 				border = "none",
 				env = { ["LG_CONFIG_FILE"] = cfg_dir .. "/config.yml," .. cfg_dir .. "/theme-" .. theme .. ".yml" },
 				size = { height = 1, width = 1 },
-				margin = { top = 0, bottom = 1 },
+				margin = { top = 1, bottom = 1 },
 			})
 		end
 
