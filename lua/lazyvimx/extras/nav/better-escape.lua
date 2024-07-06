@@ -3,7 +3,12 @@ return {
 	opts = {
 		timeout = 100,
 		mappings = {
-			t = { j = { k = "k", j = "j" } },
+			t = {
+				j = {
+					k = "<c-v>j<c-v>k",
+					j = "<c-v>j<c-v>j",
+				},
+			},
 		},
 	},
 }
