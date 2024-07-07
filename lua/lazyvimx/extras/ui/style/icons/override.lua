@@ -30,7 +30,7 @@ return {
 			["dot_bashrc"] = { glyph = zsh_glyph, hl = zsh_hl },
 			["dot_Brewfile"] = { glyph = rb_glyph, hl = rb_hl },
 			["dot_tool-versions"] = { glyph = "", hl = "MiniIconsYellow" },
-			["dot_zprofile"] = { glyph = zsh_glyph, hl = zsh_hl },
+			["dot_zshrc"] = { glyph = zsh_glyph, hl = zsh_hl },
 			["dot_zshenv"] = { glyph = zsh_glyph, hl = zsh_hl },
 			["init.lua"] = { glyph = lua_glyph, hl = lua_hl },
 		}
