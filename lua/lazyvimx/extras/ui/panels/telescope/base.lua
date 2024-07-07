@@ -57,7 +57,7 @@ return {
 	keys = {
 		{
 			"<leader>fc",
-			"<cmd>Telescope find_files cwd=" .. (vim.fn.getenv("DOTFILES_SRC_PATH") or "") .. "<cr>",
+			"<cmd>Telescope find_files cwd=" .. require("lazyvimx.util.system").get_dotfiles_path() .. "<cr>",
 			desc = "Find dotfile",
 		},
 	},

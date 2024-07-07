@@ -13,4 +13,9 @@ function M.theme_is_dark()
 	return theme_is_dark
 end
 
+function M.get_dotfiles_path()
+	local dotfiles_path = vim.fn.getenv("DOTFILES_SRC_PATH")
+	return dotfiles_path ~= vim.NIL and dotfiles_path or ""
+end
+
 return M
