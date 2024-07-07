@@ -16,7 +16,7 @@ local function override_terminal_open()
 			local cfg_dir = vim.fn.getenv("HOME") .. "/.config/lazygit"
 
 			opts = vim.tbl_deep_extend("force", opts or {}, {
-				backdrop = 70,
+				backdrop = 85,
 				border = "none",
 				env = { ["LG_CONFIG_FILE"] = cfg_dir .. "/config.yml," .. cfg_dir .. "/theme-" .. theme .. ".yml" },
 				size = { height = 1, width = 1 },
