@@ -47,6 +47,7 @@ return {
 
 		pickers = {
 			buffers = picker_dropdown,
+			colorscheme = picker_dropdown,
 			find_files = picker_dropdown,
 			git_files = picker_dropdown,
 			highlights = picker_dropdown,
