@@ -1,5 +1,5 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	optional = true,
-	keys = { { "<leader><space>", LazyVim.pick("auto", { root = false }), desc = "Find Files (cwd)" } },
+	keys = { { "<leader><space>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" } },
 }
