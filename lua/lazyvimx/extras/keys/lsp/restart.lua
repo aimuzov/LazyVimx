@@ -1,4 +1,4 @@
 return {
 	"LazyVim/LazyVim",
-	keys = { { "<leader>uR", "<cmd>LspRestart<cr>", { desc = "Restart LSP" } } },
+	keys = { { "<leader>uR", "<cmd>LspRestart<cr>", desc = "Restart LSP" } },
 }

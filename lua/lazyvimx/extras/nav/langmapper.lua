@@ -50,39 +50,6 @@ return {
 	},
 
 	{
-		"folke/which-key.nvim",
-		optional = true,
-		dependencies = { "Wansmer/langmapper.nvim" },
-
-		opts = function(_, opts)
-			local lmu = require("langmapper.utils")
-			local whichkey_blacklisted = require("lazyvimx.util.keys").whichkey_blacklisted
-			local triggers_blacklist = {
-				o = lmu.trans_list(whichkey_blacklisted),
-				i = lmu.trans_list(whichkey_blacklisted),
-				n = lmu.trans_list(whichkey_blacklisted),
-				v = lmu.trans_list(whichkey_blacklisted),
-			}
-
-			opts.triggers_blacklist = triggers_blacklist
-		end,
-
-		config = function(_, opts)
-			local lmu = require("langmapper.utils")
-			local view = require("which-key.view")
-			local execute = view.execute
-
-			view.execute = function(prefix_i, mode, buf)
-				prefix_i = lmu.translate_keycode(prefix_i, "default", "ru")
-				execute(prefix_i, mode, buf)
-			end
-
-			require("which-key").setup(opts)
-			require("which-key").register(opts.defaults)
-		end,
-	},
-
-	{
 		"LazyVim/LazyVim",
 		opts = function()
 			vim.api.nvim_create_autocmd("User", {
