@@ -1,14 +1,18 @@
 return {
-	"Wansmer/langmapper.nvim",
-	optional = true,
-	opts = function()
-		local getcharstr_orig = vim.fn.getcharstr
+	"folke/which-key.nvim",
 
-		vim.fn.getcharstr = function()
-			local char = getcharstr_orig()
-			local char_translated = require("langmapper.utils").translate_keycode(char, "default", "ru")
+	dependencies = {
+		"Wansmer/langmapper.nvim",
+		optional = true,
+		opts = function()
+			local getcharstr_orig = vim.fn.getcharstr
 
-			return char_translated
-		end
-	end,
+			vim.fn.getcharstr = function()
+				local char = getcharstr_orig()
+				local char_translated = require("langmapper.utils").translate_keycode(char, "default", "ru")
+
+				return char_translated
+			end
+		end,
+	},
 }
