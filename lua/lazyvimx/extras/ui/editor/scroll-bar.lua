@@ -11,6 +11,7 @@ return {
 			"neotest-summary",
 			"aerial",
 			"noice",
+			"TelescopePrompt",
 			"chatgpt-input",
 			"neo-tree-preview",
 		},
