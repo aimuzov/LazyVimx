@@ -1,16 +1,16 @@
 local function override_lazyvim_toggle_diagnostic()
-	local toggle_diagnostic = LazyVim.toggle.diagnostics
+	local toggle_diagnostic_set_orig = LazyVim.toggle.diagnostics.set
 
-	LazyVim.toggle.diagnostics = function()
+	LazyVim.toggle.diagnostics.set = function(value)
 		if LazyVim.has("tiny-inline-diagnostic.nvim") then
-			if vim.diagnostic.is_enabled() then
-				require("tiny-inline-diagnostic").disable()
-			else
+			if value == true then
 				require("tiny-inline-diagnostic").enable()
+			else
+				require("tiny-inline-diagnostic").disable()
 			end
 		end
 
-		toggle_diagnostic()
+		toggle_diagnostic_set_orig(value)
 	end
 end
 
