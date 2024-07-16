@@ -55,7 +55,7 @@ local copy_selector = function(state)
 
 	vim.api.nvim_echo(messages, false, {})
 
-	local char = vim.fn.getcharstr()
+	local char = require("lazyvimx.util.hacks").getcharstr()
 	local result = results[char]
 
 	if result and result.val and result.val ~= "" then
