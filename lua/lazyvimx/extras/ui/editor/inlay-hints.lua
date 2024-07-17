@@ -29,7 +29,6 @@ return {
 				vertical_end = " ╰",
 			},
 			options = { virt_texts = { priority = 4100 } },
-			blend = { factor = 0.55 },
 		},
 	},
 
