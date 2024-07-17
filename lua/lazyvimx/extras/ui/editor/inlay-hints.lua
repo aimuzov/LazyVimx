@@ -28,7 +28,7 @@ return {
 				vertical = " │",
 				vertical_end = " ╰",
 			},
-			options = { virt_texts = { priority = 4100 } },
+			options = { virt_texts = { priority = 5000 } },
 		},
 	},
 
