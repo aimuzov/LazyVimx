@@ -4,17 +4,9 @@ return {
 		opts = {
 			highlight = { link = "VisualWhitespace" },
 			nl_char = "↩",
+			space_char = "·",
+			tab_char = "→ ",
 		},
-	},
-
-	{
-		"mcauley-penney/visual-whitespace.nvim",
-		opts = function(_, opts)
-			local listchars = vim.opt.listchars:get()
-
-			opts.space_char = listchars.space
-			opts.tab_char = listchars.tab
-		end,
 	},
 
 	{
