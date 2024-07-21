@@ -20,6 +20,8 @@ return {
 				destructuring_props = 0,
 				omit_redundant_param_types = 1,
 			}
+
+			vim.g.doge_mapping = "gcd"
 		end,
 	},
 }
