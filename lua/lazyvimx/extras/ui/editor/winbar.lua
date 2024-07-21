@@ -15,7 +15,7 @@ local disabled_filetypes = {
 	"neotest-summary",
 	"noice",
 	"qf",
-	"spectre_panel",
+	"grug-far",
 	"trouble",
 }
 
