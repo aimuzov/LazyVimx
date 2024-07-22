@@ -1,10 +1,12 @@
 local M = {}
 
 function M.get_household()
-	if LazyVim.has("catppuccin") then
-		return { "catppuccin-macchiato", "catppuccin-latte" }
-	elseif LazyVim.has("tokyonight") then
-		return { "tokyonight-storm", "tokyonight-day" }
+	local config = require("lazyvimx").config
+
+	for household_name, household_value in pairs(config.colorscheme.households) do
+		if LazyVim.has(household_name) then
+			return household_value
+		end
 	end
 end
 
