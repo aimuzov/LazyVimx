@@ -3,6 +3,10 @@ return {
 	optional = true,
 
 	opts = {
+		modes = {
+			search = { enabled = false },
+		},
+
 		prompt = {
 			prefix = {
 				{ "  ", "FlashPromptIcon" },
