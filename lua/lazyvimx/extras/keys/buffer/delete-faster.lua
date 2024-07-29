@@ -14,7 +14,7 @@ local buffer_delete_create = function(force)
 		end
 
 		function M.buffer_delete_repeat()
-			local char = require("lazyvimx.util.hacks").getcharstr()
+			local char = vim.fn.getcharstr()
 
 			if char == "d" then
 				M.buffer_delete(vim.fn.bufnr())

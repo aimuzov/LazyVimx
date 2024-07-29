@@ -17,16 +17,40 @@ local function langmap_create()
 	return langmap
 end
 
+local function hack_getcharstr()
+	local orig_getcharstr = vim.fn.getcharstr
+
+	vim.fn.getcharstr = function(expr)
+		if expr ~= nil then
+			return orig_getcharstr(expr)
+		end
+
+		local char = orig_getcharstr()
+
+		local ok, lm = pcall(require, "langmapper.utils")
+
+		if not ok then
+			return char
+		end
+
+		return lm.translate_keycode(char, "default", "ru")
+	end
+end
+
 return {
 	{
 		"LazyVim/LazyVim",
-		opts = function()
-			vim.opt.langmap = langmap_create()
-		end,
+		opts = set_langmap,
 	},
 
 	{
 		"Wansmer/langmapper.nvim",
+		opts = hack_getcharstr,
+	},
+
+	{
+		"Wansmer/langmapper.nvim",
+		dependencies = { "LazyVim/LazyVim" },
 		priority = 1,
 		lazy = false,
 
@@ -58,6 +82,25 @@ return {
 					require("langmapper").automapping()
 				end,
 			})
+		end,
+	},
+
+	{
+		"folke/which-key.nvim",
+		dependencies = { "Wansmer/langmapper.nvim" },
+		lazy = false,
+		opts = function()
+			local lmu = require("langmapper.utils")
+			local state = require("which-key.state")
+			local check_orig = state.check
+
+			state.check = function(state, key)
+				if key ~= nil then
+					key = lmu.translate_keycode(key, "default", "ru")
+				end
+
+				return check_orig(state, key)
+			end
 		end,
 	},
 }

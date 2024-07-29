@@ -11,7 +11,7 @@ local buffer_move_create = function(dir)
 		end
 
 		function M.buffer_move_repeat()
-			local char = require("lazyvimx.util.hacks").getcharstr()
+			local char = vim.fn.getcharstr()
 
 			if char == "]" then
 				M.buffer_move("next")
