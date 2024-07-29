@@ -6,6 +6,10 @@ return {
 		opts = {
 			disabled_filetypes = { "neo-tree", "lazy", "mason", "alpha" },
 			disable_mouse = false,
+			restricted_keys = {
+				["j"] = { "x" },
+				["k"] = { "x" },
+			},
 		},
 	},
 
@@ -16,10 +20,10 @@ return {
 		-- https://github.com/m4xshen/hardtime.nvim/issues/31
 		keys = {
 			-- stylua: ignore start
-			{ "j",		"v:count == 0 ? 'gj' : 'j'" },
 			{ "<Down>",	"v:count == 0 ? 'gj' : 'j'" },
-			{ "k",		"v:count == 0 ? 'gk' : 'k'" },
 			{ "<Up>",	"v:count == 0 ? 'gk' : 'k'" },
+			--	{ "j",	"v:count == 0 ? 'gj' : 'j'" },
+			--	{ "k",	"v:count == 0 ? 'gk' : 'k'" },
 			-- stylua: ignore end
 		},
 	},
