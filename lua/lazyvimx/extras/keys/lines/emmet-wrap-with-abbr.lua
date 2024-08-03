@@ -4,7 +4,7 @@ return {
 
 	keys = {
 		{
-			"<leader>xe",
+			"<leader>cw",
 			[[<cmd>lua require("nvim-emmet").wrap_with_abbreviation()<cr>]],
 			desc = "Wrap with emmet abbreviation",
 			mode = { "n", "v" },
