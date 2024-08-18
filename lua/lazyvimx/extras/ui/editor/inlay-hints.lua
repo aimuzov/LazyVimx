@@ -55,4 +55,9 @@ return {
 			current_line_blame_formatter = " 󰞗 <author>  <author_time:%R>  <summary> ",
 		},
 	},
+
+	{
+		"NvChad/nvim-colorizer.lua",
+		opts = { user_default_options = { names = false, RGB = false, mode = "virtualtext", virtualtext = "󱓻" } },
+	},
 }
