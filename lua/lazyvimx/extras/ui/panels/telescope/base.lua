@@ -85,5 +85,9 @@ return {
 		if LazyVim.has("advanced-git-search.nvim") then
 			require("telescope").load_extension("advanced_git_search")
 		end
+
+		if LazyVim.has("smart-open.nvim") then
+			require("telescope").load_extension("smart_open")
+		end
 	end,
 }
