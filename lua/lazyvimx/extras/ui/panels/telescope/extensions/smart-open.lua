@@ -12,6 +12,7 @@ return {
 		extensions = {
 			smart_open = {
 				ignore_patterns = {
+					"*.git/*",
 					"*.temp/*",
 					"index.ts",
 					"ns.ts",
