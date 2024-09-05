@@ -5,7 +5,6 @@ return {
 	dependencies = {
 		"danielfalk/smart-open.nvim",
 		dependencies = { "kkharji/sqlite.lua", { "nvim-telescope/telescope-fzf-native.nvim", make = "build" } },
-		config = true,
 	},
 
 	opts = {
