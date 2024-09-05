@@ -10,6 +10,7 @@ return {
 
 	{
 		"folke/noice.nvim",
+		commit = "d9328ef",
 		opts = {
 			presets = { bottom_search = false },
 
