@@ -158,7 +158,7 @@ local override_dark = function(c)
 		TinyInlineDiagnosticVirtualTextWarn = { bg = blend(c.base, c.yellow, 20) },
 		TinyInlineDiagnosticVirtualTextInfo = { bg = blend(c.base, c.sky, 20) },
 		TinyInlineDiagnosticVirtualTextHint = { bg = blend(c.base, c.teal, 20) },
-		Visual = { bg = blend(c.base, c.surface2, 30) },
+		Visual = { bg = blend(c.base, c.surface2, 30), style = {} },
 		VisualWhitespace = { bg = blend(c.base, c.surface2, 30), fg = c.surface2 },
 	}
 end
