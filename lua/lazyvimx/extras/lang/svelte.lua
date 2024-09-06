@@ -63,4 +63,18 @@ return {
 			end
 		end,
 	},
+
+	{
+		"neovim/nvim-lspconfig",
+		optional = true,
+		opts = function(_, opts)
+			if LazyVim.has_extra("linting.eslint") then
+				if opts.servers.stylelint_lsp == nil then
+					opts.servers.stylelint_lsp = { filetypes = {} }
+				end
+
+				table.insert(opts.servers.stylelint_lsp.filetypes, "svelte")
+			end
+		end,
+	},
 }

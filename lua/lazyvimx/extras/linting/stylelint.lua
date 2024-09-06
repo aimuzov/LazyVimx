@@ -1,6 +1,14 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		opts = { servers = { stylelint_lsp = { filetypes = { "css", "svelte" } } } },
+		optional = true,
+		opts = function(_, opts)
+			require("lspconfig.server_configurations.stylelint_lsp").default_config.filetypes = {}
+		end,
+	},
+
+	{
+		"williamboman/mason.nvim",
+		opts = { ensure_installed = { "stylelint" } },
 	},
 }
