@@ -1,5 +1,5 @@
-local function langmap_create()
-	local function escape(str)
+local function langmap_set()
+	local escape = function(str)
 		local escape_chars = [[;,."|\]]
 		return vim.fn.escape(str, escape_chars)
 	end
@@ -14,18 +14,17 @@ local function langmap_create()
 		escape(ru_shift) .. ";" .. escape(en_shift),
 	}, ",")
 
-	return langmap
+	vim.fn.langmap = langmap
 end
 
-local function hack_getcharstr()
-	local orig_getcharstr = vim.fn.getcharstr
-
-	vim.fn.getcharstr = function(expr)
+local function getcharstr_hack()
+	local getcharstr_original = vim.fn.getcharstr
+	local getcharstr_override = function(expr)
 		if expr ~= nil then
-			return orig_getcharstr(expr)
+			return getcharstr_original(expr)
 		end
 
-		local char = orig_getcharstr()
+		local char = getcharstr_original()
 
 		local ok, lm = pcall(require, "langmapper.utils")
 
@@ -35,19 +34,34 @@ local function hack_getcharstr()
 
 		return lm.translate_keycode(char, "default", "ru")
 	end
+
+	vim.fn.getcharstr = getcharstr_override
+end
+
+local function whichkey_setup()
+	local lmu = require("langmapper.utils")
+	local state = require("which-key.state")
+	local check_orig = state.check
+
+	state.check = function(state, key)
+		if key ~= nil then
+			key = lmu.translate_keycode(key, "default", "ru")
+		end
+
+		return check_orig(state, key)
+	end
+end
+
+local function langmapper_automapping_on_start()
+	vim.api.nvim_create_autocmd("User", {
+		pattern = "LazyVimStarted",
+		callback = function()
+			require("langmapper").automapping()
+		end,
+	})
 end
 
 return {
-	{
-		"LazyVim/LazyVim",
-		opts = set_langmap,
-	},
-
-	{
-		"Wansmer/langmapper.nvim",
-		opts = hack_getcharstr,
-	},
-
 	{
 		"Wansmer/langmapper.nvim",
 		dependencies = { "LazyVim/LazyVim" },
@@ -73,34 +87,14 @@ return {
 		end,
 	},
 
-	{
-		"LazyVim/LazyVim",
-		opts = function()
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "LazyVimStarted",
-				callback = function()
-					require("langmapper").automapping()
-				end,
-			})
-		end,
-	},
+	{ "LazyVim/LazyVim", opts = langmap_set },
+	{ "Wansmer/langmapper.nvim", opts = getcharstr_hack },
+	{ "LazyVim/LazyVim", opts = langmapper_automapping_on_start },
 
 	{
 		"folke/which-key.nvim",
 		dependencies = { "Wansmer/langmapper.nvim" },
 		lazy = false,
-		opts = function()
-			local lmu = require("langmapper.utils")
-			local state = require("which-key.state")
-			local check_orig = state.check
-
-			state.check = function(state, key)
-				if key ~= nil then
-					key = lmu.translate_keycode(key, "default", "ru")
-				end
-
-				return check_orig(state, key)
-			end
-		end,
+		opts = whichkey_setup,
 	},
 }
