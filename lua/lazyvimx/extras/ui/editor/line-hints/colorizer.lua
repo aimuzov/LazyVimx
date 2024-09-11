@@ -1,4 +1,11 @@
 return {
-	"NvChad/nvim-colorizer.lua",
-	opts = { user_default_options = { names = false, RGB = false, mode = "virtualtext", virtualtext = "󱓻" } },
+	"brenoprata10/nvim-highlight-colors",
+	opts = {
+		virtual_symbol = "󱓻",
+		render = "virtual",
+		virtual_symbol_position = "eol",
+		virtual_symbol_suffix = "",
+		enable_short_hex = false,
+		enable_named_colors = false,
+	},
 }
