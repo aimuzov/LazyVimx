@@ -4,13 +4,13 @@ return {
 		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
 
 		opts = {
+			enabled = false,
 			disabled_filetypes = { "neo-tree", "lazy", "mason", "alpha" },
-			disable_mouse = false,
 			restricted_keys = {
-				["j"] = { "x" },
-				["k"] = { "x" },
-				["h"] = { "x" },
-				["l"] = { "x" },
+				["j"] = { "x", "v" },
+				["k"] = { "x", "v" },
+				["h"] = { "x", "v" },
+				["l"] = { "x", "v" },
 			},
 		},
 	},
