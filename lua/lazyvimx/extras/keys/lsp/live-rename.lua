@@ -1,15 +1,27 @@
 return {
-	"saecki/live-rename.nvim",
-	dependencies = { "LazyVim/LazyVim" },
+	{
+		"saecki/live-rename.nvim",
+		opts = {
+			keys = {
+				submit = { { "n", "<cr>" }, { "v", "<cr>" }, { "i", "<cr>" } },
+				cancel = { { "n", "<c-c>" }, { "v", "<c-c>" }, { "i", "<c-c>" } },
+			},
+		},
+	},
 
-	opts = function()
-		local keys = require("lazyvim.plugins.lsp.keymaps").get()
+	{
+		"saecki/live-rename.nvim",
+		dependencies = { "LazyVim/LazyVim" },
 
-		keys[#keys + 1] = {
-			"<leader>cr",
-			require("live-rename").rename,
-			desc = "Rename",
-			has = "rename",
-		}
-	end,
+		opts = function()
+			local keys = require("lazyvim.plugins.lsp.keymaps").get()
+
+			keys[#keys + 1] = {
+				"<leader>cr",
+				require("live-rename").rename,
+				desc = "Rename",
+				has = "rename",
+			}
+		end,
+	},
 }
