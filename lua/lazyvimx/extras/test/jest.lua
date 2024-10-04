@@ -8,7 +8,6 @@ return {
 			table.insert(
 				opts.adapters,
 				require("neotest-jest")({
-					env = { CI = true },
 					cwd = function()
 						return vim.fn.getcwd()
 					end,
