@@ -1,5 +1,11 @@
 return {
 	{ import = "lazyvim.plugins.extras.test.core" },
+
+	{
+		"nvim-neotest/neotest",
+		opts = { discovery = { enabled = false } },
+	},
+
 	{
 		"nvim-neotest/neotest",
 		dependencies = { "haydenmeade/neotest-jest" },
@@ -8,9 +14,10 @@ return {
 			table.insert(
 				opts.adapters,
 				require("neotest-jest")({
-					cwd = function()
-						return vim.fn.getcwd()
-					end,
+					-- stylua: ignore
+					cwd = function() return vim.fn.getcwd() end,
+					jest_test_discovery = true,
+					env = { CI = true },
 				})
 			)
 		end,
