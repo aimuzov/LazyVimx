@@ -48,12 +48,12 @@ return {
 	},
 
 	{
-		"conform.nvim",
+		"stevearc/conform.nvim",
 		opts = { formatters = { prettier_svelte = prettier_svelte_formatter() } },
 	},
 
 	{
-		"conform.nvim",
+		"stevearc/conform.nvim",
 		optional = true,
 
 		opts = function(_, opts)
