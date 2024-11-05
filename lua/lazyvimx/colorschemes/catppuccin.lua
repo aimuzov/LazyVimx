@@ -35,7 +35,7 @@ local override_all = function(c)
 		FlashPromptSep = { fg = blend(c.crust, c.text, 50) },
 		FloatBorder = { bg = c.base },
 		FloatTitle = { fg = c.lavender, style = { "bold" } },
-		Folded = { bg = blend(c.base, c.crust, 20), fg = c.surface0 },
+		Folded = { bg = blend(c.base, c.crust, 20), fg = c.surface2 },
 		GitConflictCurrent = { bg = blend(c.blue, c.base, 90) },
 		GitConflictCurrentLabel = { bg = blend(c.blue, c.base, 85) },
 		GitConflictIncoming = { bg = blend(c.green, c.base, 90) },
