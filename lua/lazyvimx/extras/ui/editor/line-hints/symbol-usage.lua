@@ -49,5 +49,6 @@ return {
 		definition = { enabled = false },
 		implementation = { enabled = false },
 		text_format = text_format,
+		request_pending_text = "",
 	},
 }
