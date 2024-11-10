@@ -39,17 +39,38 @@ return {
 
 	{
 		"nvim-neo-tree/neo-tree.nvim",
+		optional = true,
 		opts = { popup_border_style = "rounded" },
 	},
 
 	{
 		"folke/noice.nvim",
+		optional = true,
+
 		opts = {
 			presets = { lsp_doc_border = true },
 
 			lsp = {
 				documentation = {
 					opts = { win_options = { winhighlight = "NormalFloat:Float" } },
+				},
+			},
+		},
+	},
+
+	{
+		"folke/snacks.nvim",
+		optional = true,
+
+		opts = {
+			terminal = {
+				win = {
+					position = "float",
+					border = "rounded",
+					width = 0.84,
+					height = 0.62,
+					zindex = 60,
+					backdrop = false,
 				},
 			},
 		},

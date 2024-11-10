@@ -4,21 +4,6 @@ return {
 	{
 		"folke/edgy.nvim",
 		optional = true,
-		opts = function(_, opts)
-			table.insert(opts.bottom, { ft = "dap-repl" })
-
-			for i, v in pairs(opts.bottom) do
-				if v.ft == "lazyterm" then
-					table.remove(opts.bottom, i)
-					break
-				end
-			end
-		end,
-	},
-
-	{
-		"folke/edgy.nvim",
-		optional = true,
 
 		opts = {
 			animate = { enabled = false },
@@ -42,6 +27,10 @@ return {
 
 			right = {
 				{ ft = "neotest-summary" },
+			},
+
+			bottom = {
+				{ ft = "dap-repl" },
 			},
 		},
 	},

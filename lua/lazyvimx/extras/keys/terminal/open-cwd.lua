@@ -1,4 +1,4 @@
 return {
 	"LazyVim/LazyVim",
-	keys = { { "<c-/>", "<cmd>lua LazyVim.terminal()<cr>", desc = "Terminal (cwd)" } },
+	keys = { { "<c-/>", [[<cmd>lua require("snacks").terminal()<cr>]], desc = "Terminal (cwd)" } },
 }

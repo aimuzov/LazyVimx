@@ -10,7 +10,7 @@ local disabled_filetypes = {
 	"DiffviewFiles",
 	"fugitive",
 	"gitlab",
-	"lazyterm",
+	"snacks_terminal",
 	"neo-tree",
 	"neotest-summary",
 	"noice",

@@ -9,7 +9,7 @@ return {
 				"alpha",
 				"chatgpt-input",
 				"lazy",
-				"lazyterm",
+				"snacks_terminal",
 				"neo-tree",
 				"neo-tree-popup",
 				"TelescopePrompt",

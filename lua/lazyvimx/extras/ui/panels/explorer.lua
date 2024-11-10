@@ -264,7 +264,7 @@ return {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 
-		opts = function()
+		opts = function(_, opts)
 			local renderer = require("neo-tree.ui.renderer")
 			local manager = require("neo-tree.sources.manager")
 
@@ -279,11 +279,21 @@ return {
 	},
 
 	{
-		"antosha417/nvim-lsp-file-operations",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-neo-tree/neo-tree.nvim",
-		},
-		config = true,
+		"nvim-neo-tree/neo-tree.nvim",
+		dependencies = { "folke/snacks.nvim" },
+
+		opts = function(_, opts)
+			local function on_move(data)
+				require("snacks").rename.on_rename_file(data.source, data.destination)
+			end
+
+			local events = require("neo-tree.events")
+
+			opts.event_handlers = opts.event_handlers or {}
+			vim.list_extend(opts.event_handlers, {
+				{ event = events.FILE_MOVED, handler = on_move },
+				{ event = events.FILE_RENAMED, handler = on_move },
+			})
+		end,
 	},
 }
