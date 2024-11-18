@@ -1,6 +1,8 @@
 local layout = require("lazyvimx.util.layout")
 
 return {
+	{ import = "lazyvim.plugins.extras.ui.edgy" },
+
 	{
 		"folke/edgy.nvim",
 		optional = true,
