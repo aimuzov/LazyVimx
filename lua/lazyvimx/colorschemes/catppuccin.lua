@@ -24,6 +24,7 @@ local override_all = function(c)
 		ChatGPTTotalTokens = { bg = "none", fg = c.overlay2 },
 		ChatGPTTotalTokensBorder = { fg = c.text },
 		BlinkCmpDoc = { bg = c.mantle, blend = 15 },
+		BlinkCmpDocSeparator = { fg = blend(c.mantle, c.text, 10) },
 		DiffviewDiffAdd = { bg = blend(c.green, c.base, 93) },
 		DiffviewDiffDelete = { bg = blend(c.red, c.base, 93) },
 		DiffviewNormal = { bg = c.mantle },
