@@ -1,5 +1,4 @@
 return {
-
 	{
 		"neovim/nvim-lspconfig",
 		optional = true,
@@ -62,19 +61,19 @@ return {
 	},
 
 	{
-		"lukas-reineke/indent-blankline.nvim",
+		"folke/snacks.nvim",
 		optional = true,
 
 		opts = function(_, opts)
 			vim.api.nvim_create_autocmd("InsertEnter", {
 				callback = function()
-					require("ibl").update({ enabled = false })
+					require("snacks").indent.disable()
 				end,
 			})
 
 			vim.api.nvim_create_autocmd("InsertLeave", {
 				callback = function()
-					require("ibl").update({ enabled = true })
+					require("snacks").indent.enable()
 				end,
 			})
 		end,
