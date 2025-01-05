@@ -8,17 +8,17 @@ return {
 
 	opts = function(_, opts)
 		opts.keys = {
-			["<c-a-l>"] = layout.increase_create("width"),
-			["<c-a-h>"] = layout.decrease_create("width"),
-			["<c-a-k>"] = layout.increase_create("height"),
-			["<c-a-j>"] = layout.decrease_create("height"),
+			["<c-Right>"] = layout.increase_create("width"),
+			["<c-Left>"] = layout.decrease_create("width"),
+			["<c-Up>"] = layout.increase_create("height"),
+			["<c-Down>"] = layout.decrease_create("height"),
 		}
 	end,
 
 	keys = {
-		{ "<c-a-k>", "<cmd>resize +" .. step .. "<cr>", mode = mode, desc = "Increase window height" },
-		{ "<c-a-j>", "<cmd>resize -" .. step .. "<cr>", mode = mode, desc = "Decrease window height" },
-		{ "<c-a-h>", "<cmd>vertical resize -" .. step .. "<cr>", mode = mode, desc = "Decrease window width" },
-		{ "<c-a-l>", "<cmd>vertical resize +" .. step .. "<cr>", mode = mode, desc = "Increase window width" },
+		{ "<c-Up>", "<cmd>resize +" .. step .. "<cr>", mode = mode, desc = "Increase window height" },
+		{ "<c-Down>", "<cmd>resize -" .. step .. "<cr>", mode = mode, desc = "Decrease window height" },
+		{ "<c-Left>", "<cmd>vertical resize -" .. step .. "<cr>", mode = mode, desc = "Decrease window width" },
+		{ "<c-Right>", "<cmd>vertical resize +" .. step .. "<cr>", mode = mode, desc = "Increase window width" },
 	},
 }

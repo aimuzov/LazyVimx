@@ -161,6 +161,7 @@ local override_dark = function(c)
 		TinyInlineDiagnosticVirtualTextWarn = { bg = blend(c.base, c.yellow, 20) },
 		TinyInlineDiagnosticVirtualTextInfo = { bg = blend(c.base, c.sky, 20) },
 		TinyInlineDiagnosticVirtualTextHint = { bg = blend(c.base, c.teal, 20) },
+		TreewalkerIlluminate = { bg = blend(c.base, c.surface2, 15) },
 		Visual = { bg = blend(c.base, c.surface2, 30), style = {} },
 		VisualWhitespace = { bg = blend(c.base, c.surface2, 30), fg = c.surface2 },
 	}
@@ -182,6 +183,7 @@ local override_light = function(c)
 		TinyInlineDiagnosticVirtualTextWarn = { bg = blend(c.base, c.yellow, 10) },
 		TinyInlineDiagnosticVirtualTextInfo = { bg = blend(c.base, c.sky, 10) },
 		TinyInlineDiagnosticVirtualTextHint = { bg = blend(c.base, c.teal, 10) },
+		TreewalkerIlluminate = { bg = blend(c.base, c.mantle, 85) },
 		Visual = { bg = blend(c.base, c.crust, 85) },
 		VisualWhitespace = { bg = blend(c.base, c.crust, 85), fg = c.surface2 },
 	}
