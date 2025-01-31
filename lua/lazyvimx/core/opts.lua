@@ -27,6 +27,7 @@ local options = {
 	fillchars = { diff = " ", eob = " " },
 
 	spelllang = "",
+	shell = vim.fn.getenv("SHELL"),
 }
 
 return {
