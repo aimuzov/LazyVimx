@@ -12,7 +12,6 @@ return {
 				"snacks_terminal",
 				"neo-tree",
 				"neo-tree-popup",
-				"TelescopePrompt",
 				"trouble",
 			},
 		},

@@ -107,6 +107,7 @@ local override_all = function(c)
 		PmenuSel = { bg = blend(c.crust, c.surface2, 50) },
 		PmenuThumb = { bg = blend(c.crust, c.surface2, 40) },
 		SnacksIndent = { fg = blend(c.base, c.text, 5) },
+		SnacksPickerInputCursorLine = { bg = c.base },
 		SnacksIndentScope = { fg = blend(c.base, c.text, 15) },
 		SnacksNotifierBorderDebug = { fg = blend(c.base, c.peach, 30) },
 		SnacksNotifierBorderError = { fg = blend(c.base, c.red, 30) },
@@ -126,12 +127,6 @@ local override_all = function(c)
 		TinyInlineInvDiagnosticVirtualTextWarn = { link = "CursorLine" },
 		TinyInlineInvDiagnosticVirtualTextInfo = { link = "CursorLine" },
 		TinyInlineInvDiagnosticVirtualTextHint = { link = "CursorLine" },
-		TelescopeResultsDiffAdd = { link = "NeoTreeGitAdded" },
-		TelescopeResultsDiffChange = { link = "NeoTreeGitModified" },
-		TelescopeResultsDiffDelete = { link = "NeoTreeGitDeleted" },
-		TelescopeResultsDiffUntracked = { link = "NeoTreeGitUntracked" },
-		TelescopeSelection = { link = "Visual" },
-		TelescopeTitle = { link = "FloatTitle" },
 		TreesitterContext = { bg = c.base, blend = 10 },
 		TreesitterContextBottom = { fg = c.surface2, blend = 0 },
 		TreesitterContextLineNumber = { link = "LineNr" },
@@ -264,7 +259,7 @@ local alpha_header_animate = function()
 
 	for i = 5, limit do
 		vim.schedule(function()
-			local timer = vim.loop.new_timer()
+			local timer = vim.loop.new_timer() ---@diagnostic disable-line: undefined-field
 
 			if timer ~= nil then
 				timer:start(

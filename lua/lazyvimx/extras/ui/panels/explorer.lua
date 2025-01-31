@@ -269,11 +269,13 @@ return {
 			local manager = require("neo-tree.sources.manager")
 
 			vim.api.nvim_create_autocmd({ "TermOpen", "TermClose" }, {
-				callback = function()
-					if renderer.window_exists(manager.get_state("buffers")) then
+				callback = vim.schedule_wrap(function()
+					local ok, state = pcall(manager.get_state, "buffers")
+
+					if ok and renderer.window_exists(state) then
 						manager.refresh("buffers")
 					end
-				end,
+				end),
 			})
 		end,
 	},

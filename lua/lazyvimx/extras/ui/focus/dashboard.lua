@@ -100,23 +100,17 @@ return {
 				},
 			}
 
-			if LazyVim.has("telescope.nvim") then
+			if LazyVim.has("snacks.nvim") then
 				table.insert(
 					opts.section.buttons.val,
 					#opts.section.buttons.val - 2,
-					button("f", "󰫳", "  Find file", "<cmd>Telescope find_files<cr>")
+					button("f", "󰫳", "  Find files", LazyVim.pick("files"))
 				)
 
 				table.insert(
 					opts.section.buttons.val,
 					#opts.section.buttons.val - 2,
-					button("r", "󰫿", "  Recent files", "<cmd>Telescope oldfiles<cr>")
-				)
-
-				table.insert(
-					opts.section.buttons.val,
-					#opts.section.buttons.val - 2,
-					button("g", "󰫴", "  Find text", "<cmd>Telescope live_grep_args<cr>")
+					button("g", "󰫴", "  Find text", LazyVim.pick("grep"))
 				)
 			end
 
