@@ -68,6 +68,7 @@ local section = {
 		opts = { lh = "AlphaButtons" },
 		val = {
 			button("n", "󰫻", "  New file", "<cmd>ene <bar> startinsert<cr>"),
+			button("p", "󰫽", "  Projects", [[<cmd> lua Snacks.picker.projects() <cr>]]),
 			button("l", "󱎦", "󰒲  Lazy", "<cmd>Lazy<cr>"),
 			button("x", "󱂑", "󰏗  Extras", "<cmd>LazyExtras<cr>"),
 			button("q", "󰫾", "  Quit", "<cmd>qa<cr>"),
@@ -81,8 +82,6 @@ local section = {
 }
 
 return {
-	{ import = "lazyvim.plugins.extras.ui.alpha" },
-
 	{
 		"goolord/alpha-nvim",
 
