@@ -1,5 +1,8 @@
 return {
 	"chrisgrieser/nvim-early-retirement",
 	event = "VeryLazy",
-	config = true,
+	opts = {
+		deleteBufferWhenFileDeleted = true,
+		notificationOnAutoClose = true,
+	},
 }
