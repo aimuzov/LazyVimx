@@ -1,29 +1,5 @@
 return {
 	{
-		"neovim/nvim-lspconfig",
-		optional = true,
-
-		opts = function(_, opts)
-			if not opts.inlay_hints.enabled then
-				return
-			end
-
-			vim.api.nvim_create_autocmd("InsertEnter", {
-				callback = function(event)
-					vim.lsp.inlay_hint.enable(false, { bufnr = event.buf })
-					vim.cmd([[ normal "hl" ]])
-				end,
-			})
-
-			vim.api.nvim_create_autocmd("InsertLeave", {
-				callback = function(event)
-					vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
-				end,
-			})
-		end,
-	},
-
-	{
 		"nvim-treesitter/nvim-treesitter-context",
 		optional = true,
 		opts = function()
