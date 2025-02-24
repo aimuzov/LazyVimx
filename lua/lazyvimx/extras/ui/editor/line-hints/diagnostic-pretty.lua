@@ -7,15 +7,7 @@ return {
 	},
 
 	opts = {
-		signs = {
-			left = " ",
-			right = "",
-			diag = " ",
-			arrow = " ",
-			up_arrow = " ",
-			vertical = " │",
-			vertical_end = " ╰",
-		},
+		preset = "simple",
 		options = { virt_texts = { priority = 5000 } },
 	},
 }
