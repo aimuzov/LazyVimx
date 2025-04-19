@@ -4,7 +4,7 @@ return {
 
 	opts = {
 		char = "│",
-		highlight = "IblIndent",
+		highlight = "SnacksIndent",
 		virtcolumn = "+1,120",
 		exclude = { filetypes = { "alpha" } },
 	},
