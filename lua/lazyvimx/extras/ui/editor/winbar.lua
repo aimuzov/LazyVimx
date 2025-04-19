@@ -1,5 +1,8 @@
 local disabled_filetypes = {
 	"aerial",
+	"Avante",
+	"AvanteInput",
+	"AvanteSelectedFiles",
 	"alpha",
 	"dap-repl",
 	"dapui_breakpoints",

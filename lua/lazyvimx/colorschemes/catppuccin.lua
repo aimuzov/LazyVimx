@@ -6,6 +6,9 @@ end
 
 local override_all = function(c)
 	return {
+		AvanteSidebarWinSeparator = { link = "WinSeparator" },
+		AvanteSidebarWinHorizontalSeparator = { fg = c.surface1 },
+		AvantePromptInputBorder = { link = "FloatBorder" },
 		AerialLine = { fg = "none", bg = c.crust },
 		AlphaFooter = { fg = c.surface1, style = {} },
 		AlphaHeader1 = { fg = c.surface2 },
