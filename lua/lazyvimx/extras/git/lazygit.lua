@@ -40,8 +40,8 @@ return {
 			lazygit = {
 				win = {
 					border = "none",
-					height = 0.86,
-					width = 0.95,
+					height = 0.95,
+					width = 0,
 				},
 			},
 		},
