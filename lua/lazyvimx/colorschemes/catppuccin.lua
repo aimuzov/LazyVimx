@@ -280,6 +280,8 @@ local alpha_header_animate = function()
 end
 
 return {
+	{ import = "lazyvimx.core" },
+
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
