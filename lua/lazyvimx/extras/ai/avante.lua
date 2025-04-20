@@ -1,30 +1,20 @@
 return {
+	desc = "Neovim plugin designed to emulate the behaviour of the Cursor AI IDE",
+
 	{
 		"yetone/avante.nvim",
 		event = "VeryLazy",
-		version = false,
 		build = "make",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"stevearc/dressing.nvim",
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-			{
-				"MeanderingProgrammer/render-markdown.nvim",
-				opts = { file_types = { "markdown", "Avante" } },
-				ft = { "markdown", "Avante" },
-			},
-		},
+
 		opts = {
 			provider = "openai",
 
 			openai = {
 				endpoint = "https://api.openai.com/v1",
-				model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-				timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+				model = "gpt-4o",
+				timeout = 30000,
 				temperature = 0,
-				max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-				--reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+				max_completion_tokens = 8192,
 			},
 
 			file_selector = { provider = "snacks" },
@@ -40,17 +30,14 @@ return {
 
 	{
 		"saghen/blink.cmp",
-		lazy = true,
+		optional = true,
 		dependencies = { "saghen/blink.compat" },
+
 		opts = {
 			sources = {
 				default = { "avante_commands", "avante_mentions", "avante_files" },
-				compat = {
-					"avante_commands",
-					"avante_mentions",
-					"avante_files",
-				},
-				-- LSP score_offset is typically 60
+				compat = { "avante_commands", "avante_mentions", "avante_files" },
+
 				providers = {
 					avante_commands = {
 						name = "avante_commands",
@@ -58,12 +45,14 @@ return {
 						score_offset = 90,
 						opts = {},
 					},
+
 					avante_files = {
 						name = "avante_files",
 						module = "blink.compat.source",
 						score_offset = 100,
 						opts = {},
 					},
+
 					avante_mentions = {
 						name = "avante_mentions",
 						module = "blink.compat.source",
@@ -78,28 +67,20 @@ return {
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		optional = true,
-		ft = function(_, ft)
-			vim.list_extend(ft, { "Avante" })
-		end,
-		opts = function(_, opts)
-			opts.file_types = vim.list_extend(opts.file_types or {}, { "Avante" })
-		end,
+		ft = { "Avante" },
+		opts = { file_types = { "Avante" } },
 	},
 
 	{
 		"folke/which-key.nvim",
 		optional = true,
-		opts = {
-			spec = {
-				{ "<leader>a", group = "ai" },
-			},
-		},
+		opts = { spec = { { "<leader>a", group = "ai" } } },
 	},
 
 	{
 		"catppuccin/nvim",
-		name = "catppuccin",
 		optional = true,
+		name = "catppuccin",
 		opts = { integrations = { avante = true } },
 	},
 }
