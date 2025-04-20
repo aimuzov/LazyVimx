@@ -280,7 +280,7 @@ local alpha_header_animate = function()
 end
 
 return {
-	{ import = "lazyvimx.core" },
+	{ import = "lazyvimx.overrides" },
 
 	{
 		"catppuccin/nvim",

@@ -31,7 +31,7 @@ local override_highlights = function(hl, c)
 end
 
 return {
-	{ import = "lazyvimx.core" },
+	{ import = "lazyvimx.overrides" },
 
 	{
 		"folke/tokyonight.nvim",
