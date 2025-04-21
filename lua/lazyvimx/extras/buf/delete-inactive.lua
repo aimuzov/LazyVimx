@@ -8,7 +8,7 @@ return {
 		retirementAgeMins = 30,
 		notificationOnAutoClose = true,
 		deleteFunction = function(buf)
-			Snacks.bufdelete.delete({ buf = buf, force = true })
+			Snacks.bufdelete(buf, { force = true })
 		end,
 	},
 }

@@ -88,7 +88,7 @@ local delete = function(state)
 			require("neo-tree.sources.filesystem").delete(state)
 		end
 
-		pcall(require("mini.bufremove").delete, path, true)
+		pcall(Snacks.bufdelete.delete, { file = path, force = true })
 		require("neo-tree.sources.manager").refresh(state.name)
 	end)
 end
@@ -148,6 +148,7 @@ end
 return {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
+		optional = true,
 
 		opts = {
 			show_scrolled_off_parent_node = true,
@@ -282,11 +283,10 @@ return {
 
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		dependencies = { "folke/snacks.nvim" },
 
 		opts = function(_, opts)
 			local function on_move(data)
-				require("snacks").rename.on_rename_file(data.source, data.destination)
+				Snacks.rename.on_rename_file(data.source, data.destination)
 			end
 
 			local events = require("neo-tree.events")

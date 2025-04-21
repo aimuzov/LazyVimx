@@ -6,7 +6,7 @@ local function create_autocmd_delete_noname_buf()
 		callback = function(args)
 			if args.file == "" and vim.bo[args.buf].buftype == "" and not vim.bo[args.buf].modified then
 				vim.schedule(function()
-					pcall(Snacks.bufdelete.delete, { args = buf, force = true })
+					pcall(Snacks.bufdelete, args.buf, { force = true })
 				end)
 			end
 		end,
