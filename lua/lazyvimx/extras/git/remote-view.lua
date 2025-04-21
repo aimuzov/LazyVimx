@@ -1,5 +1,6 @@
 return {
 	"moyiz/git-dev.nvim",
+	desc = "Open remote git repositories in the comfort of Neovim",
 	event = "VeryLazy",
 
 	opts = {

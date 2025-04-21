@@ -8,6 +8,7 @@ end
 
 return {
 	"akinsho/git-conflict.nvim",
+	desc = "A plugin to visualise and resolve conflicts in neovim",
 
 	opts = function(_, opts)
 		local throttle = require("git-conflict.utils").throttle
