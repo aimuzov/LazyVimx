@@ -1,5 +1,5 @@
 return {
-	"aimuzov/LazyVimx",
-	import = "lazyvimx.overrides.lazyvim",
-	config = true,
+	{ "aimuzov/LazyVimx", config = true },
+	{ import = "lazyvimx.overrides.lazyvim" },
+	{ import = "lazyvimx.overrides.alpha" },
 }

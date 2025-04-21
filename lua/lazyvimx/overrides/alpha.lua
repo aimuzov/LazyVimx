@@ -17,13 +17,24 @@ local function header_colorize(header)
 	return lines
 end
 
-local function button(sc, icon, text, keybind)
+local button_icons = {
+	f = "󰫳",
+	g = "󰫴",
+	l = "󱎦",
+	n = "󰫻",
+	p = "󰫽",
+	q = "󰫾",
+	s = "󰬀",
+	x = "󱂑",
+}
+
+local function button(sc, text, keybind)
 	return {
 		type = "button",
 		val = text,
 		opts = {
 			position = "center",
-			shortcut = "▌ " .. icon .. " ▐",
+			shortcut = "▌ " .. button_icons[sc] .. " ▐",
 			cursor = 40,
 			keymap = { "n", sc, keybind, {} },
 			width = 42,
@@ -63,17 +74,21 @@ local section = {
 		opts = { position = "center" },
 		val = header_colorize(header_text),
 	},
+
 	buttons = {
 		type = "group",
 		opts = { lh = "AlphaButtons" },
 		val = {
-			button("n", "󰫻", "  New file", "<cmd>ene <bar> startinsert<cr>"),
-			button("p", "󰫽", "  Projects", [[<cmd> lua Snacks.picker.projects() <cr>]]),
-			button("l", "󱎦", "󰒲  Lazy", "<cmd>Lazy<cr>"),
-			button("x", "󱂑", "󰏗  Extras", "<cmd>LazyExtras<cr>"),
-			button("q", "󰫾", "  Quit", "<cmd>qa<cr>"),
+			button("n", "  New file", "<cmd>ene <bar> startinsert<cr>"),
+			button("f", "  Find files", LazyVim.pick("files")),
+			button("g", "  Find text", LazyVim.pick("grep")),
+			button("p", "  Projects", [[<cmd> lua Snacks.picker.projects() <cr>]]),
+			button("l", "󰒲  Lazy", "<cmd>Lazy<cr>"),
+			button("x", "󰏗  Extras", "<cmd>LazyExtras<cr>"),
+			button("q", "  Quit", "<cmd>qa<cr>"),
 		},
 	},
+
 	footer = {
 		type = "text",
 		opts = { position = "center", hl = "AlphaFooter" },
@@ -82,44 +97,31 @@ local section = {
 }
 
 return {
-	{
-		"goolord/alpha-nvim",
+	"goolord/alpha-nvim",
+	optional = true,
 
-		opts = function(_, opts)
-			opts.section = section
-			opts.opts = {
-				layout = {
-					{ type = "padding", val = 3 },
-					section.header,
-					buttons_wrap("▁▁▁▁▁"),
-					section.buttons,
-					buttons_wrap("▔▔▔▔▔"),
-					{ type = "padding", val = 1 },
-					section.footer,
-				},
-			}
+	opts = function(_, opts)
+		opts.button = button
 
-			if LazyVim.has("snacks.nvim") then
-				table.insert(
-					opts.section.buttons.val,
-					#opts.section.buttons.val - 2,
-					button("f", "󰫳", "  Find files", LazyVim.pick("files"))
-				)
+		opts.section = section
+		opts.opts = {
+			layout = {
+				{ type = "padding", val = 3 },
+				section.header,
+				buttons_wrap("▁▁▁▁▁"),
+				section.buttons,
+				buttons_wrap("▔▔▔▔▔"),
+				{ type = "padding", val = 1 },
+				section.footer,
+			},
+		}
 
-				table.insert(
-					opts.section.buttons.val,
-					#opts.section.buttons.val - 2,
-					button("g", "󰫴", "  Find text", LazyVim.pick("grep"))
-				)
-			end
-
-			if LazyVim.has("persistence.nvim") then
-				table.insert(
-					opts.section.buttons.val,
-					#opts.section.buttons.val - 2,
-					button("s", "󰬀", "  Restore Session", [[<cmd>lua require("persistence").load()<cr>]])
-				)
-			end
-		end,
-	},
+		if LazyVim.has("persistence.nvim") then
+			table.insert(
+				opts.section.buttons.val,
+				#opts.section.buttons.val,
+				button("s", "  Restore Session", [[<cmd>lua require("persistence").load()<cr>]])
+			)
+		end
+	end,
 }
