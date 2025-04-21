@@ -189,7 +189,7 @@ return {
 				filtered_items = {
 					hide_dotfiles = false,
 					hide_gitignored = false,
-					never_show = { ".DS_Store", ".git" },
+					never_show = { ".DS_Store" },
 					hide_by_pattern = { ".*" },
 				},
 
@@ -200,7 +200,7 @@ return {
 
 				window = {
 					mappings = {
-						["<c-s-h>"] = "toggle_hidden",
+						["<c-h>"] = "toggle_hidden",
 					},
 
 					fuzzy_finder_mappings = {
@@ -283,6 +283,7 @@ return {
 
 	{
 		"nvim-neo-tree/neo-tree.nvim",
+		optional = true,
 
 		opts = function(_, opts)
 			local function on_move(data)
