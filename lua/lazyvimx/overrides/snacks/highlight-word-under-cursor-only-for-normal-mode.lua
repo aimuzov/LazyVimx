@@ -2,7 +2,7 @@ return {
 	"folke/snacks.nvim",
 	opts = {
 		words = {
-			debounce = 300,
+			debounce = 50,
 			modes = { "n", "c" },
 		},
 	},

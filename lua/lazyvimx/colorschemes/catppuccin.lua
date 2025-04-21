@@ -70,6 +70,7 @@ local override_all = function(c)
 		GlanceWinBarTitle = { fg = c.overlay0, bg = blend(c.base, c.crust, 50), style = { "bold" } },
 		LazyReasonKeys = { fg = c.overlay0 },
 		LspInlayHint = { bg = "none" },
+		LspReferenceRead = { bg = "none", fg = c.yellow, style = { "bold" } },
 		LineNr = { fg = c.surface2 },
 		MiniIconsAzure = { fg = blend(c.sapphire, c.mantle, 25) },
 		MiniIconsBlue = { fg = blend(c.blue, c.mantle, 25) },
