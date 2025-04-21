@@ -16,6 +16,6 @@ local function override_keys_to_string()
 end
 
 return {
-	"LazyVim/LazyVim",
+	"folke/lazy.nvim",
 	opts = override_keys_to_string,
 }
