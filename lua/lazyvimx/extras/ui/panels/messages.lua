@@ -1,14 +1,5 @@
 return {
 	{
-		"rcarriga/nvim-notify",
-		opts = {
-			render = "minimal",
-			stages = "fade",
-			minimum_width = 40,
-		},
-	},
-
-	{
 		"folke/noice.nvim",
 		opts = {
 			presets = { bottom_search = false },
@@ -26,7 +17,6 @@ return {
 			},
 
 			lsp = {
-
 				documentation = {
 					opts = {
 						win_options = {
