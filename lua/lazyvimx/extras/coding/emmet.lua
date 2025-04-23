@@ -4,5 +4,10 @@ return {
 		opts = { servers = { emmet_language_server = {} } },
 	},
 
-	"olrtg/nvim-emmet",
+	{
+		"olrtg/nvim-emmet",
+		init = function()
+			vim.cmd("command! EmmetWrap lua require('nvim-emmet').wrap_with_abbreviation()")
+		end,
+	},
 }

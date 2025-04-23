@@ -30,7 +30,7 @@ local buf_delete_repeatable_create = function(force)
 end
 
 return {
-	"LazyVim/LazyVim",
+	"folke/snacks.nvim",
 
 	keys = {
 		{ "<leader>bd", buf_delete_repeatable_create(false), desc = "Delete buffer" },

@@ -30,8 +30,11 @@ return {
 	"akinsho/bufferline.nvim",
 	optional = true,
 
-	keys = {
-		{ "<leader>bm[", buffer_move_create("prev"), desc = "Move buffer (prev)" },
-		{ "<leader>bm]", buffer_move_create("next"), desc = "Move buffer (next)" },
-	},
+	opts = function()
+		require("bufferline").move_prev_repeatable = buffer_move_create("prev")
+		require("bufferline").move_next_repeatable = buffer_move_create("next")
+
+		vim.cmd("command! BufferLineMoveNextRepeatable lua require('bufferline').move_prev_repeatable()")
+		vim.cmd("command! BufferLineMovePrevRepeatable lua require('bufferline').move_next_repeatable()")
+	end,
 }
