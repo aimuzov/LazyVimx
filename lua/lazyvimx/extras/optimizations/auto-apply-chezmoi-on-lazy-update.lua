@@ -3,16 +3,19 @@ local function chezmoi_update()
 		return
 	end
 
-	local handle = io.popen("chezmoi add ~/.config/nvim/lazy-lock.json ~/.config/nvim/lazyvim.json 2>&1", "r")
-	local result_raw = handle ~= nil and handle:read("*a")
-	local result_safety = result_raw:gsub("[\n\r]", "")
-	local message = result_safety == "" and "[chezmoi] lazy-lock.json & lazyvim.json applied"
-		or "[chezmoi] " .. result_safety
+	local notify_opts = { icon = "", title = "chezmoi" }
+	local chezmoi_message = require("lazyvimx.util.system").popen_get_result(
+		"chezmoi add ~/.config/nvim/lazy-lock.json ~/.config/nvim/lazyvim.json 2>&1"
+	)
 
-	vim.print(message)
-
-	if handle ~= nil then
-		handle:close()
+	if chezmoi_message == "" then
+		Snacks.notify.info({
+			"Updated:",
+			"- `lazy-lock.json`",
+			"- `lazyvim.json`",
+		}, notify_opts)
+	else
+		Snacks.notify.error(chezmoi_message, notify_opts)
 	end
 end
 

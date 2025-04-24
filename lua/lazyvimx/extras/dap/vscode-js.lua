@@ -5,8 +5,10 @@ return {
 		"mxsdev/nvim-dap-vscode-js",
 
 		enabled = function()
-			if not LazyVim.has_extra("dap.core") then
-				vim.notify("Missing required extra (dap.core)!", vim.log.levels.ERROR)
+			local extra_name = "dap.core"
+
+			if not LazyVim.has_extra(extra_name) then
+				require("lazyvimx.util.extra").notify_missing(extra_name, true)
 				return false
 			end
 
