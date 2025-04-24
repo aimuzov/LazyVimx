@@ -14,7 +14,12 @@ return {
 	{
 		"williamboman/mason.nvim",
 		optional = true,
-		opts = { ui = { border = "rounded" } },
+		opts = { ui = {
+			border = "rounded",
+			backdrop = 100,
+			width = 0.6,
+			height = 0.7,
+		} },
 	},
 
 	{
@@ -63,9 +68,17 @@ return {
 		optional = true,
 
 		opts = {
+			lazygit = {
+				win = {
+					border = "none",
+					height = 0.95,
+					width = 0,
+				},
+			},
+
 			terminal = {
 				win = {
-					position = "float",
+					-- position = "float",
 					border = "rounded",
 					width = 0.84,
 					height = 0.62,
