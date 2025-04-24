@@ -82,7 +82,6 @@ return {
 	{
 		"catppuccin/nvim",
 		optional = true,
-		name = "catppuccin",
 		opts = { integrations = { avante = true } },
 	},
 }
