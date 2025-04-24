@@ -45,8 +45,6 @@ return {
 		{ "<leader>lx", "LazyExtras", desc = "Open popup with lazy extras" },
 
 		{ "d", { [["_d]] }, mode = { "n", "v" }, desc = "Delete text without yanking" },
-		{ "vig", { "ggVG" }, desc = "Select all" },
-		{ "yig", { "ggyG" }, desc = "Yank all" },
 
 		-- stylua: ignore start
 		{ "<c-s-j>", { ":m '>+1<cr>gv=gv" },		desc = "Move down", mode = { "v" }, silent = true },

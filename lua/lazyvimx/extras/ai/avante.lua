@@ -19,6 +19,8 @@ return {
 
 			file_selector = { provider = "snacks" },
 
+			hints = { enabled = true },
+
 			windows = {
 				sidebar_header = { align = "left", rounded = false },
 				input = { prefix = " ", height = 6 },
