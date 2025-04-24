@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "TBD...",
   "scripts": {
-    "commit": "git cz"
+    "commit": "git cz",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
     "@commitlint/config-conventional": "18.4.4",
     "commitizen": "4.3.0",
     "commitlint": "18.4.4",
-    "cz-git": "1.8.0"
+    "cz-git": "1.8.0",
+    "release-it": "19.0.1"
   },
   "config": {
     "commitizen": {
