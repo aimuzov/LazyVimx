@@ -1,5 +1,19 @@
 return {
-	{ import = "lazyvim.plugins.extras.test.core" },
+	desc = "A framework for interacting with tests within NeoVim",
+
+	{
+		"nvim-neotest/neotest",
+		cond = function()
+			local extra_name = "test.core"
+
+			if not LazyVim.has_extra(extra_name) then
+				require("lazyvimx.util.extra").notify_missing(extra_name, true)
+				return false
+			end
+
+			return true
+		end,
+	},
 
 	{
 		"nvim-neotest/neotest",

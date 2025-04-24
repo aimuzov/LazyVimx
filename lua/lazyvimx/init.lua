@@ -7,6 +7,10 @@ local defaults = {
 			tokyonight = { "tokyonight-storm", "tokyonight-day" },
 		},
 	},
+
+	bufferline_groups = {
+		-- ["name"] = "regex",
+	},
 }
 
 function M.setup(opts)

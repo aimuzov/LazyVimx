@@ -1,8 +1,19 @@
 return {
-	{ import = "lazyvim.plugins.extras.dap.core" },
+	desc = "This is a DAP-based JavaScript debugger",
 
 	{
 		"mxsdev/nvim-dap-vscode-js",
+
+		enabled = function()
+			local extra_name = "dap.core"
+
+			if not LazyVim.has_extra(extra_name) then
+				require("lazyvimx.util.extra").notify_missing(extra_name, true)
+				return false
+			end
+
+			return true
+		end,
 
 		dependencies = {
 			{
@@ -20,7 +31,11 @@ return {
 
 	{
 		"mfussenegger/nvim-dap",
-		dependencies = { "rcarriga/nvim-dap-ui", "mxsdev/nvim-dap-vscode-js" },
+		optional = true,
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+			"mxsdev/nvim-dap-vscode-js",
+		},
 
 		opts = function()
 			for _, language in ipairs({ "typescript", "javascript", "svelte" }) do
