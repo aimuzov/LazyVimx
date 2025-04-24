@@ -37,11 +37,9 @@ local function create(plugin_name, keys, opts)
 end
 
 return {
-	recommended = true,
-
 	create("LazyVim/LazyVim", {
 		{ "<leader>\\", { "<c-w>v" }, desc = "Split window right" },
-		{ "<leader>ch", "split | terminal cht.sh --shell", desc = "Open shell (cht.sh)" },
+		{ "<leader>ch", "lua Snacks.terminal.open('cht.sh --shell')", desc = "Open shell (cht.sh)" },
 		{ "<leader>fy", { open_yazi }, desc = "Find files (yazi)" },
 		{ "<leader>ll", "Lazy", desc = "Open popup with lazy dashboard" },
 		{ "<leader>lx", "LazyExtras", desc = "Open popup with lazy extras" },
@@ -117,8 +115,6 @@ return {
 		{ "<leader>b<tab>", "lua require('scope.core').move_current_buf({})", desc = "Move buffer to another tab" },
 	}),
 
-	create("folke/which-key.nvim", {}, { spec = { { "<leader>gl", group = "+gitlab" } } }),
-
 	create("harrisoncramer/gitlab.nvim", {
 		{ "<leader>glA", "lua require('gitlab').approve()", desc = "Approve" },
 		{ "<leader>glc", "lua require('gitlab').create_comment()", desc = "Create comment" },
@@ -155,26 +151,27 @@ return {
 		{ "<F12>", "require('dap').step_out()", desc = "Step out" },
 	}),
 
-	create("m4xshen/hardtime.nvim", {
+	create("m4xshen/hardtime.nvim", {}, function()
 		-- https://github.com/m4xshen/hardtime.nvim/issues/31
+		-- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua#L8-L11
 		-- stylua: ignore start
-		{ "<Down>",	{ "v:count == 0 ? 'gj' : 'j'" } },
-		{ "<Up>",	{ "v:count == 0 ? 'gk' : 'k'" } },
-		{ "j",		{ "v:count == 0 ? 'gj' : 'j'" } },
-		{ "k",		{ "v:count == 0 ? 'gk' : 'k'" } },
+		vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+		vim.keymap.set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+		vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
+		vim.keymap.set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 		-- stylua: ignore end
-	}, function()
+
 		local hardtime = require("hardtime")
 
-		-- stylua: ignore start
-		local toggle = LazyVim.toggle.wrap({
-			name = "Hard time",
-			get = function() return hardtime.is_plugin_enabled end,
-			set = function() hardtime.toggle() end,
-		})
-		-- stylua: ignore end
-
-		LazyVim.toggle.map("<leader>uH", toggle)
+		Snacks.toggle
+			.new({
+				name = "Hard time",
+				-- stylua: ignore start
+				get = function() return hardtime.is_plugin_enabled end,
+				set = function() hardtime.toggle() end,
+				-- stylua: ignore end
+			})
+			:map("<leader>uH")
 	end),
 
 	create("olrtg/nvim-emmet", {
@@ -194,4 +191,16 @@ return {
 		{ "<c-a-.>", "Treewalker SwapDown" },
 		{ "<c-a-,>", "Treewalker SwapUp" },
 	}),
+
+	create("lewis6991/gitsigns.nvim", {}, function(_, opts)
+		local on_attach_orig = opts.on_attach
+		local on_attach_modified = function(buffer)
+			local keyOpts = { buffer = buffer, desc = "Preview Hunk" }
+			vim.keymap.set("n", "<leader>ghP", require("gitsigns").preview_hunk, keyOpts)
+			on_attach_orig(buffer)
+		end
+
+		opts.on_attach = on_attach_modified
+		opts.preview_config = vim.tbl_extend("force", opts.preview_config or {}, { row = 1, col = 1 })
+	end),
 }

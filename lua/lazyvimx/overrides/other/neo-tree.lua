@@ -174,8 +174,8 @@ return {
 						conflict = "◎",
 					},
 				},
-				file_size = { required_width = 48 },
-				last_modified = { required_width = 72 },
+				file_size = { required_width = 60 },
+				last_modified = { required_width = 80 },
 			},
 
 			buffers = {

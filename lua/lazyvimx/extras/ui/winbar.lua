@@ -1,9 +1,9 @@
 local disabled_ft = {
 	"aerial",
+	"alpha",
 	"Avante",
 	"AvanteInput",
 	"AvanteSelectedFiles",
-	"alpha",
 	"dap-repl",
 	"dapui_breakpoints",
 	"dapui_console",
@@ -13,12 +13,13 @@ local disabled_ft = {
 	"DiffviewFiles",
 	"fugitive",
 	"gitlab",
-	"snacks_terminal",
+	"grug-far",
 	"neo-tree",
 	"neotest-summary",
 	"noice",
 	"qf",
-	"grug-far",
+	"snacks_dashboard",
+	"snacks_terminal",
 	"trouble",
 }
 

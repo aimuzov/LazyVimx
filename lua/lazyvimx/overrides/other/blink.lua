@@ -1,5 +1,6 @@
 return {
 	"saghen/blink.cmp",
+	optional = true,
 	dependencies = { "xzbdmw/colorful-menu.nvim" },
 	opts = {
 		completion = {

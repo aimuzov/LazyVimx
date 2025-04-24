@@ -22,7 +22,13 @@ return {
 	},
 
 	{
-		"_",
+		"folke/which-key.nvim",
+		optional = true,
+		opts = { spec = { { "<leader>gl", group = "+gitlab" } } },
+	},
+
+	{
+		"system.plug",
 
 		enabled = function()
 			local util_extra = require("lazyvimx.util.extra")

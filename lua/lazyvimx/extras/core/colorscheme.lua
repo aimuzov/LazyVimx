@@ -33,7 +33,7 @@ local override_all = function(c)
 		DiffviewNormal = { bg = c.mantle },
 		DiffviewWinSeparator = { link = "NeoTreeWinSeparator" },
 		EdgyNormal = { link = "NormalFloat" },
-		EdgyTitle = { bg = c.mantle, fg = c.mantle },
+		EdgyTitle = { bg = "none", fg = c.text },
 		FlashBackdrop = { fg = blend(c.base, c.blue, 35) },
 		FlashPrompt = { bg = c.crust },
 		FlashPromptSep = { fg = blend(c.crust, c.text, 50) },
@@ -359,6 +359,6 @@ return {
 
 	{
 		"folke/tokyonight.nvim",
-		enabled = false,
+		cond = false,
 	},
 }

@@ -1,4 +1,5 @@
 return {
 	"gbprod/stay-in-place.nvim",
-	opts = {},
+	desc = "Prevent the cursor from moving when using shift and filter actions",
+	config = true,
 }

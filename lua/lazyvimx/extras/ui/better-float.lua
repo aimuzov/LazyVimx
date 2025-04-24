@@ -68,6 +68,10 @@ return {
 		optional = true,
 
 		opts = {
+			scratch = {
+				win = { backdrop = false },
+			},
+
 			lazygit = {
 				win = {
 					border = "none",
@@ -78,13 +82,16 @@ return {
 
 			terminal = {
 				win = {
-					-- position = "float",
 					border = "rounded",
 					width = 0.84,
 					height = 0.62,
 					zindex = 60,
 					backdrop = false,
 				},
+			},
+
+			zen = {
+				win = { wo = { winblend = 0 } },
 			},
 		},
 	},
@@ -101,5 +108,13 @@ return {
 				height = 0.62,
 			})
 		end,
+	},
+
+	{
+		"ibhagwan/fzf-lua",
+		optional = true,
+		opts = {
+			winopts = { backdrop = 100 },
+		},
 	},
 }

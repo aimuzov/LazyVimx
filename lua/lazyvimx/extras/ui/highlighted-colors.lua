@@ -1,5 +1,6 @@
 return {
 	"brenoprata10/nvim-highlight-colors",
+	desc = "Highlight colors within Neovim",
 	opts = {
 		virtual_symbol = "󱓻",
 		render = "virtual",

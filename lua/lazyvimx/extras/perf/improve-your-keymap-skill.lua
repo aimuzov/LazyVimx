@@ -7,12 +7,6 @@ return {
 		opts = {
 			enabled = false,
 			disabled_filetypes = { "neo-tree", "lazy", "mason", "alpha" },
-			restricted_keys = {
-				["j"] = { "x", "v" },
-				["k"] = { "x", "v" },
-				["h"] = { "x", "v" },
-				["l"] = { "x", "v" },
-			},
 		},
 	},
 }

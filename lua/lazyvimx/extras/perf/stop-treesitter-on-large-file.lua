@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	desc = "Stop TS highlight on large file (100KB)",
 	opts = {
 		highlight = {
 			enable = true,
