@@ -1,3 +1,7 @@
+if vim.g.vscode then
+	return {}
+end
+
 local function is_man_mode()
 	for _, arg in pairs(vim.v.argv) do
 		if arg == "+Man!" then

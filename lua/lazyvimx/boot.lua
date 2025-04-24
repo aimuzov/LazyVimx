@@ -17,7 +17,7 @@ local function set_global()
 end
 
 return {
-	{ "aimuzov/LazyVimx", config = true },
+	{ "aimuzov/LazyVimx", vscode = true, config = true },
 	{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 	{ "LazyVim/LazyVim", opts = set_global },
 	{ "LazyVim/LazyVim", opts = insert_extras },

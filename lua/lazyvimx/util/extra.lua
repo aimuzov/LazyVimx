@@ -11,10 +11,11 @@ end
 function M.notify_missing(extra, required)
 	local type = required and "required" or "recommended"
 
-	vim.notify(
-		"Missing " .. type .. " extra: `" .. extra .. "`",
-		required and vim.log.levels.ERROR or vim.log.levels.WARN
-	)
+	if required then
+		Snacks.notify.error("Missing required extra: `" .. extra .. "`", { icon = "[ 󰬟 ]" })
+	else
+		Snacks.notify.warn("Missing recommended extra: `" .. extra .. "`", { icon = "[ 󰬟 ]" })
+	end
 end
 
 return M

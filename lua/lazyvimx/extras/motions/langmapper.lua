@@ -68,8 +68,9 @@ return {
 	{
 		"Wansmer/langmapper.nvim",
 		dependencies = { "LazyVim/LazyVim" },
-		priority = 1,
 		lazy = false,
+		priority = 1,
+		vscode = true,
 
 		opts = {
 			default_layout = [[ABCDEFGHIJKLMNOPQRSTUVWXYZ<>:"{}~abcdefghijklmnopqrstuvwxyz,.;'[]\]],
@@ -92,7 +93,7 @@ return {
 
 	{ "LazyVim/LazyVim", opts = langmap_set },
 	{ "Wansmer/langmapper.nvim", opts = getcharstr_hack },
-	{ "LazyVim/LazyVim", opts = langmapper_automapping_on_start },
+	{ "Wansmer/langmapper.nvim", opts = langmapper_automapping_on_start },
 
 	{
 		"folke/which-key.nvim",

@@ -306,7 +306,7 @@ return {
 
 	{
 		"akinsho/bufferline.nvim",
-		dependencies = { { "catppuccin/nvim", name = "catppuccin" } },
+		dependencies = { "catppuccin/nvim" },
 		optional = true,
 
 		opts = function(_, opts)
@@ -326,7 +326,7 @@ return {
 
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { { "catppuccin/nvim", name = "catppuccin" } },
+		dependencies = { "catppuccin/nvim" },
 		optional = true,
 
 		opts = function(_, opts)
@@ -345,7 +345,7 @@ return {
 
 	{
 		"goolord/alpha-nvim",
-		dependencies = { { "catppuccin/nvim", name = "catppuccin" } },
+		dependencies = { "catppuccin/nvim" },
 		optional = true,
 
 		init = function()
