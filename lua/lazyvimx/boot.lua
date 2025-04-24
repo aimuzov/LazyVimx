@@ -1,4 +1,4 @@
-function insert_extras()
+local function insert_extras()
 	table.insert(require("lazyvim.util.extras").sources, {
 		name = "[ 󰬟 ]",
 		desc = "Some recipes (extras) for enhance lazyvim",
@@ -6,12 +6,13 @@ function insert_extras()
 	})
 end
 
-function set_colorscheme(_, opts)
+local function set_colorscheme(_, opts)
 	opts.colorscheme = require("lazyvimx.util.colorscheme").get_name()
 end
 
-function set_global()
+local function set_global()
 	vim.g.lazyvim_check_order = false
+	vim.g.root_lsp_ignore = { "eslint" }
 	vim.g.xtras_prios = {}
 end
 
