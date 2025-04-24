@@ -2,6 +2,7 @@
   "name": "lazyvimx",
   "version": "0.0.1",
   "description": "TBD...",
+  "private": true,
   "scripts": {
     "commit": "git cz",
     "release": "release-it"
@@ -13,13 +14,14 @@
   "keywords": [
     "nvim"
   ],
-  "author": "Aleksey Imuzov",
+  "author": "Aleksey Imuzov <github@aimuzov.online>",
   "bugs": {
     "url": "https://github.com/aimuzov/LazyVimx/issues"
   },
   "homepage": "https://github.com/aimuzov/LazyVimx#readme",
   "devDependencies": {
     "@commitlint/config-conventional": "18.4.4",
+    "@release-it/conventional-changelog": "10.0.1",
     "commitizen": "4.3.0",
     "commitlint": "18.4.4",
     "cz-git": "1.8.0",
