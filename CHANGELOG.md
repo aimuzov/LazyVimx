@@ -1,5 +1,9 @@
 # Changelog
 
+## <small>0.2.2 (2025-04-25)</small>
+
+* fix(colorschemes): some fixes for catppuccin & tokyonight ([b908ad7](https://github.com/aimuzov/LazyVimx/commit/b908ad7)), closes [#28](https://github.com/aimuzov/LazyVimx/issues/28)
+
 ## <small>0.2.1 (2025-04-25)</small>
 
 * fix(git): fix exception for  gitlab config ([e1353da](https://github.com/aimuzov/LazyVimx/commit/e1353da)), closes [#27](https://github.com/aimuzov/LazyVimx/issues/27)
