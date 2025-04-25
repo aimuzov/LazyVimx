@@ -28,17 +28,14 @@ return {
 	},
 
 	{
-		"system.plug",
-
-		enabled = function()
+		"harrisoncramer/gitlab.nvim",
+		opts = function()
 			local util_extra = require("lazyvimx.util.extra")
 			local extra_name = "ui.diff-view"
 
 			if not util_extra.has(extra_name) then
 				util_extra.notify_missing(extra_name)
 			end
-
-			return false
 		end,
 	},
 }
