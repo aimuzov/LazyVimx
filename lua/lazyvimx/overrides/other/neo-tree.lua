@@ -264,6 +264,7 @@ return {
 
 	{
 		"nvim-neo-tree/neo-tree.nvim",
+		optional = true,
 
 		opts = function(_, opts)
 			local renderer = require("neo-tree.ui.renderer")

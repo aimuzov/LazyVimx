@@ -1,5 +1,5 @@
 local function colorscheme_update()
-	vim.cmd.colorscheme(require("lazyvimx.util.colorscheme").get_name())
+	vim.cmd.colorscheme(require("lazyvimx.util.general").get_flavor())
 end
 
 return {

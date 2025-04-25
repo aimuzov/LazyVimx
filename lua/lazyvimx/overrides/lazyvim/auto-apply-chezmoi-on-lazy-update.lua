@@ -4,7 +4,7 @@ local function chezmoi_update()
 	end
 
 	local notify_opts = { icon = "", title = "chezmoi" }
-	local chezmoi_message = require("lazyvimx.util.system").popen_get_result(
+	local chezmoi_message = require("lazyvimx.util.general").popen_get_result(
 		"chezmoi add ~/.config/nvim/lazy-lock.json ~/.config/nvim/lazyvim.json 2>&1"
 	)
 

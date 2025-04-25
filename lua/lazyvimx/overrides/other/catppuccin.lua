@@ -1,4 +1,4 @@
-local blend = require("lazyvimx.util.color").blend
+local blend = require("lazyvimx.util.general").color_blend
 
 local colors_get = function(flavor)
 	return require("catppuccin.palettes").get_palette(flavor)
@@ -259,7 +259,7 @@ end
 local alpha_header_animate = function()
 	local c = colors_get()
 	local colors = { c.blue, c.sky, c.green, c.yellow, c.peach, c.red }
-	local limit = require("lazyvimx.util.system").theme_is_dark() and 100 or 20
+	local limit = require("lazyvimx.util.general").theme_is_dark() and 100 or 20
 
 	for i = 5, limit do
 		vim.schedule(function()
@@ -281,11 +281,10 @@ local alpha_header_animate = function()
 end
 
 return {
-	recommended = true,
-
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
+		optional = true,
 
 		opts = {
 			integrations = {
@@ -302,63 +301,64 @@ return {
 				latte = override_light,
 			},
 		},
-	},
 
-	{
-		"akinsho/bufferline.nvim",
-		dependencies = { "catppuccin/nvim" },
-		optional = true,
+		specs = {
+			{
+				"akinsho/bufferline.nvim",
+				optional = true,
 
-		opts = function(_, opts)
-			local catppuccin_bufferline = require("catppuccin.groups.integrations.bufferline")
+				opts = function(_, opts)
+					if not vim.g.colors_name:find("catppuccin", 1, true) then
+						return
+					end
 
-			opts.highlights = catppuccin_bufferline.get({
-				styles = { "bold" },
-				custom = {
-					frappe = override_bufferline_hls(colors_get("frappe")),
-					macchiato = override_bufferline_hls(colors_get("macchiato")),
-					mocha = override_bufferline_hls(colors_get("mocha")),
-					latte = override_bufferline_hls(colors_get("latte")),
-				},
-			})
-		end,
-	},
+					local catppuccin_bufferline = require("catppuccin.groups.integrations.bufferline")
 
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "catppuccin/nvim" },
-		optional = true,
-
-		opts = function(_, opts)
-			opts.options.theme = lualine_theme_create(colors_get())
-
-			vim.api.nvim_create_autocmd("ColorScheme", {
-				desc = "Setup lualine theme after colorscheme changed",
-				callback = vim.schedule_wrap(function()
-					require("lualine").setup({
-						options = { theme = lualine_theme_create(colors_get()) },
+					opts.highlights = catppuccin_bufferline.get({
+						styles = { "bold" },
+						custom = {
+							frappe = override_bufferline_hls(colors_get("frappe")),
+							macchiato = override_bufferline_hls(colors_get("macchiato")),
+							mocha = override_bufferline_hls(colors_get("mocha")),
+							latte = override_bufferline_hls(colors_get("latte")),
+						},
 					})
-				end),
-			})
-		end,
-	},
+				end,
+			},
 
-	{
-		"goolord/alpha-nvim",
-		dependencies = { "catppuccin/nvim" },
-		optional = true,
+			{
+				"nvim-lualine/lualine.nvim",
+				dependencies = { "catppuccin/nvim" },
+				optional = true,
 
-		init = function()
-			vim.api.nvim_create_autocmd("User", {
-				once = true,
-				pattern = "AlphaReady",
-				callback = alpha_header_animate,
-			})
-		end,
-	},
+				opts = function(_, opts)
+					if vim.g.colors_name:find("catppuccin", 1, true) then
+						opts.options.theme = lualine_theme_create(colors_get())
+					end
 
-	{
-		"folke/tokyonight.nvim",
-		cond = false,
+					vim.api.nvim_create_autocmd("ColorScheme", {
+						desc = "Setup lualine theme after colorscheme changed",
+						pattern = "catppuccin*",
+						callback = vim.schedule_wrap(function(data)
+							require("lualine").setup({ options = { theme = lualine_theme_create(colors_get()) } })
+						end),
+					})
+				end,
+			},
+
+			{
+				"goolord/alpha-nvim",
+				dependencies = { "catppuccin/nvim" },
+				optional = true,
+
+				init = function()
+					vim.api.nvim_create_autocmd("User", {
+						once = true,
+						pattern = "AlphaReady",
+						callback = alpha_header_animate,
+					})
+				end,
+			},
+		},
 	},
 }
