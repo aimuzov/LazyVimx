@@ -1,5 +1,9 @@
 # Changelog
 
+## <small>0.2.1 (2025-04-25)</small>
+
+* fix(git): fix exception for  gitlab config ([e1353da](https://github.com/aimuzov/LazyVimx/commit/e1353da)), closes [#27](https://github.com/aimuzov/LazyVimx/issues/27)
+
 ## 0.2.0 (2025-04-24)
 
 * fix: fix luautf8 exception ([dbdce3e](https://github.com/aimuzov/LazyVimx/commit/dbdce3e)), closes [#18](https://github.com/aimuzov/LazyVimx/issues/18)
