@@ -1,4 +1,4 @@
-local blend = require("lazyvimx.util.color").blend
+local blend = require("lazyvimx.util.general").color_blend
 
 local override_highlights = function(hl, c)
 	hl.AlphaFooter = { fg = c.fg }
@@ -53,24 +53,27 @@ return {
 			on_highlights = override_highlights,
 			cache = false,
 		},
-	},
 
-	{
-		"catppuccin/nvim",
-		enabled = function()
-			return require("lazyvimx.util.extra").has("core.colorscheme")
-		end,
-	},
+		specs = {
+			{
+				"nvim-lualine/lualine.nvim",
+				dependencies = { { "folke/tokyonight.nvim", optional = true } },
+				optional = true,
 
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { { "folke/tokyonight.nvim", optional = true } },
-		optional = true,
+				opts = function(_, opts)
+					if vim.g.colors_name:find("tokyonight", 1, true) then
+						opts.options.theme = vim.g.colors_name
+					end
 
-		opts = function(_, opts)
-			if LazyVim.has("tokyonight.nvim") then
-				opts.options.theme = "tokyonight"
-			end
-		end,
+					vim.api.nvim_create_autocmd("ColorScheme", {
+						desc = "Setup lualine theme after colorscheme changed",
+						pattern = "tokyonight*",
+						callback = vim.schedule_wrap(function(data)
+							require("lualine").setup({ options = { theme = data.match } })
+						end),
+					})
+				end,
+			},
+		},
 	},
 }

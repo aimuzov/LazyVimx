@@ -11,6 +11,14 @@ local function open_yazi()
 	})
 end
 
+function tab_rename()
+	local tab_name = vim.fn.input("tab name: ")
+
+	if tab_name ~= "" then
+		vim.cmd("BufferLineTabRename " .. tab_name)
+	end
+end
+
 local function create(plugin_name, keys, opts)
 	local info = {
 		plugin_name,
@@ -78,7 +86,7 @@ return {
 	}),
 
 	create("akinsho/bufferline.nvim", {
-		{ "<leader><tab>r", { require("lazyvimx.util.tab").rename }, desc = "Rename tab" },
+		{ "<leader><tab>r", { tab_rename }, desc = "Rename tab" },
 		{ "<leader>bg", "BufferLinePick", mode = { "n", "v" }, desc = "Pick Buffer" },
 		{ "<leader>bm[", "BufferLineMoveNextRepeatable", desc = "Move buffer (prev)" },
 		{ "<leader>bm]", "BufferLineMovePrevRepeatable", desc = "Move buffer (next)" },

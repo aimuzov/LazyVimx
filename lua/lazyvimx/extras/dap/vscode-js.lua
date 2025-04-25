@@ -4,15 +4,8 @@ return {
 	{
 		"mxsdev/nvim-dap-vscode-js",
 
-		enabled = function()
-			local extra_name = "dap.core"
-
-			if not LazyVim.has_extra(extra_name) then
-				require("lazyvimx.util.extra").notify_missing(extra_name, true)
-				return false
-			end
-
-			return true
+		cond = function()
+			return LazyVim.has_extra("dap.core")
 		end,
 
 		dependencies = {
@@ -27,6 +20,11 @@ return {
 			debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
 			adapters = { "pwa-chrome", "pwa-node" },
 		},
+	},
+
+	{
+		"folke/snacks.nvim",
+		opts = require("lazyvimx.util.general").warn_missing_extra("dap.core"),
 	},
 
 	{

@@ -1,45 +1,34 @@
-local vimopts = {
-	autochdir = false,
-	swapfile = false,
-	backup = true,
-	backupdir = vim.fn.getenv("HOME") .. "/.local/state/nvim/backup/",
-	smoothscroll = true,
-	conceallevel = 2,
-
-	expandtab = false,
-	smarttab = true,
-	shiftwidth = 4,
-	tabstop = 4,
-	softtabstop = 4,
-	autoindent = true,
-
-	pumblend = 15,
-	winblend = 5,
-
-	timeout = true,
-	timeoutlen = 500,
-	ttimeoutlen = 0,
-	showmode = false,
-
-	showbreak = "↪",
-	listchars = { eol = " ", space = " ", tab = "  " },
-	fillchars = { diff = " ", eob = " " },
-
-	spelllang = "",
-	shell = vim.fn.getenv("SHELL"),
-}
-
 return {
 	"LazyVim/LazyVim",
-	opts = function()
-		for opt_name, opt_value in pairs(vimopts) do
-			local ok, _ = pcall(vim.api.nvim_get_option_info2, opt_name, {})
 
-			if ok then
-				vim.opt[opt_name] = opt_value
-			else
-				vim.notify("Option " .. opt_name .. " is not supported", vim.log.levels.WARN)
-			end
-		end
+	opts = function()
+		vim.o.autochdir = false
+		vim.o.swapfile = false
+		vim.o.backup = true
+		vim.o.backupdir = vim.fn.getenv("HOME") .. "/.local/state/nvim/backup/"
+		vim.o.smoothscroll = true
+		vim.o.conceallevel = 2
+
+		vim.o.expandtab = false
+		vim.o.smarttab = true
+		vim.o.shiftwidth = 4
+		vim.o.tabstop = 4
+		vim.o.softtabstop = 4
+		vim.o.autoindent = true
+
+		vim.o.pumblend = 15
+		vim.o.winblend = 5
+
+		vim.o.timeout = true
+		vim.o.timeoutlen = 500
+		vim.o.ttimeoutlen = 0
+		vim.o.showmode = false
+
+		vim.o.showbreak = "↪"
+		vim.opt.listchars = { eol = " ", space = " ", tab = "  " }
+		vim.opt.fillchars:append({ diff = " ", eob = " " })
+
+		vim.o.spelllang = ""
+		vim.o.shell = vim.fn.getenv("SHELL")
 	end,
 }

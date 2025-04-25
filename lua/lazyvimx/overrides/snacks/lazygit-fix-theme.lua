@@ -1,5 +1,5 @@
 local function get_env_var_cfg()
-	local theme = require("lazyvimx.util.system").theme_is_dark() and "dark" or "light"
+	local theme = require("lazyvimx.util.general").theme_is_dark() and "dark" or "light"
 	local cfg_dir = vim.fn.getenv("HOME") .. "/.config/lazygit"
 	local env_var_cfg = cfg_dir .. "/config.yml"
 
@@ -24,10 +24,12 @@ local function override_terminal_open()
 	local open_original = Snacks.lazygit.open
 
 	Snacks.lazygit.open = function(opts)
-		opts = vim.tbl_deep_extend("force", opts, {
-			configure = false,
-			env = { ["LG_CONFIG_FILE"] = get_env_var_cfg() },
-		})
+		if vim.g.colors_name:find("catppuccin", 1, true) then
+			opts = vim.tbl_deep_extend("force", opts, {
+				configure = false,
+				env = { ["LG_CONFIG_FILE"] = get_env_var_cfg() },
+			})
+		end
 
 		open_original(opts)
 	end

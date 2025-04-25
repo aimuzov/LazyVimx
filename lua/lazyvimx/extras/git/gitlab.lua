@@ -28,14 +28,8 @@ return {
 	},
 
 	{
-		"harrisoncramer/gitlab.nvim",
-		opts = function()
-			local util_extra = require("lazyvimx.util.extra")
-			local extra_name = "ui.diff-view"
-
-			if not util_extra.has(extra_name) then
-				util_extra.notify_missing(extra_name)
-			end
-		end,
+		"folke/snacks.nvim",
+		optional = true,
+		opts = require("lazyvimx.util.general").warn_missing_extra("ui.diff-view"),
 	},
 }

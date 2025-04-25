@@ -1,11 +1,11 @@
 local M = {}
 
 local defaults = {
-	colorscheme = {
-		households = {
-			catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-			tokyonight = { "tokyonight-storm", "tokyonight-day" },
-		},
+	colorscheme = "catppuccin",
+
+	colorscheme_flavors = {
+		catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
+		tokyonight = { "tokyonight-storm", "tokyonight-day" },
 	},
 
 	bufferline_groups = {
