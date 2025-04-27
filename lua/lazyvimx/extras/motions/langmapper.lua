@@ -1,3 +1,5 @@
+-- https://github.com/Wansmer/langmapper.nvim/issues/45#issuecomment-2804378168
+
 local function langmap_set()
 	local escape = function(str)
 		local escape_chars = [[;,."|\]]
@@ -36,20 +38,6 @@ local function getcharstr_hack()
 	end
 
 	vim.fn.getcharstr = getcharstr_override
-end
-
-local function whichkey_setup()
-	local lmu = require("langmapper.utils")
-	local state = require("which-key.state")
-	local check_orig = state.check
-
-	state.check = function(state, key)
-		if key ~= nil then
-			key = lmu.translate_keycode(key, "default", "ru")
-		end
-
-		return check_orig(state, key)
-	end
 end
 
 local function langmapper_automapping_on_start()
@@ -97,8 +85,34 @@ return {
 
 	{
 		"folke/which-key.nvim",
-		dependencies = { "Wansmer/langmapper.nvim" },
-		lazy = false,
-		opts = whichkey_setup,
+		optional = true,
+
+		opts = function(_, opts)
+			local translate_key = require("langmapper.utils").translate_keycode
+
+			opts.filter = function(mapping)
+				return mapping.lhs
+					and mapping.lhs == translate_key(mapping.lhs, "default", "ru")
+					and mapping.desc
+					and mapping.desc:find("LM") == nil
+			end
+		end,
+	},
+
+	{
+		"folke/snacks.nvim",
+		optional = true,
+		opts = function(_, _)
+			local translate_key = require("langmapper.utils").translate_keycode
+			local normkey_orig = Snacks.util.normkey
+
+			Snacks.util.normkey = function(key)
+				if key then
+					key = translate_key(key, "default", "ru")
+				end
+
+				return normkey_orig(key)
+			end
+		end,
 	},
 }
