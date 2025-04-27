@@ -19,7 +19,7 @@ return {
 
 			file_selector = { provider = "snacks" },
 
-			hints = { enabled = true },
+			hints = { enabled = false },
 
 			windows = {
 				sidebar_header = { align = "left", rounded = false },
