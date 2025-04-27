@@ -1,5 +1,13 @@
 # Changelog
 
+## <small>0.2.3 (2025-04-27)</small>
+
+* fix(ai): disable hints for avante ([177e2f5](https://github.com/aimuzov/LazyVimx/commit/177e2f5)), closes [#29](https://github.com/aimuzov/LazyVimx/issues/29)
+* fix(motions): fix H & L keymaps (langmapper problem) ([2a57b9c](https://github.com/aimuzov/LazyVimx/commit/2a57b9c)), closes [#31](https://github.com/aimuzov/LazyVimx/issues/31)
+* fix(motions): fix moving for cyrillic (spider) ([d61f8db](https://github.com/aimuzov/LazyVimx/commit/d61f8db)), closes [#32](https://github.com/aimuzov/LazyVimx/issues/32)
+* fix(motions): improve langmapper conf (add snacks setup) ([011848e](https://github.com/aimuzov/LazyVimx/commit/011848e)), closes [#33](https://github.com/aimuzov/LazyVimx/issues/33)
+* feat(buf): add groups ([08186c9](https://github.com/aimuzov/LazyVimx/commit/08186c9)), closes [#29](https://github.com/aimuzov/LazyVimx/issues/29)
+
 ## <small>0.2.2 (2025-04-25)</small>
 
 * fix(colorschemes): some fixes for catppuccin & tokyonight ([b908ad7](https://github.com/aimuzov/LazyVimx/commit/b908ad7)), closes [#28](https://github.com/aimuzov/LazyVimx/issues/28)

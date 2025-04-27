@@ -90,6 +90,8 @@ return {
 		{ "<leader>bg", "BufferLinePick", mode = { "n", "v" }, desc = "Pick Buffer" },
 		{ "<leader>bm[", "BufferLineMoveNextRepeatable", desc = "Move buffer (prev)" },
 		{ "<leader>bm]", "BufferLineMovePrevRepeatable", desc = "Move buffer (next)" },
+		{ "H", "BufferLineCyclePrev" },
+		{ "L", "BufferLineCycleNext" },
 	}),
 
 	create("chrisgrieser/nvim-spider", {
