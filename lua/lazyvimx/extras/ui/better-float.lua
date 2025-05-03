@@ -75,7 +75,7 @@ return {
 			lazygit = {
 				win = {
 					border = "none",
-					height = 0.95,
+					height = 0.96,
 					width = 0,
 				},
 			},
