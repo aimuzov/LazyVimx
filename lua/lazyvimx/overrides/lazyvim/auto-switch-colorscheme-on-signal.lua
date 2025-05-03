@@ -1,3 +1,7 @@
+if vim.g.vscode then
+	return {}
+end
+
 local function colorscheme_update()
 	vim.cmd.colorscheme(require("lazyvimx.util.general").get_flavor())
 end
