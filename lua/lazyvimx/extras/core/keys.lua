@@ -1,16 +1,5 @@
 local layout = require("lazyvimx.util.layout")
 
-local function open_yazi()
-	Snacks.terminal("yazi", {
-		win = {
-			border = "none",
-			height = 0,
-			width = 0,
-			wo = { winblend = 0 },
-		},
-	})
-end
-
 function tab_rename()
 	local tab_name = vim.fn.input("tab name: ")
 
@@ -48,7 +37,6 @@ return {
 	create("LazyVim/LazyVim", {
 		{ "<leader>\\", { "<c-w>v" }, desc = "Split window right" },
 		{ "<leader>ch", "lua Snacks.terminal.open('cht.sh --shell')", desc = "Open shell (cht.sh)" },
-		{ "<leader>fy", { open_yazi }, desc = "Find files (yazi)" },
 		{ "<leader>ll", "Lazy", desc = "Open popup with lazy dashboard" },
 		{ "<leader>lx", "LazyExtras", desc = "Open popup with lazy extras" },
 
@@ -63,6 +51,11 @@ return {
 		{ "<c-s-k>", { "<esc><cmd>m .-2<cr>==gi" },	desc = "Move up", mode = { "i" } },
 		{ "<c-s-k>", { "<cmd>m .-2<cr>==" },		desc = "Move up", mode = { "n" } },
 		-- stylua: ignore end
+	}),
+
+	create("mikavilpas/yazi.nvim", {
+		{ "<leader>fy", "Yazi", desc = "Find files (yazi)" },
+		{ "<leader>fY", "Yazi toggle", desc = "Find files (yazi prev session)" },
 	}),
 
 	create("dnlhc/glance.nvim", {
