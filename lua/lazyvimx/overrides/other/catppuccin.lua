@@ -182,7 +182,6 @@ local override_light = function(c)
 		IlluminatedWordWrite = { bg = blend(c.base, c.sapphire, 10) },
 		NeoTreeFloatBorder = { fg = blend(c.base, c.text, 20) },
 		NeoTreeIndentMarker = { fg = c.surface0 },
-		SatelliteBar = { bg = c.crust, blend = 15 },
 		SymbolUsageContent = { fg = c.surface0 },
 		TinyInlineDiagnosticVirtualTextError = { bg = blend(c.base, c.red, 10) },
 		TinyInlineDiagnosticVirtualTextWarn = { bg = blend(c.base, c.yellow, 10) },
