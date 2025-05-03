@@ -24,7 +24,6 @@ return {
 	{ import = "lazyvimx.extras.perf.improve-your-keymap-skill" },
 	{ import = "lazyvimx.extras.perf.local-config" },
 	{ import = "lazyvimx.extras.perf.stop-inactive-lsp" },
-	{ import = "lazyvimx.extras.perf.stop-treesitter-on-large-file" },
 	{ import = "lazyvimx.extras.test.jest" },
 	{ import = "lazyvimx.extras.ui.better-colorcolumn" },
 	{ import = "lazyvimx.extras.ui.better-cursorline" },
