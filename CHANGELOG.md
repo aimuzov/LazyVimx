@@ -1,5 +1,16 @@
 # Changelog
 
+## <small>0.2.4 (2025-05-04)</small>
+
+* fix(perf): remove useless extra ([0c7f2b5](https://github.com/aimuzov/LazyVimx/commit/0c7f2b5)), closes [#34](https://github.com/aimuzov/LazyVimx/issues/34)
+* fix(ui): change words highlights ([6bef7a4](https://github.com/aimuzov/LazyVimx/commit/6bef7a4)), closes [#36](https://github.com/aimuzov/LazyVimx/issues/36)
+* fix(ui): improve vscode integration ([2437e08](https://github.com/aimuzov/LazyVimx/commit/2437e08)), closes [#39](https://github.com/aimuzov/LazyVimx/issues/39)
+* fix(ui): migrate to new config (whitespaces) ([d309ef4](https://github.com/aimuzov/LazyVimx/commit/d309ef4)), closes [#37](https://github.com/aimuzov/LazyVimx/issues/37)
+* fix(ui): replace scrollbar plugin ([9c96d6c](https://github.com/aimuzov/LazyVimx/commit/9c96d6c)), closes [#35](https://github.com/aimuzov/LazyVimx/issues/35)
+* fix(ui): simplify simple mode :) ([1bb13cd](https://github.com/aimuzov/LazyVimx/commit/1bb13cd)), closes [#40](https://github.com/aimuzov/LazyVimx/issues/40)
+* fix(ui): small fixes ([7b6a9ed](https://github.com/aimuzov/LazyVimx/commit/7b6a9ed))
+* feat(ui): add plugin for yazi ([9df53da](https://github.com/aimuzov/LazyVimx/commit/9df53da)), closes [#38](https://github.com/aimuzov/LazyVimx/issues/38)
+
 ## <small>0.2.3 (2025-04-27)</small>
 
 * fix(ai): disable hints for avante ([177e2f5](https://github.com/aimuzov/LazyVimx/commit/177e2f5)), closes [#29](https://github.com/aimuzov/LazyVimx/issues/29)
