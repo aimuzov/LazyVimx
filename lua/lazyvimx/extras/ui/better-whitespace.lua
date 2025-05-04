@@ -1,3 +1,11 @@
+local disabled_ft = {
+	"Avante",
+	"lazy",
+	"mason",
+	"neo-tree",
+	"snacks_terminal",
+}
+
 return {
 	{
 		"mcauley-penney/visual-whitespace.nvim",
@@ -13,12 +21,7 @@ return {
 				nbsp = "␣",
 			},
 			ignore = {
-				filetypes = {
-					"neo-tree",
-					"mason",
-					"lazy",
-					"snacks_terminal",
-				},
+				filetypes = disabled_ft,
 			},
 		},
 	},

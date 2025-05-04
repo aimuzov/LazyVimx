@@ -4,12 +4,13 @@ local colors_get = function(flavor)
 	return require("catppuccin.palettes").get_palette(flavor)
 end
 
+---@type CtpHighlightOverrideFn
 local override_all = function(c)
 	return {
 		AvanteSidebarWinSeparator = { link = "WinSeparator" },
 		AvanteSidebarWinHorizontalSeparator = { fg = c.surface1 },
 		AvantePromptInputBorder = { link = "FloatBorder" },
-		AerialLine = { fg = "none", bg = c.crust },
+		AerialLine = { fg = c.none, bg = c.crust },
 		AlphaFooter = { fg = c.surface1, style = {} },
 		AlphaHeader1 = { fg = c.surface2 },
 		AlphaHeader2 = { fg = blend(c.base, c.blue, 5) },
@@ -24,7 +25,7 @@ local override_all = function(c)
 		BufferLineCustomGroupLabel = { bg = c.mantle, fg = c.text, style = { "bold" } },
 		BufferLineCustomGroupSep = { bg = c.mantle, fg = c.maroon },
 		ChatGPTQuestion = { fg = c.mauve },
-		ChatGPTTotalTokens = { bg = "none", fg = c.overlay2 },
+		ChatGPTTotalTokens = { bg = c.none, fg = c.overlay2 },
 		ChatGPTTotalTokensBorder = { fg = c.text },
 		BlinkCmpDoc = { bg = c.mantle, blend = 15 },
 		BlinkCmpDocSeparator = { fg = blend(c.mantle, c.text, 10) },
@@ -33,7 +34,7 @@ local override_all = function(c)
 		DiffviewNormal = { bg = c.mantle },
 		DiffviewWinSeparator = { link = "NeoTreeWinSeparator" },
 		EdgyNormal = { link = "NormalFloat" },
-		EdgyTitle = { bg = "none", fg = c.text },
+		EdgyTitle = { bg = c.none, fg = c.text },
 		FlashBackdrop = { fg = blend(c.base, c.blue, 35) },
 		FlashPrompt = { bg = c.crust },
 		FlashPromptSep = { fg = blend(c.crust, c.text, 50) },
@@ -69,8 +70,10 @@ local override_all = function(c)
 		GlanceWinBarFilepath = { link = "GlanceWinBarTitle" },
 		GlanceWinBarTitle = { fg = c.overlay0, bg = blend(c.base, c.crust, 50), style = { "bold" } },
 		LazyReasonKeys = { fg = c.overlay0 },
-		LspInlayHint = { bg = "none" },
-		LspReferenceRead = { bg = "none", fg = c.yellow, style = { "bold" } },
+		LspInlayHint = { bg = c.none },
+		LspReferenceText = { bg = c.none, fg = c.rosewater, style = { "bold" } },
+		LspReferenceRead = { bg = c.none, fg = c.rosewater, style = { "bold" } },
+		LspReferenceWrite = { bg = c.none, fg = c.rosewater, style = { "bold", "underline" } },
 		LineNr = { fg = c.surface2 },
 		MiniIconsAzure = { fg = blend(c.sapphire, c.mantle, 25) },
 		MiniIconsBlue = { fg = blend(c.blue, c.mantle, 25) },
@@ -111,6 +114,7 @@ local override_all = function(c)
 		PmenuSel = { bg = blend(c.crust, c.surface2, 50) },
 		PmenuThumb = { bg = blend(c.crust, c.surface2, 40) },
 		SnacksIndent = { fg = blend(c.base, c.text, 5) },
+		SnacksStatusColumnMark = { fg = c.mauve, style = { "bold" } },
 		SnacksPickerInputCursorLine = { bg = c.base },
 		SnacksIndentScope = { fg = blend(c.base, c.text, 15) },
 		SnacksNotifierBorderDebug = { fg = blend(c.base, c.peach, 30) },
@@ -134,7 +138,7 @@ local override_all = function(c)
 		TreesitterContext = { bg = c.base, blend = 10 },
 		TreesitterContextBottom = { fg = c.surface2, blend = 0 },
 		TreesitterContextLineNumber = { link = "LineNr" },
-		TroubleCount = { bg = "none" },
+		TroubleCount = { bg = c.none },
 		TroubleIndent = { fg = blend(c.base, c.text, 15) },
 		TroubleNormal = { link = "NormalFloat" },
 		Visual = { style = {} },
@@ -144,6 +148,7 @@ local override_all = function(c)
 	}
 end
 
+---@type CtpHighlightOverrideFn
 local override_dark = function(c)
 	return {
 		AerialGuide = { fg = c.surface0 },
@@ -166,6 +171,7 @@ local override_dark = function(c)
 	}
 end
 
+---@type CtpHighlightOverrideFn
 local override_light = function(c)
 	return {
 		AerialGuide = { fg = c.crust },
@@ -176,7 +182,6 @@ local override_light = function(c)
 		IlluminatedWordWrite = { bg = blend(c.base, c.sapphire, 10) },
 		NeoTreeFloatBorder = { fg = blend(c.base, c.text, 20) },
 		NeoTreeIndentMarker = { fg = c.surface0 },
-		SatelliteBar = { bg = c.crust, blend = 15 },
 		SymbolUsageContent = { fg = c.surface0 },
 		TinyInlineDiagnosticVirtualTextError = { bg = blend(c.base, c.red, 10) },
 		TinyInlineDiagnosticVirtualTextWarn = { bg = blend(c.base, c.yellow, 10) },
@@ -188,6 +193,7 @@ local override_light = function(c)
 	}
 end
 
+---@type CtpHighlightOverrideFn
 local override_bufferline_hls = function(c)
 	local hls = {
 		fill = { bg = c.mantle },

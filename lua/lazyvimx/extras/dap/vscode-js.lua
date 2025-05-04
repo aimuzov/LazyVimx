@@ -5,7 +5,7 @@ return {
 		"mxsdev/nvim-dap-vscode-js",
 
 		cond = function()
-			return LazyVim.has_extra("dap.core")
+			return not vim.g.vscode and LazyVim.has_extra("dap.core")
 		end,
 
 		dependencies = {
