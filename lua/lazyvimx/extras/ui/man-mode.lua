@@ -4,7 +4,7 @@ end
 
 local function is_simple_mode()
 	for _, arg in pairs(vim.v.argv) do
-		if arg == "+Man!" or arg:find("COMMIT_EDITMSG", 1, true) then
+		if arg == "+Man!" or arg:find(".git/", 1, true) then
 			return true
 		end
 	end
