@@ -1,5 +1,9 @@
 # Changelog
 
+## <small>0.2.5 (2025-05-04)</small>
+
+* fix(ui): fix again simple mode ([dc999cf](https://github.com/aimuzov/LazyVimx/commit/dc999cf)), closes [#40](https://github.com/aimuzov/LazyVimx/issues/40)
+
 ## <small>0.2.4 (2025-05-04)</small>
 
 * fix(perf): remove useless extra ([0c7f2b5](https://github.com/aimuzov/LazyVimx/commit/0c7f2b5)), closes [#34](https://github.com/aimuzov/LazyVimx/issues/34)
