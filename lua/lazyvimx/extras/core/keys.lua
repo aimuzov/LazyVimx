@@ -186,6 +186,14 @@ return {
 		{ "<C-,>", "lua require('sibling-swap').swap_with_left()", desc = "Move sibling node to left" },
 	}, { use_default_keymaps = false }),
 
+	create("Wansmer/treesj", {
+		{ "<leader>ct", "lua require('treesj').toggle()", desc = "Split or Join code block with autodetect" },
+		{ "<leader>c\\", "lua require('treesj').split()", desc = "Split code block" },
+		{ "<leader>cj", "lua require('treesj').join()", desc = "Join code block" },
+	}, function(_, opts)
+		opts.use_default_keymaps = false
+	end),
+
 	create("aaronik/treewalker.nvim", {
 		{ "<c-a-l>", "Treewalker Right" },
 		{ "<c-a-h>", "Treewalker Left" },

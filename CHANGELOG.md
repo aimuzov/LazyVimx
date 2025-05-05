@@ -1,5 +1,9 @@
 # Changelog
 
+## <small>0.2.6 (2025-05-05)</small>
+
+* fix(motions): add extra for splitting/joining blocks ([a027015](https://github.com/aimuzov/LazyVimx/commit/a027015)), closes [#41](https://github.com/aimuzov/LazyVimx/issues/41)
+
 ## <small>0.2.5 (2025-05-04)</small>
 
 * fix(ui): fix again simple mode ([dc999cf](https://github.com/aimuzov/LazyVimx/commit/dc999cf)), closes [#40](https://github.com/aimuzov/LazyVimx/issues/40)
