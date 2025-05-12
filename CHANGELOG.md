@@ -1,5 +1,11 @@
 # Changelog
 
+## <small>0.2.7 (2025-05-12)</small>
+
+* fix(mason): temporarily downgrade to v1 ([ce88db5](https://github.com/aimuzov/LazyVimx/commit/ce88db5))
+* fix(ui): fix simple mode ([76c9523](https://github.com/aimuzov/LazyVimx/commit/76c9523))
+* fix(vscode): enable some plugins for motions ([1a06706](https://github.com/aimuzov/LazyVimx/commit/1a06706))
+
 ## <small>0.2.6 (2025-05-05)</small>
 
 * fix(motions): add extra for splitting/joining blocks ([a027015](https://github.com/aimuzov/LazyVimx/commit/a027015)), closes [#41](https://github.com/aimuzov/LazyVimx/issues/41)
