@@ -1,5 +1,10 @@
 # Changelog
 
+## <small>0.2.8 (2025-05-12)</small>
+
+* fix(ui): fix broken higlight for visual whitespace ([72480dd](https://github.com/aimuzov/LazyVimx/commit/72480dd))
+* chore: remove useless table ([077359e](https://github.com/aimuzov/LazyVimx/commit/077359e))
+
 ## <small>0.2.7 (2025-05-12)</small>
 
 * fix(mason): temporarily downgrade to v1 ([ce88db5](https://github.com/aimuzov/LazyVimx/commit/ce88db5))
