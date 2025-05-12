@@ -4,7 +4,7 @@ end
 
 local function is_simple_mode()
 	for _, arg in pairs(vim.v.argv) do
-		if arg == "+Man!" or arg:find(".git/", 1, true) then
+		if arg == "+Man!" or vim.fn.filereadable(arg) == 1 then
 			return true
 		end
 	end

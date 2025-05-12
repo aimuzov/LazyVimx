@@ -38,7 +38,7 @@ return {
 	{ import = "lazyvimx.extras.ui.highlighted-ansi-escape" },
 	{ import = "lazyvimx.extras.ui.highlighted-colors" },
 	{ import = "lazyvimx.extras.ui.diff-view" },
-	{ import = "lazyvimx.extras.ui.man-mode" },
+	{ import = "lazyvimx.extras.ui.simple-mode" },
 	{ import = "lazyvimx.extras.ui.peek-preview" },
 	{ import = "lazyvimx.extras.ui.scrollbar" },
 	{ import = "lazyvimx.extras.ui.symbol-usage" },
