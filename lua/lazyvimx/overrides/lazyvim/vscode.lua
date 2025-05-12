@@ -24,6 +24,7 @@ return {
 		keys = {
 			{ "<leader>l", "<nop>" },
 			{ "<leader>qq", "<nop>" },
+			{ "<leader>cr", "<cmd>lua require('vscode').action('editor.action.rename')<cr>" },
 		},
 	},
 
