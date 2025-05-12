@@ -13,7 +13,7 @@ return {
 		event = "ModeChanged *:[vV\22]",
 
 		opts = {
-			highlight = { link = "VisualWhitespace" },
+			highlight = { link = "VisualWhitespace", force = true },
 			fileformat_chars = { unix = "↩" },
 			list_chars = {
 				space = "·",
