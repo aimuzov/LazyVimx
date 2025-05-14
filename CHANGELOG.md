@@ -1,5 +1,10 @@
 # Changelog
 
+## <small>0.2.9 (2025-05-14)</small>
+
+* fix(boot): fix overriding vim.g.root_lsp_ignore ([3caf576](https://github.com/aimuzov/LazyVimx/commit/3caf576))
+* fix(perf): rename mason ([6d39034](https://github.com/aimuzov/LazyVimx/commit/6d39034))
+
 ## <small>0.2.8 (2025-05-12)</small>
 
 * fix(ui): fix broken higlight for visual whitespace ([72480dd](https://github.com/aimuzov/LazyVimx/commit/72480dd))
