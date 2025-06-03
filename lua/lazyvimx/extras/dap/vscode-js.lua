@@ -11,8 +11,7 @@ return {
 		dependencies = {
 			{
 				"microsoft/vscode-js-debug",
-				version = "1.x",
-				build = "npm install && npx gulp vsDebugServerBundle && mv dist out",
+				build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out && git restore .",
 			},
 		},
 
@@ -29,6 +28,7 @@ return {
 
 	{
 		"mfussenegger/nvim-dap",
+		commit = "7ff6936",
 		optional = true,
 		dependencies = {
 			"rcarriga/nvim-dap-ui",
