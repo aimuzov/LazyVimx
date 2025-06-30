@@ -5,7 +5,7 @@ local function dec2hex(n_value)
 		n_value = tonumber(n_value)
 	end
 
-	local n_hex_val = string.format("%X", n_value) -- %X returns uppercase hex, %x gives lowercase letters
+	local n_hex_val = string.format("%X", n_value)
 	local s_hex_val = n_hex_val .. ""
 
 	if n_value < 16 then
