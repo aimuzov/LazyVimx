@@ -1,5 +1,15 @@
 # Changelog
 
+## <small>0.2.10 (2025-06-30)</small>
+
+* fix(ai): migrate to new ver of avante ([cf2def5](https://github.com/aimuzov/LazyVimx/commit/cf2def5))
+* fix(dap): fix vscode debugger ([93650fb](https://github.com/aimuzov/LazyVimx/commit/93650fb))
+* fix(git): remove unused prop ([96967b3](https://github.com/aimuzov/LazyVimx/commit/96967b3))
+* fix(perf): remove hardtime ([e65fa6d](https://github.com/aimuzov/LazyVimx/commit/e65fa6d))
+* fix(ui): disable simple mode for opening nvim with args (filepath) ([b5e9b71](https://github.com/aimuzov/LazyVimx/commit/b5e9b71))
+* fix(vscode): disable lazygit theming ([4b4e5f6](https://github.com/aimuzov/LazyVimx/commit/4b4e5f6))
+* chore: remove comment ([1eb39ea](https://github.com/aimuzov/LazyVimx/commit/1eb39ea))
+
 ## <small>0.2.9 (2025-05-14)</small>
 
 * fix(boot): fix overriding vim.g.root_lsp_ignore ([3caf576](https://github.com/aimuzov/LazyVimx/commit/3caf576))
