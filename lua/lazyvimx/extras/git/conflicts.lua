@@ -15,8 +15,6 @@ return {
 		local notifier_detected = throttle(interval, notifier_create("detected", vim.log.levels.WARN))
 		local notifier_resolved = throttle(interval, notifier_create("resolved", vim.log.levels.INFO))
 
-		opts.disable_diagnostics = true
-
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "GitConflictDetected",
 			callback = notifier_detected,
