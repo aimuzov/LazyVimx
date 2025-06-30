@@ -154,29 +154,6 @@ return {
 		{ "<F12>", "require('dap').step_out()", desc = "Step out" },
 	}),
 
-	create("m4xshen/hardtime.nvim", {}, function()
-		-- https://github.com/m4xshen/hardtime.nvim/issues/31
-		-- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua#L8-L11
-		-- stylua: ignore start
-		vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
-		vim.keymap.set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
-		vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
-		vim.keymap.set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
-		-- stylua: ignore end
-
-		local hardtime = require("hardtime")
-
-		Snacks.toggle
-			.new({
-				name = "Hard time",
-				-- stylua: ignore start
-				get = function() return hardtime.is_plugin_enabled end,
-				set = function() hardtime.toggle() end,
-				-- stylua: ignore end
-			})
-			:map("<leader>uH")
-	end),
-
 	create("olrtg/nvim-emmet", {
 		{ "<leader>cw", "EmmetWrap", desc = "Wrap with emmet abbreviation", mode = { "n", "v" } },
 	}),
