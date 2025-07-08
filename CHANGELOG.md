@@ -1,5 +1,9 @@
 # Changelog
 
+## <small>0.2.12 (2025-07-08)</small>
+
+* fix: fix vimopts (again) ([0366c22](https://github.com/aimuzov/LazyVimx/commit/0366c22))
+
 ## <small>0.2.11 (2025-07-08)</small>
 
 * fix: fix overriding default vim.opts ([c28dd08](https://github.com/aimuzov/LazyVimx/commit/c28dd08)), closes [#42](https://github.com/aimuzov/LazyVimx/issues/42)
