@@ -1,5 +1,9 @@
 # Changelog
 
+## <small>0.2.11 (2025-07-08)</small>
+
+* fix: fix overriding default vim.opts ([c28dd08](https://github.com/aimuzov/LazyVimx/commit/c28dd08)), closes [#42](https://github.com/aimuzov/LazyVimx/issues/42)
+
 ## <small>0.2.10 (2025-06-30)</small>
 
 * fix(ai): migrate to new ver of avante ([cf2def5](https://github.com/aimuzov/LazyVimx/commit/cf2def5))
