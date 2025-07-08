@@ -18,7 +18,7 @@ local function set_global()
 	return false
 end
 
-local function set_vimopts()
+local function vimopts_set_values()
 	vim.o.autochdir = false
 	vim.o.swapfile = false
 	vim.o.backup = true
@@ -47,20 +47,26 @@ local function set_vimopts()
 
 	vim.o.spelllang = ""
 	vim.o.shell = vim.fn.getenv("SHELL")
+end
 
-	return false
+local function vimopts_create_autocmd()
+	vim.api.nvim_create_autocmd("User", {
+		pattern = "LazyVimOptionsDefaults",
+		once = true,
+		callback = vimopts_set_values,
+	})
 end
 
 local function update_root_lsp_ignore()
 	vim.g.root_lsp_ignore = {
-		unpack(vim.g.root_lsp_ignore),
+		unpack(vim.g.root_lsp_ignore or {}),
 		"eslint",
 	}
 end
 
 return {
-	{ import = "system.plug", enabled = set_vimopts },
 	{ import = "system.plug", enabled = set_global },
+	{ import = "system.plug", enabled = vimopts_create_autocmd },
 
 	{ "LazyVim/LazyVim", opts = update_root_lsp_ignore },
 	{ "LazyVim/LazyVim", opts = insert_extras },

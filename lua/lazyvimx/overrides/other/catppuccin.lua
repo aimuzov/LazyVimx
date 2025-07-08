@@ -314,7 +314,7 @@ return {
 				optional = true,
 
 				opts = function(_, opts)
-					if not vim.g.colors_name:find("catppuccin", 1, true) then
+					if vim.g.colors_name and not vim.g.colors_name:find("catppuccin", 1, true) then
 						return
 					end
 
