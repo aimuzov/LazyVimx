@@ -4,7 +4,7 @@ function tab_rename()
 	local tab_name = vim.fn.input("tab name: ")
 
 	if tab_name ~= "" then
-		vim.cmd("BufferLineTabRename " .. tab_name)
+		vim.api.nvim_tabpage_set_var(0, "name", tab_name)
 	end
 end
 
