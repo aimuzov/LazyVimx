@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.3.0](https://github.com/aimuzov/LazyVimx/compare/v0.2.12...v0.3.0) (2025-07-27)
+
+### Features
+
+* **ui:** replace alpha by snacks (dashboard) ([87303b8](https://github.com/aimuzov/LazyVimx/commit/87303b841ec93c4a9829616de445ec601f3a5bed))
+
+### Bug Fixes
+
+* fix changelog ([f9dfb44](https://github.com/aimuzov/LazyVimx/commit/f9dfb4446439b50ba5a6023f7ca8909b75801454))
+* **keys:** fix keymaps for neotree (split, vsplit) ([38c5eae](https://github.com/aimuzov/LazyVimx/commit/38c5eae2c7ab5b06ce14dc42e7650b03a6ff7b15))
+* **keys:** replace bufferline api by native (tab rename) ([8658dc1](https://github.com/aimuzov/LazyVimx/commit/8658dc11e22574e10ddebcdd8a7f2a1bb668a36d))
+* **perf:** disable notices from local nvim config ([772e22b](https://github.com/aimuzov/LazyVimx/commit/772e22b1d2976d0bd77c1a6bc53379418c6dfb6b))
+* **ui:** fix highlight for float title ([65c4f41](https://github.com/aimuzov/LazyVimx/commit/65c4f4164a37615d7d19e79a57b83bd66542c9a5))
+
 ## [0.2.12](https://github.com/aimuzov/LazyVimx/compare/v0.2.11...v0.2.12) (2025-07-08)
 
 ### Bug Fixes
@@ -314,4 +328,3 @@
 * **ui:** remove useless table ([54683a8](https://github.com/aimuzov/LazyVimx/commit/54683a8bbf91a4c4f9e7934fe92e5c56eab626f0))
 * **ui:** replace callback by command (autocmd for terminal) ([5ba2a4c](https://github.com/aimuzov/LazyVimx/commit/5ba2a4cef46e6f1e743b37642541258e2297663e))
 * **ui:** split config to files ([50e2533](https://github.com/aimuzov/LazyVimx/commit/50e25336d38590dac6b0c43249b0c0758f9928e3))
-
