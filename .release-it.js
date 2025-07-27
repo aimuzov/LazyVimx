@@ -10,6 +10,17 @@ module.exports = {
   npm: { publish: false },
 
   plugins: {
-    "@release-it/conventional-changelog": { infile: "CHANGELOG.md" },
+    "@release-it/conventional-changelog": {
+      infile: "CHANGELOG.md",
+      header: "# Changelog",
+      preset: {
+        name: "conventionalcommits",
+        types: [
+          { type: "feat", section: "Features" },
+          { type: "fix", section: "Bug Fixes" },
+          { type: "refactor", section: "Refactoring" },
+        ],
+      },
+    },
   },
 };
