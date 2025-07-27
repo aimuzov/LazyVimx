@@ -201,6 +201,9 @@ return {
 				window = {
 					mappings = {
 						["<c-h>"] = "toggle_hidden",
+						["<c-s>"] = "open_split",
+						["<c-v>"] = "open_vsplit",
+						["s"] = "none",
 					},
 
 					fuzzy_finder_mappings = {
