@@ -9,7 +9,6 @@ return {
 			local recommended_extras = {
 				"coding.mini-surround",
 				"coding.yanky",
-				"ui.alpha",
 				"ui.edgy",
 				"ui.treesitter-context",
 			}

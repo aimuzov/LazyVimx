@@ -11,17 +11,6 @@ local override_all = function(c)
 		AvanteSidebarWinHorizontalSeparator = { fg = c.surface1 },
 		AvantePromptInputBorder = { link = "FloatBorder" },
 		AerialLine = { fg = c.none, bg = c.crust },
-		AlphaFooter = { fg = c.surface1, style = {} },
-		AlphaHeader1 = { fg = c.surface2 },
-		AlphaHeader2 = { fg = blend(c.base, c.blue, 5) },
-		AlphaHeader3 = { fg = blend(c.base, c.sky, 5) },
-		AlphaHeader4 = { fg = blend(c.base, c.green, 5) },
-		AlphaHeader5 = { fg = blend(c.base, c.yellow, 5) },
-		AlphaHeader6 = { fg = blend(c.base, c.peach, 5) },
-		AlphaHeader7 = { fg = blend(c.base, c.red, 5) },
-		AlphaHeader8 = { fg = c.surface2 },
-		AlphaShortcut = { bg = blend(c.base, c.crust, 50), fg = blend(c.base, c.surface1, 50) },
-		AlphaShortcutBorder = { fg = blend(c.base, c.surface1, 50) },
 		BufferLineCustomGroupLabel = { bg = c.mantle, fg = c.text, style = { "bold" } },
 		BufferLineCustomGroupSep = { bg = c.mantle, fg = c.maroon },
 		ChatGPTQuestion = { fg = c.mauve },
@@ -113,15 +102,29 @@ local override_all = function(c)
 		PmenuSbar = { bg = blend(c.crust, c.surface2, 30) },
 		PmenuSel = { bg = blend(c.crust, c.surface2, 50) },
 		PmenuThumb = { bg = blend(c.crust, c.surface2, 40) },
+		SnacksDashboardBorder = { fg = blend(c.base, c.surface1, 50) },
+		SnacksDashboardDesc = { fg = c.text },
+		SnacksDashboardFooter = { fg = c.surface1, style = {} },
+		SnacksDashboardHeader1 = { fg = c.surface2 },
+		SnacksDashboardHeader2 = { fg = blend(c.base, c.blue, 5) },
+		SnacksDashboardHeader3 = { fg = blend(c.base, c.sky, 5) },
+		SnacksDashboardHeader4 = { fg = blend(c.base, c.green, 5) },
+		SnacksDashboardHeader5 = { fg = blend(c.base, c.yellow, 5) },
+		SnacksDashboardHeader6 = { fg = blend(c.base, c.peach, 5) },
+		SnacksDashboardHeader7 = { fg = blend(c.base, c.red, 5) },
+		SnacksDashboardHeader8 = { fg = c.surface2 },
+		SnacksDashboardIcon = { fg = c.yellow },
+		SnacksDashboardKey = { bg = blend(c.base, c.crust, 50), fg = blend(c.base, c.surface1, 50) },
+		SnacksDashboardSpecial = { fg = blend(c.base, c.mauve, 50), style = { "bold" } },
 		SnacksIndent = { fg = blend(c.base, c.text, 5) },
-		SnacksStatusColumnMark = { fg = c.mauve, style = { "bold" } },
-		SnacksPickerInputCursorLine = { bg = c.base },
 		SnacksIndentScope = { fg = blend(c.base, c.text, 15) },
 		SnacksNotifierBorderDebug = { fg = blend(c.base, c.peach, 30) },
 		SnacksNotifierBorderError = { fg = blend(c.base, c.red, 30) },
 		SnacksNotifierBorderInfo = { fg = blend(c.base, c.blue, 30) },
 		SnacksNotifierBorderTrace = { fg = blend(c.base, c.rosewater, 30) },
 		SnacksNotifierBorderWarn = { fg = blend(c.base, c.yellow, 30) },
+		SnacksPickerInputCursorLine = { bg = c.base },
+		SnacksStatusColumnMark = { fg = c.mauve, style = { "bold" } },
 		StatusLine = { bg = blend(c.base, c.mantle, 50) },
 		SymbolUsageImpl = { fg = c.yellow },
 		SymbolUsageDef = { fg = c.red },
@@ -262,27 +265,25 @@ local lualine_theme_create = function(c)
 	return theme
 end
 
-local alpha_header_animate = function()
+local dashboard_header_animate = function()
 	local c = colors_get()
 	local colors = { c.blue, c.sky, c.green, c.yellow, c.peach, c.red }
 	local limit = require("lazyvimx.util.general").theme_is_dark() and 100 or 20
 
 	for i = 5, limit do
-		vim.schedule(function()
-			local timer = vim.loop.new_timer() ---@diagnostic disable-line: undefined-field
+		local timer = vim.loop.new_timer()
 
-			if timer ~= nil then
-				timer:start(
-					i * 30,
-					0,
-					vim.schedule_wrap(function()
-						for j = 2, 7 do
-							vim.api.nvim_set_hl(0, "AlphaHeader" .. j, { fg = blend(c.base, colors[j - 1], i) })
-						end
-					end)
-				)
-			end
-		end)
+		if timer ~= nil then
+			timer:start(
+				i * 1.06 * 50,
+				0,
+				vim.schedule_wrap(function()
+					for j = 2, 7 do
+						vim.api.nvim_set_hl(0, "SnacksDashboardHeader" .. j, { fg = blend(c.base, colors[j - 1], i) })
+					end
+				end)
+			)
+		end
 	end
 end
 
@@ -353,15 +354,15 @@ return {
 			},
 
 			{
-				"goolord/alpha-nvim",
+				"folke/snacks.nvim",
 				dependencies = { "catppuccin/nvim" },
 				optional = true,
 
 				init = function()
 					vim.api.nvim_create_autocmd("User", {
 						once = true,
-						pattern = "AlphaReady",
-						callback = alpha_header_animate,
+						pattern = "LazyVimStarted",
+						callback = dashboard_header_animate,
 					})
 				end,
 			},

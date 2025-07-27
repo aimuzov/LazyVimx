@@ -43,7 +43,6 @@ return {
 
 		opts.options.component_separators = { left = "", right = "" }
 		opts.options.section_separators = { left = "", right = "" }
-		opts.options.disabled_filetypes.statusline = {}
 
 		opts.sections.lualine_a = {
 			{

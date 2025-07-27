@@ -70,14 +70,23 @@ return {
 	create("folke/snacks.nvim", {
 		{ "<leader><space>", { LazyVim.pick("smart") }, desc = "Find files (smart)" },
 		{ "<leader>uz", "lua Snacks.zen.zoom()", desc = "Toggle zen mode" },
+		{
+			"<leader>uq",
+			{
+				function()
+					if vim.bo.filetype == "snacks_dashboard" then
+						return
+					end
+
+					require("snacks").dashboard.open()
+				end,
+			},
+			desc = "Open dashboard",
+		},
 	}),
 
 	create("nvim-treesitter/nvim-treesitter-context", {
 		{ "[x", "lua require('treesitter-context').go_to_context(vim.v.count1)", desc = "Go to context" },
-	}),
-
-	create("goolord/alpha-nvim", {
-		{ "<leader>uq", "Alpha", desc = "Open dashboard (Alpha)" },
 	}),
 
 	create("akinsho/bufferline.nvim", {
