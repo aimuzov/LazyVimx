@@ -1,11 +1,11 @@
 local disabled_ft = {
 	"aerial",
-	"alpha",
 	"chatgpt-input",
 	"neo-tree",
 	"neo-tree-preview",
 	"neotest-summary",
 	"noice",
+	"snacks_dashboard",
 	"snacks_terminal",
 }
 
