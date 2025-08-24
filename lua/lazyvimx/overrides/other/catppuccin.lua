@@ -372,4 +372,14 @@ return {
 			},
 		},
 	},
+
+	{
+		"catppuccin/nvim",
+		optional = true,
+		opts = function()
+			-- https://github.com/LazyVim/LazyVim/pull/6354
+			local bufferline = require("catppuccin.groups.integrations.bufferline")
+			bufferline.get = bufferline.get or bufferline.get_theme
+		end,
+	},
 }
