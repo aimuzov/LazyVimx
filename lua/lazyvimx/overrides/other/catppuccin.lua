@@ -81,6 +81,7 @@ local override_all = function(c)
 		NeoTreeFileStatsHeader = { fg = c.surface2 },
 		NeoTreeFloatBorder = { bg = c.mantle },
 		NeoTreeFloatNormal = { bg = c.mantle },
+		NeoTreeNormalActive = { bg = blend(c.mantle, c.crust, 50) },
 		NeoTreeFloatTitle = { bg = c.mantle, fg = c.lavender, style = { "bold" } },
 		NeoTreeMessage = { fg = c.surface1 },
 		NeoTreeModified = { fg = c.peach },

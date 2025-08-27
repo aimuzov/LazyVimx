@@ -18,7 +18,7 @@ return {
 			},
 
 			left = {
-				{ ft = "neo-tree", wo = { winhighlight = "Normal:NeoTreeNormal" } },
+				{ ft = "neo-tree", wo = { winhighlight = "Normal:NeoTreeNormalActive" }, size = { height = 0.75 } },
 				{ ft = "dapui_scopes" },
 				{ ft = "dapui_breakpoints" },
 				{ ft = "dapui_stacks" },
