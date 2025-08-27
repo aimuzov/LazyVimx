@@ -49,10 +49,10 @@ function M.get_dotfiles_path()
 	return dotfiles_path ~= vim.NIL and dotfiles_path or ""
 end
 
-function M.get_flavor()
+function M.get_flavor(colorscheme)
 	local config = require("lazyvimx").config
 	local flavor_index = require("lazyvimx.util.general").theme_is_dark() and 1 or 2
-	local flavor_list = config.colorscheme_flavors[config.colorscheme]
+	local flavor_list = config.colorscheme_flavors[colorscheme or config.colorscheme]
 	local flavor_name = flavor_list[flavor_index]
 
 	return flavor_name
