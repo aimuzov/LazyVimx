@@ -13,6 +13,7 @@ local override_highlights = function(hl, c)
 	hl.NeoTreeFloatNormal = { link = "NormalFloat" }
 	hl.NeoTreeFloatTitle = { link = "FloatTitle" }
 	hl.NeoTreeNormal = { bg = c.bg_dark1 }
+	hl.NeoTreeNormalActive = { bg = blend(c.bg_dark1, c.bg, 20) }
 	hl.NeoTreeNormalNC = { bg = c.bg_dark1 }
 	hl.NeoTreeTabActive = { fg = c.fg, bg = blend(c.bg, c.fg, 10) }
 	hl.NeoTreeTabInactive = { fg = c.fg, bg = c.bg }
