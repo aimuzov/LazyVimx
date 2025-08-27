@@ -17,7 +17,6 @@ return {
 
 			for _, extra_name in pairs(recommended_extras) do
 				if not LazyVim.has_extra(extra_name) then
-					-- vim.print("extra", extra_name)
 					table.insert(extras_missing_message, "- `" .. extra_name .. "`")
 				end
 			end
