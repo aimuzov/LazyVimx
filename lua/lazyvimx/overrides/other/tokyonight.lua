@@ -2,13 +2,13 @@ local blend = require("lazyvimx.util.general").color_blend
 
 local override_highlights = function(hl, c)
 	hl.BufferLineCustomGroupLabel = { bg = c.bg_dark1, fg = c.fg }
-	hl.FloatBorder = { fg = blend(c.bg, c.blue2, 50) }
-	hl.FloatTitle = { fg = blend(c.bg, c.blue2, 50) }
 	hl.BufferLineCustomGroupSep = { bg = c.bg_dark1, fg = c.blue }
 	hl.BufferLineFill = { bg = c.bg_dark1 }
 	hl.BufferLineIndicatorSelected = { bg = c.bg, fg = c.blue }
 	hl.BufferLineTruncMarker = { bg = c.bg_dark1, fg = blend(c.bg, c.fg, 50) }
 	hl.EdgyTitle = { bg = c.bg_dark, fg = c.bg_dark }
+	hl.FloatBorder = { fg = blend(c.bg, c.blue2, 50) }
+	hl.FloatTitle = { fg = blend(c.bg, c.blue2, 50) }
 	hl.NeoTreeFloatBorder = { link = "FloatBorder" }
 	hl.NeoTreeFloatNormal = { link = "NormalFloat" }
 	hl.NeoTreeFloatTitle = { link = "FloatTitle" }
@@ -36,9 +36,9 @@ local override_highlights = function(hl, c)
 	hl.SnacksDashboardSpecial = { fg = blend(c.bg, c.magenta, 50) }
 	hl.SnacksIndent = { fg = blend(c.bg, c.fg, 5) }
 	hl.SnacksIndentScope = { fg = blend(c.bg, c.fg, 15) }
-	hl.SnacksPickerInputCursorLine = { bg = c.bg }
-	hl.SnacksPickerInputBorder = { fg = blend(c.bg, c.blue2, 25) }
 	hl.SnacksPickerBoxTitle = { link = "FloatBorder" }
+	hl.SnacksPickerInputBorder = { fg = blend(c.bg, c.blue2, 25) }
+	hl.SnacksPickerInputCursorLine = { bg = c.bg }
 	hl.TreesitterContext = { bg = c.bg, blend = 10 }
 	hl.TreesitterContextBottom = { fg = blend(c.bg, c.fg, 15), blend = 0, underline = true }
 	hl.TreesitterContextLineNumber = { bg = c.bg }
