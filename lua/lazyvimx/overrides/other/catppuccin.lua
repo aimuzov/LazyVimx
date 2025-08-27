@@ -350,7 +350,17 @@ return {
 						desc = "Setup lualine theme after colorscheme changed",
 						pattern = "catppuccin*",
 						callback = vim.schedule_wrap(function(data)
-							require("lualine").setup({ options = { theme = lualine_theme_create(colors_get()) } })
+							for _, wb in pairs({ opts.inactive_winbar, opts.winbar }) do
+								for _, section in pairs(wb.lualine_c) do
+									section.color.bg = "none"
+								end
+							end
+
+							require("lualine").setup({
+								winbar = opts.winbar,
+								inactive_winbar = opts.inactive_winbar,
+								options = { theme = lualine_theme_create(colors_get()) },
+							})
 						end),
 					})
 				end,

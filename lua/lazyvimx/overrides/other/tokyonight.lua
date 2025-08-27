@@ -115,6 +115,12 @@ return {
 						on_highlights = override_highlights,
 					})
 
+					for _, wb in pairs({ opts.inactive_winbar, opts.winbar }) do
+						for _, section in pairs(wb.lualine_c) do
+							section.color.bg = colors.bg
+						end
+					end
+
 					require("lualine").setup({
 						winbar = opts.winbar,
 						inactive_winbar = opts.inactive_winbar,
