@@ -3,7 +3,9 @@ if vim.g.vscode then
 end
 
 local function colorscheme_update()
-	vim.cmd.colorscheme(require("lazyvimx.util.general").get_flavor())
+	local colorscheme = vim.g.colors_name and vim.g.colors_name:match("^[^-]+") or nil
+
+	vim.cmd.colorscheme(require("lazyvimx.util.general").get_flavor(colorscheme))
 end
 
 return {

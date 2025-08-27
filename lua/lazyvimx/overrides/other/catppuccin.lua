@@ -7,17 +7,17 @@ end
 ---@type CtpHighlightOverrideFn
 local override_all = function(c)
 	return {
-		AvanteSidebarWinSeparator = { link = "WinSeparator" },
-		AvanteSidebarWinHorizontalSeparator = { fg = c.surface1 },
-		AvantePromptInputBorder = { link = "FloatBorder" },
 		AerialLine = { fg = c.none, bg = c.crust },
+		AvantePromptInputBorder = { link = "FloatBorder" },
+		AvanteSidebarWinHorizontalSeparator = { fg = c.surface1 },
+		AvanteSidebarWinSeparator = { link = "WinSeparator" },
+		BlinkCmpDoc = { bg = c.mantle, blend = 15 },
+		BlinkCmpDocSeparator = { fg = blend(c.mantle, c.text, 10) },
 		BufferLineCustomGroupLabel = { bg = c.mantle, fg = c.text, style = { "bold" } },
 		BufferLineCustomGroupSep = { bg = c.mantle, fg = c.maroon },
 		ChatGPTQuestion = { fg = c.mauve },
 		ChatGPTTotalTokens = { bg = c.none, fg = c.overlay2 },
 		ChatGPTTotalTokensBorder = { fg = c.text },
-		BlinkCmpDoc = { bg = c.mantle, blend = 15 },
-		BlinkCmpDocSeparator = { fg = blend(c.mantle, c.text, 10) },
 		DiffviewDiffAdd = { bg = blend(c.green, c.base, 93) },
 		DiffviewDiffDelete = { bg = blend(c.red, c.base, 93) },
 		DiffviewNormal = { bg = c.mantle },
@@ -59,11 +59,11 @@ local override_all = function(c)
 		GlanceWinBarFilepath = { link = "GlanceWinBarTitle" },
 		GlanceWinBarTitle = { fg = c.overlay0, bg = blend(c.base, c.crust, 50), style = { "bold" } },
 		LazyReasonKeys = { fg = c.overlay0 },
-		LspInlayHint = { bg = c.none },
-		LspReferenceText = { bg = c.none, fg = c.rosewater, style = { "bold" } },
-		LspReferenceRead = { bg = c.none, fg = c.rosewater, style = { "bold" } },
-		LspReferenceWrite = { bg = c.none, fg = c.rosewater, style = { "bold", "underline" } },
 		LineNr = { fg = c.surface2 },
+		LspInlayHint = { bg = c.none },
+		LspReferenceRead = { bg = c.none, fg = c.rosewater, style = { "bold" } },
+		LspReferenceText = { bg = c.none, fg = c.rosewater, style = { "bold" } },
+		LspReferenceWrite = { bg = c.none, fg = c.rosewater, style = { "bold", "underline" } },
 		MiniIconsAzure = { fg = blend(c.sapphire, c.mantle, 25) },
 		MiniIconsBlue = { fg = blend(c.blue, c.mantle, 25) },
 		MiniIconsCyan = { fg = blend(c.teal, c.mantle, 25) },
@@ -81,10 +81,10 @@ local override_all = function(c)
 		NeoTreeFileStatsHeader = { fg = c.surface2 },
 		NeoTreeFloatBorder = { bg = c.mantle },
 		NeoTreeFloatNormal = { bg = c.mantle },
-		NeoTreeNormalActive = { bg = blend(c.mantle, c.crust, 50) },
 		NeoTreeFloatTitle = { bg = c.mantle, fg = c.lavender, style = { "bold" } },
 		NeoTreeMessage = { fg = c.surface1 },
 		NeoTreeModified = { fg = c.peach },
+		NeoTreeNormalActive = { bg = blend(c.mantle, c.crust, 50) },
 		NeoTreeRootName = { fg = c.green },
 		NeoTreeTabActive = { fg = c.text, bg = blend(c.base, c.text, 10) },
 		NeoTreeTabSeparatorActive = { bg = c.base, fg = c.base },
@@ -127,18 +127,19 @@ local override_all = function(c)
 		SnacksPickerInputCursorLine = { bg = c.base },
 		SnacksStatusColumnMark = { fg = c.mauve, style = { "bold" } },
 		StatusLine = { bg = blend(c.base, c.mantle, 50) },
-		SymbolUsageImpl = { fg = c.yellow },
 		SymbolUsageDef = { fg = c.red },
+		SymbolUsageImpl = { fg = c.yellow },
 		SymbolUsageRef = { fg = c.blue },
-		TinyInlineDiagnosticVirtualTextError = { fg = c.red },
-		TinyInlineDiagnosticVirtualTextWarn = { fg = c.yellow },
-		TinyInlineDiagnosticVirtualTextInfo = { fg = c.sky },
-		TinyInlineDiagnosticVirtualTextHint = { fg = c.teal },
+		TabLineFill = { bg = c.mantle },
 		TinyInlineDiagnosticVirtualTextArrow = { link = "CursorLine" },
+		TinyInlineDiagnosticVirtualTextError = { fg = c.red },
+		TinyInlineDiagnosticVirtualTextHint = { fg = c.teal },
+		TinyInlineDiagnosticVirtualTextInfo = { fg = c.sky },
+		TinyInlineDiagnosticVirtualTextWarn = { fg = c.yellow },
 		TinyInlineInvDiagnosticVirtualTextError = { link = "CursorLine" },
-		TinyInlineInvDiagnosticVirtualTextWarn = { link = "CursorLine" },
-		TinyInlineInvDiagnosticVirtualTextInfo = { link = "CursorLine" },
 		TinyInlineInvDiagnosticVirtualTextHint = { link = "CursorLine" },
+		TinyInlineInvDiagnosticVirtualTextInfo = { link = "CursorLine" },
+		TinyInlineInvDiagnosticVirtualTextWarn = { link = "CursorLine" },
 		TreesitterContext = { bg = c.base, blend = 10 },
 		TreesitterContextBottom = { fg = c.surface2, blend = 0 },
 		TreesitterContextLineNumber = { link = "LineNr" },
@@ -202,25 +203,27 @@ end
 ---@type CtpHighlightOverrideFn
 local override_bufferline_hls = function(c)
 	local hls = {
+		background = { bg = c.mantle },
+		buffer_visible = { fg = c.subtext0 },
+		close_button = { bg = c.bg_dark },
+		duplicate_visible = { bg = c.base },
 		fill = { bg = c.mantle },
 		modified = { bg = c.mantle },
-		pick = { bg = c.mantle },
-		trunc_marker = { bg = c.mantle },
-		duplicate_visible = { bg = c.base },
-
-		buffer_visible = { fg = c.subtext0 },
 		modified_visible = { fg = c.peach },
-		separator = { fg = c.menlo },
+		offset_separator = { bg = c.mantle },
+		pick = { bg = c.mantle },
+		separator = { fg = c.mantle },
 		tab_selected = { fg = c.text, style = { "bold" } },
 		tab_separator = { bg = c.mantle, fg = c.mantle },
 		tab_separator_selected = { bg = c.base, fg = c.base },
+		trunc_marker = { bg = c.mantle },
 	}
 
 	-- stylua: ignore start
 	local items = {
 		"buffer", "close_button", "diagnostic", "error", "error_diagnostic",
-		"hint", "indicator", "info", "info_diagnostic", "modified",
-		"numbers", "pick", "warning", "warning_diagnostic",
+		"hint", "info_diagnostic", "info_diagnostic", "indicator", "info", "info_diagnostic",
+		"modified", "numbers", "pick", "warning", "warning_diagnostic",
 	}
 	-- stylua: ignore end
 
@@ -318,20 +321,34 @@ return {
 				optional = true,
 
 				opts = function(_, opts)
-					if vim.g.colors_name and not vim.g.colors_name:find("catppuccin", 1, true) then
-						return
+					function highlights_create()
+						local catppuccin_bufferline = require("catppuccin.groups.integrations.bufferline")
+						local highlights = catppuccin_bufferline.get({
+							styles = { "bold" },
+							custom = {
+								frappe = override_bufferline_hls(colors_get("frappe")),
+								macchiato = override_bufferline_hls(colors_get("macchiato")),
+								mocha = override_bufferline_hls(colors_get("mocha")),
+								latte = override_bufferline_hls(colors_get("latte")),
+							},
+						})
+
+						return highlights
 					end
 
-					local catppuccin_bufferline = require("catppuccin.groups.integrations.bufferline")
+					if vim.g.colors_name and vim.g.colors_name:find("catppuccin", 1, true) then
+						opts.highlights = highlights_create()
+					end
 
-					opts.highlights = catppuccin_bufferline.get({
-						styles = { "bold" },
-						custom = {
-							frappe = override_bufferline_hls(colors_get("frappe")),
-							macchiato = override_bufferline_hls(colors_get("macchiato")),
-							mocha = override_bufferline_hls(colors_get("mocha")),
-							latte = override_bufferline_hls(colors_get("latte")),
-						},
+					vim.api.nvim_create_autocmd("ColorScheme", {
+						desc = "Setup bufferline theme after colorscheme changed",
+						pattern = "catppuccin*",
+						callback = function()
+							opts.highlights = highlights_create()
+
+							require("bufferline.highlights").reset_icon_hl_cache()
+							require("bufferline").setup(opts)
+						end,
 					})
 				end,
 			},
@@ -350,7 +367,17 @@ return {
 						desc = "Setup lualine theme after colorscheme changed",
 						pattern = "catppuccin*",
 						callback = vim.schedule_wrap(function(data)
-							require("lualine").setup({ options = { theme = lualine_theme_create(colors_get()) } })
+							for _, wb in pairs({ opts.inactive_winbar, opts.winbar }) do
+								for _, section in pairs(wb.lualine_c) do
+									section.color.bg = "none"
+								end
+							end
+
+							require("lualine").setup({
+								winbar = opts.winbar,
+								inactive_winbar = opts.inactive_winbar,
+								options = { theme = lualine_theme_create(colors_get()) },
+							})
 						end),
 					})
 				end,

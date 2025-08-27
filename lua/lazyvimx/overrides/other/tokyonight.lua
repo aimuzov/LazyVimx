@@ -1,19 +1,17 @@
 local blend = require("lazyvimx.util.general").color_blend
 
 local override_highlights = function(hl, c)
-	hl.BufferLineCustomGroupLabel = { bg = c.bg_dark1, fg = c.fg }
+	hl.BufferLineCustomGroupLabel = { bg = c.bg_dark, fg = c.fg }
+	hl.BufferLineCustomGroupSep = { bg = c.bg_dark, fg = c.blue }
+	hl.EdgyTitle = { bg = c.bg_dark, fg = c.bg_dark }
 	hl.FloatBorder = { fg = blend(c.bg, c.blue2, 50) }
 	hl.FloatTitle = { fg = blend(c.bg, c.blue2, 50) }
-	hl.BufferLineCustomGroupSep = { bg = c.bg_dark1, fg = c.blue }
-	hl.BufferLineFill = { bg = c.bg_dark1 }
-	hl.BufferLineIndicatorSelected = { bg = c.bg, fg = c.blue }
-	hl.BufferLineTruncMarker = { bg = c.bg_dark1, fg = blend(c.bg, c.fg, 50) }
-	hl.EdgyTitle = { bg = c.bg_dark, fg = c.bg_dark }
 	hl.NeoTreeFloatBorder = { link = "FloatBorder" }
 	hl.NeoTreeFloatNormal = { link = "NormalFloat" }
 	hl.NeoTreeFloatTitle = { link = "FloatTitle" }
-	hl.NeoTreeNormal = { bg = c.bg_dark1 }
-	hl.NeoTreeNormalNC = { bg = c.bg_dark1 }
+	hl.NeoTreeNormal = { bg = c.bg_dark }
+	hl.NeoTreeNormalActive = { bg = blend(c.bg_dark1, c.bg, 20) }
+	hl.NeoTreeNormalNC = { bg = c.bg_dark }
 	hl.NeoTreeTabActive = { fg = c.fg, bg = blend(c.bg, c.fg, 10) }
 	hl.NeoTreeTabInactive = { fg = c.fg, bg = c.bg }
 	hl.NeoTreeTabSeparatorActive = { bg = blend(c.bg, c.fg, 10), fg = c.bg }
@@ -36,9 +34,10 @@ local override_highlights = function(hl, c)
 	hl.SnacksDashboardSpecial = { fg = blend(c.bg, c.magenta, 50) }
 	hl.SnacksIndent = { fg = blend(c.bg, c.fg, 5) }
 	hl.SnacksIndentScope = { fg = blend(c.bg, c.fg, 15) }
-	hl.SnacksPickerInputCursorLine = { bg = c.bg }
-	hl.SnacksPickerInputBorder = { fg = blend(c.bg, c.blue2, 25) }
 	hl.SnacksPickerBoxTitle = { link = "FloatBorder" }
+	hl.SnacksPickerInputBorder = { fg = blend(c.bg, c.blue2, 25) }
+	hl.SnacksPickerInputCursorLine = { bg = c.bg }
+	hl.TabLineFill = { bg = c.bg_dark }
 	hl.TreesitterContext = { bg = c.bg, blend = 10 }
 	hl.TreesitterContextBottom = { fg = blend(c.bg, c.fg, 15), blend = 0, underline = true }
 	hl.TreesitterContextLineNumber = { bg = c.bg }
@@ -47,7 +46,74 @@ local override_highlights = function(hl, c)
 	hl.Visual = { bg = blend(c.bg, c.blue, 10) }
 	hl.VisualWhitespace = { link = "Visual" }
 	hl.WhichKeyBorder = { link = "FloatBorder" }
+	hl.WhichKeyNormal = { link = "FloatNormal" }
 	hl.WinSeparator = { fg = blend(c.bg, c.bg_dark, 60) }
+end
+
+local override_bufferline_hls = function(c)
+	return function()
+		local hls = {
+			background = { bg = c.bg_dark },
+			buffer_visible = { fg = c.fg_dark },
+			fill = { bg = c.bg_dark },
+			modified_visible = { fg = c.orange },
+			offset_separator = { bg = c.bg_dark1 },
+			tab_close = { bg = c.bg_dark },
+			diagnostic = { bg = c.bg_dark },
+			separator = { bg = c.bg_dark, fg = c.bg_dark1 },
+			group_separator = { bg = c.bg_dark, fg = c.bg_dark1 },
+			indicator_visible = { fg = c.orange, bg = c.bg_dark },
+			indicator_selected = { fg = c.orange },
+			tab = { bg = c.bg_dark },
+			tab_selected = { fg = c.fg },
+			tab_separator = { bg = c.bg_dark, fg = c.bg_dark },
+			warning = { bg = c.bg_dark, fg = c.orange },
+			tab_separator_selected = { bg = c.bg, fg = c.bg },
+			trunc_marker = { bg = c.bg_dark },
+		}
+
+		local items = {
+			"buffer",
+			"close_button",
+			"diagnostic",
+			"error",
+			"duplicate",
+			"error_diagnostic",
+			"hint",
+			"hint_diagnostic",
+			"info",
+			"info_diagnostic",
+			"info_diagnostic",
+			"modified",
+			"separator",
+			"numbers",
+			"pick",
+			"warning",
+			"warning_diagnostic",
+		}
+
+		for _, key in ipairs(items) do
+			if hls[key] == nil then
+				hls[key] = { bg = c.bg_dark }
+			end
+
+			local key_selected = key .. "_selected"
+			local key_visible = key .. "_visible"
+
+			if hls[key_selected] == nil then
+				hls[key_selected] = {}
+			end
+
+			if hls[key_visible] == nil then
+				hls[key_visible] = {}
+			end
+
+			hls[key_selected].bg = c.bg
+			hls[key_visible].bg = c.bg_dark
+		end
+
+		return hls
+	end
 end
 
 local lualine_theme_create = function(c)
@@ -75,6 +141,16 @@ local lualine_theme_create = function(c)
 	return theme
 end
 
+local function colors_get(style)
+	local colors = require("tokyonight.colors").setup({
+		style = style ~= "" and style or "moon",
+		on_colors = function() end,
+		on_highlights = override_highlights,
+	})
+
+	return colors
+end
+
 return {
 	{
 		"folke/tokyonight.nvim",
@@ -85,6 +161,10 @@ return {
 				comments = { italic = false },
 				keywords = { italic = false },
 				floats = "normal",
+			},
+			plugins = {
+				auto = true,
+				bufferline = false,
 			},
 
 			on_highlights = override_highlights,
@@ -99,27 +179,53 @@ return {
 
 		opts = function(_, opts)
 			if vim.g.colors_name:find("tokyonight", 1, true) then
-				local colors = require("tokyonight.colors").setup()
+				local colors = colors_get()
 				opts.options.theme = lualine_theme_create(colors)
 			end
 
 			vim.api.nvim_create_autocmd("ColorScheme", {
 				desc = "Setup lualine theme after colorscheme changed",
 				pattern = "tokyonight*",
-				callback = vim.schedule_wrap(function(data)
+				callback = function(data)
 					local style = data.match:sub(12)
-					local colors = require("tokyonight.colors").setup({
-						style = style ~= "" and style or "moon",
-						on_colors = function() end,
-						on_highlights = override_highlights,
-					})
+					local colors = colors_get(style)
 
-					require("lualine").setup({
-						winbar = opts.winbar,
-						inactive_winbar = opts.inactive_winbar,
-						options = { theme = lualine_theme_create(colors) },
-					})
-				end),
+					for _, wb in pairs({ opts.inactive_winbar, opts.winbar }) do
+						for _, section in pairs(wb.lualine_c) do
+							section.color.bg = colors.bg
+						end
+					end
+
+					opts.options.theme = lualine_theme_create(colors)
+
+					require("lualine").setup(opts)
+				end,
+			})
+		end,
+	},
+
+	{
+		"akinsho/bufferline.nvim",
+		dependencies = { { "folke/tokyonight.nvim", optional = true } },
+		optional = true,
+
+		opts = function(_, opts)
+			if vim.g.colors_name and vim.g.colors_name:find("tokyonight", 1, true) then
+				opts.highlights = override_bufferline_hls(colors_get())
+			end
+
+			vim.api.nvim_create_autocmd("ColorScheme", {
+				desc = "Setup bufferline theme after colorscheme changed",
+				pattern = "tokyonight*",
+				callback = function(data)
+					local style = data.match:sub(12)
+					local colors = colors_get(style)
+
+					opts.highlights = override_bufferline_hls(colors)
+
+					require("bufferline.highlights").reset_icon_hl_cache()
+					require("bufferline").setup(opts)
+				end,
 			})
 		end,
 	},

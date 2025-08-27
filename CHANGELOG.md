@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.4.1](https://github.com/aimuzov/LazyVimx/compare/v0.4.0...v0.4.1) (2025-08-27)
+
+### Bug Fixes
+
+* **ui:** fix autoswitching colorscheme correctly ([49fe597](https://github.com/aimuzov/LazyVimx/commit/49fe5971a8c04d0c0f0de01ac882a7767067af8f))
+* **ui:** fix bufferline highlights for tokyonight ([a78f0a0](https://github.com/aimuzov/LazyVimx/commit/a78f0a04b9da4ddc14d5fc253fb7e426be73db37))
+* **ui:** fix highlight for neotree on active (tokyonight) ([ac00324](https://github.com/aimuzov/LazyVimx/commit/ac003245b321fb76c35baa73a2e45d987b79d1f2))
+* **ui:** fix lualine highlight for winbar (both colorschemes) ([f7fbfd6](https://github.com/aimuzov/LazyVimx/commit/f7fbfd632610c9bfee858931580eb8a0f8566e07))
+
 ## [0.4.0](https://github.com/aimuzov/LazyVimx/compare/v0.3.0...v0.4.0) (2025-08-27)
 
 ### Bug Fixes
