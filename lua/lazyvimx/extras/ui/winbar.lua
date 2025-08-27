@@ -1,6 +1,5 @@
 local disabled_ft = {
 	"aerial",
-	"alpha",
 	"Avante",
 	"AvanteInput",
 	"AvanteSelectedFiles",
@@ -29,22 +28,24 @@ return {
 
 	opts = function(_, opts)
 		local winbar_filetype = {
-			{
-				"filetype",
-				icon_only = true,
-				separator = "",
-				padding = { left = 3, right = 1 },
-				color = { bg = "none" },
-			},
+			lualine_c = {
+				{
+					"filetype",
+					icon_only = true,
+					separator = "",
+					padding = { left = 3, right = 1 },
+					color = { bg = "none" },
+				},
 
-			{
-				LazyVim.lualine.pretty_path({ length = 6, relative = "root" }),
-				color = { bg = "none", gui = "bold" },
+				{
+					LazyVim.lualine.pretty_path({ length = 6, relative = "root" }),
+					color = { bg = "none", gui = "bold" },
+				},
 			},
 		}
 
 		opts.options.disabled_filetypes.winbar = disabled_ft
-		opts.winbar = { lualine_c = winbar_filetype }
-		opts.inactive_winbar = { lualine_c = winbar_filetype }
+		opts.winbar = winbar_filetype
+		opts.inactive_winbar = winbar_filetype
 	end,
 }

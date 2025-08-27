@@ -16,7 +16,7 @@ local function langmap_set()
 		escape(ru_shift) .. ";" .. escape(en_shift),
 	}, ",")
 
-	vim.fn.langmap = langmap
+	vim.o.langmap = langmap
 end
 
 local function getcharstr_hack()

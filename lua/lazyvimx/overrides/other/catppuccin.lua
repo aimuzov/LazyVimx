@@ -81,6 +81,7 @@ local override_all = function(c)
 		NeoTreeFileStatsHeader = { fg = c.surface2 },
 		NeoTreeFloatBorder = { bg = c.mantle },
 		NeoTreeFloatNormal = { bg = c.mantle },
+		NeoTreeNormalActive = { bg = blend(c.mantle, c.crust, 50) },
 		NeoTreeFloatTitle = { bg = c.mantle, fg = c.lavender, style = { "bold" } },
 		NeoTreeMessage = { fg = c.surface1 },
 		NeoTreeModified = { fg = c.peach },
@@ -162,12 +163,13 @@ local override_dark = function(c)
 		IlluminatedWordWrite = { bg = blend(c.base, c.sapphire, 25) },
 		NeoTreeFloatBorder = { fg = blend(c.base, c.lavender, 50) },
 		NeoTreeIndentMarker = { fg = c.base },
-		SatelliteBar = { bg = c.surface0, blend = 15 },
+		ScrollView = { bg = c.surface0, blend = 15 },
+		SnacksPickerInputBorder = { fg = blend(c.base, c.lavender, 25) },
 		SymbolUsageContent = { fg = c.surface2 },
 		TinyInlineDiagnosticVirtualTextError = { bg = blend(c.base, c.red, 20) },
-		TinyInlineDiagnosticVirtualTextWarn = { bg = blend(c.base, c.yellow, 20) },
-		TinyInlineDiagnosticVirtualTextInfo = { bg = blend(c.base, c.sky, 20) },
 		TinyInlineDiagnosticVirtualTextHint = { bg = blend(c.base, c.teal, 20) },
+		TinyInlineDiagnosticVirtualTextInfo = { bg = blend(c.base, c.sky, 20) },
+		TinyInlineDiagnosticVirtualTextWarn = { bg = blend(c.base, c.yellow, 20) },
 		TreewalkerIlluminate = { bg = blend(c.base, c.surface2, 15) },
 		Visual = { bg = blend(c.base, c.surface2, 30), style = {} },
 		VisualWhitespace = { bg = blend(c.base, c.surface2, 30), fg = c.surface2 },
@@ -185,11 +187,12 @@ local override_light = function(c)
 		IlluminatedWordWrite = { bg = blend(c.base, c.sapphire, 10) },
 		NeoTreeFloatBorder = { fg = blend(c.base, c.text, 20) },
 		NeoTreeIndentMarker = { fg = c.surface0 },
+		SnacksPickerInputBorder = { fg = blend(c.base, c.text, 15) },
 		SymbolUsageContent = { fg = c.surface0 },
 		TinyInlineDiagnosticVirtualTextError = { bg = blend(c.base, c.red, 10) },
-		TinyInlineDiagnosticVirtualTextWarn = { bg = blend(c.base, c.yellow, 10) },
-		TinyInlineDiagnosticVirtualTextInfo = { bg = blend(c.base, c.sky, 10) },
 		TinyInlineDiagnosticVirtualTextHint = { bg = blend(c.base, c.teal, 10) },
+		TinyInlineDiagnosticVirtualTextInfo = { bg = blend(c.base, c.sky, 10) },
+		TinyInlineDiagnosticVirtualTextWarn = { bg = blend(c.base, c.yellow, 10) },
 		TreewalkerIlluminate = { bg = blend(c.base, c.mantle, 85) },
 		Visual = { bg = blend(c.base, c.crust, 85) },
 		VisualWhitespace = { bg = blend(c.base, c.crust, 85), fg = c.surface2 },
@@ -358,14 +361,26 @@ return {
 				dependencies = { "catppuccin/nvim" },
 				optional = true,
 
-				init = function()
-					vim.api.nvim_create_autocmd("User", {
-						once = true,
-						pattern = "LazyVimStarted",
-						callback = dashboard_header_animate,
-					})
+				opts = function()
+					if vim.g.colors_name:find("catppuccin", 1, true) then
+						vim.api.nvim_create_autocmd("User", {
+							once = true,
+							pattern = "LazyVimStarted",
+							callback = dashboard_header_animate,
+						})
+					end
 				end,
 			},
 		},
+	},
+
+	{
+		"catppuccin/nvim",
+		optional = true,
+		opts = function()
+			-- https://github.com/LazyVim/LazyVim/pull/6354
+			local bufferline = require("catppuccin.groups.integrations.bufferline")
+			bufferline.get = bufferline.get or bufferline.get_theme
+		end,
 	},
 }

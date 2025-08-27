@@ -44,6 +44,7 @@ return {
 	"folke/snacks.nvim",
 	---@type snacks.Config
 	opts = {
+		styles = { dashboard = { wo = { winblend = 0 } } },
 		dashboard = {
 			width = 42,
 			preset = {

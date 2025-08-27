@@ -1,4 +1,4 @@
-local disabled_ft = { "alpha" }
+local disabled_ft = { "snacks_dashboard" }
 
 return {
 	"lukas-reineke/virt-column.nvim",

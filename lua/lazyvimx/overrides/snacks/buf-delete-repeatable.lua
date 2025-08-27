@@ -5,7 +5,7 @@ local buf_delete_repeatable_create = function(force)
 		function M.buf_delete(bufnr, force)
 			local buffer_filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
 
-			if buffer_filetype ~= "alpha" then
+			if buffer_filetype ~= "snacks_dashboard" then
 				Snacks.bufdelete(bufnr, { force = force })
 				vim.cmd([[redraw!]])
 			end

@@ -1,7 +1,7 @@
 local disabled_ft = {
-	"alpha",
 	"chatgpt-input",
 	"lazy",
+	"snacks_dashboard",
 	"snacks_terminal",
 	"neo-tree",
 	"neo-tree-popup",
