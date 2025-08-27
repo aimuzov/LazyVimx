@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.4.0](https://github.com/aimuzov/LazyVimx/compare/v0.3.0...v0.4.0) (2025-08-27)
+
+### Bug Fixes
+
+* **motions:** fix incorrect api using (langmapper) ([881cce0](https://github.com/aimuzov/LazyVimx/commit/881cce00bde97eb53b3de98e49c2e91d11cbcdcb))
+* **ui:** small temporarily fix for bufferline ([238589a](https://github.com/aimuzov/LazyVimx/commit/238589a7184692745825967d9177a0dde45f6828)), closes [LazyVim/LazyVim#6354](https://github.com/LazyVim/LazyVim/issues/6354)
+* **ui:** some fixes for highlights (tokyonight) ([94509fa](https://github.com/aimuzov/LazyVimx/commit/94509fa988a068f814e7796ea797ef8718047079))
+* **ui:** some fixes for sidebar & highlights ([245b475](https://github.com/aimuzov/LazyVimx/commit/245b475c0aa616c7ee3f87db34c5a6b9828bc021))
+
 ## [0.3.0](https://github.com/aimuzov/LazyVimx/compare/v0.2.12...v0.3.0) (2025-07-27)
 
 ### Features
