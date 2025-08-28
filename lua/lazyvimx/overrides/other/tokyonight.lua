@@ -3,12 +3,18 @@ local blend = require("lazyvimx.util.general").color_blend
 local override_highlights = function(hl, c)
 	hl.BufferLineCustomGroupLabel = { bg = c.bg_dark, fg = c.fg }
 	hl.BufferLineCustomGroupSep = { bg = c.bg_dark, fg = c.blue }
+	hl.CursorLine = { bg = blend(c.bg, c.blue, 10) }
 	hl.EdgyTitle = { bg = c.bg_dark, fg = c.bg_dark }
 	hl.FloatBorder = { fg = blend(c.bg, c.blue2, 50) }
 	hl.FloatTitle = { fg = blend(c.bg, c.blue2, 50) }
+	hl.LspReferenceRead = { bg = "none", fg = blend(c.fg, c.magenta2, 50), bold = true }
+	hl.LspReferenceText = { bg = "none", fg = blend(c.fg, c.magenta2, 50), bold = true }
+	hl.LspReferenceWrite = { bg = "none", fg = blend(c.fg, c.magenta2, 50), bold = true, underline = true }
+	hl.NeoTreeCursorLine = { bg = blend(c.bg_dark1, c.blue, 10) }
 	hl.NeoTreeFloatBorder = { link = "FloatBorder" }
 	hl.NeoTreeFloatNormal = { link = "NormalFloat" }
 	hl.NeoTreeFloatTitle = { link = "FloatTitle" }
+	hl.NeoTreeIndentMarker = { fg = blend(c.bg_dark1, c.fg, 10) }
 	hl.NeoTreeNormal = { bg = c.bg_dark }
 	hl.NeoTreeNormalActive = { bg = blend(c.bg_dark1, c.bg, 20) }
 	hl.NeoTreeNormalNC = { bg = c.bg_dark }
@@ -48,6 +54,11 @@ local override_highlights = function(hl, c)
 	hl.WhichKeyBorder = { link = "FloatBorder" }
 	hl.WhichKeyNormal = { link = "FloatNormal" }
 	hl.WinSeparator = { fg = blend(c.bg, c.bg_dark, 60) }
+	hl.SymbolUsageDef = { fg = c.red }
+	hl.SymbolUsageImpl = { fg = c.yellow }
+	hl.SymbolUsageRef = { fg = c.blue }
+	hl.VisualWhitespace = { bg = blend(c.bg, c.blue, 10), fg = blend(c.fg_gutter, c.fg, 10) }
+	hl.SymbolUsageContent = { fg = blend(c.fg_gutter, c.fg, 10) }
 end
 
 local override_bufferline_hls = function(c)
@@ -133,8 +144,8 @@ local lualine_theme_create = function(c)
 		theme[mode] = {
 			a = { bg = blend(c.bg_dark, color, 70), fg = c.bg_dark },
 			b = { bg = blend(c.bg_dark, color, 15), fg = color },
-			c = { bg = blend(c.bg, c.bg_dark, 50), fg = mode == "inactive" and c.fg_dark or c.fg },
-			x = { bg = blend(c.bg, c.bg_dark, 50), fg = c.fg_dark },
+			c = { bg = c.bg_dark, fg = mode == "inactive" and c.fg_dark or c.fg },
+			x = { bg = c.bg_dark, fg = c.fg_dark },
 		}
 	end
 
