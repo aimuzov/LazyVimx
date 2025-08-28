@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.4.2](https://github.com/aimuzov/LazyVimx/compare/v0.4.1...v0.4.2) (2025-08-28)
+
+### Bug Fixes
+
+* **ui:** some fixes for highlights (tokyonight) ([6cdff3c](https://github.com/aimuzov/LazyVimx/commit/6cdff3ca734892a2e01d74748c5237356599172b))
+
 ## [0.4.1](https://github.com/aimuzov/LazyVimx/compare/v0.4.0...v0.4.1) (2025-08-27)
 
 ### Bug Fixes
