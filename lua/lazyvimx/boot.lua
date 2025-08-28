@@ -64,6 +64,18 @@ local function update_root_lsp_ignore()
 	}
 end
 
+local function has_plugins_dir()
+	local plugins_dir = vim.fn.stdpath("config") .. "/lua/plugins"
+
+	if vim.fn.isdirectory(plugins_dir) == 1 then
+		local files = vim.fn.glob(plugins_dir .. "/*.lua", 0, 1)
+
+		return #files > 0
+	end
+
+	return false
+end
+
 return {
 	{ import = "system.plug", enabled = set_global },
 	{ import = "system.plug", enabled = vimopts_create_autocmd },
@@ -74,4 +86,6 @@ return {
 	{ "LazyVim/LazyVim", opts = set_colorscheme },
 
 	{ "aimuzov/LazyVimx", dependencies = { "LazyVim/LazyVim" }, vscode = true, config = true },
+
+	{ import = "plugins", enabled = has_plugins_dir },
 }
