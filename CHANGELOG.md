@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.5.0](https://github.com/aimuzov/LazyVimx/compare/v0.4.2...v0.5.0) (2025-08-28)
+
+### Features
+
+* **perf:** autoimport plugins dir ([27cd22c](https://github.com/aimuzov/LazyVimx/commit/27cd22c471a7b891c59dd7cf0bf0fc911ac670f4)), closes [#43](https://github.com/aimuzov/LazyVimx/issues/43)
+
 ## [0.4.2](https://github.com/aimuzov/LazyVimx/compare/v0.4.1...v0.4.2) (2025-08-28)
 
 ### Bug Fixes
