@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.5.1](https://github.com/aimuzov/LazyVimx/compare/v0.5.0...v0.5.1) (2025-09-01)
+
+### Bug Fixes
+
+* **ui:** replace layout for snacks colorscheme picker ([6853f4d](https://github.com/aimuzov/LazyVimx/commit/6853f4da91465b24cb4a5a6e989d47db8b3389cf))
+
 ## [0.5.0](https://github.com/aimuzov/LazyVimx/compare/v0.4.2...v0.5.0) (2025-08-28)
 
 ### Features
