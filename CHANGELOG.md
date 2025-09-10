@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.2](https://github.com/aimuzov/LazyVimx/compare/v0.5.1...v0.5.2) (2025-09-10)
+
+### Bug Fixes
+
+* **buf:** fix exception (incorrect plugin call) ([f996148](https://github.com/aimuzov/LazyVimx/commit/f99614815825f06df7d3327517616ba4745dc6c3))
+* **ui:** fix exception (missing edgy extra case) ([6d5bfa1](https://github.com/aimuzov/LazyVimx/commit/6d5bfa1d6fd1d3f9a328eec67c1ad107ca743e33))
+
 ## [0.5.1](https://github.com/aimuzov/LazyVimx/compare/v0.5.0...v0.5.1) (2025-09-01)
 
 ### Bug Fixes
