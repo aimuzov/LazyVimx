@@ -17,6 +17,10 @@ function offsets_generate()
 end
 
 function offset_get_replace()
+	if not LazyVim.has("edgy.nvim") then
+		return
+	end
+
 	local Offset = require("bufferline.offset")
 	local get_orig = Offset.get
 
