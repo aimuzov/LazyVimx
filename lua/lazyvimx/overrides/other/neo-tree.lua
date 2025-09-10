@@ -114,7 +114,7 @@ local delete_visual = function(state, selected_nodes)
 		end
 
 		for _, node in ipairs(selected_nodes) do
-			pcall(require("mini.bufremove").delete, node.path, true)
+			pcall(Snacks.bufdelete.delete, { file = node.path, force = true })
 
 			if vim.fn.executable("trash") == 1 then
 				vim.fn.system({ "trash", vim.fn.fnameescape(node.path) })
