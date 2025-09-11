@@ -187,10 +187,12 @@ return {
 				display_name = "  󰉓 files",
 
 				filtered_items = {
+					always_show_by_pattern = { ".env*", ".config", ".temp" },
+					hide_by_pattern = { ".*" },
 					hide_dotfiles = false,
 					hide_gitignored = false,
 					never_show = { ".DS_Store" },
-					hide_by_pattern = { ".*" },
+					show_hidden_count = false,
 				},
 
 				commands = {
