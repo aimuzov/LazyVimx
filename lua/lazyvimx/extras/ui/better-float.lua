@@ -12,7 +12,7 @@ return {
 	},
 
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		optional = true,
 		opts = { ui = {
 			border = "rounded",
