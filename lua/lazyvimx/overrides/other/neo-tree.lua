@@ -203,9 +203,6 @@ return {
 				window = {
 					mappings = {
 						["<c-h>"] = "toggle_hidden",
-						["<c-s>"] = "open_split",
-						["<c-v>"] = "open_vsplit",
-						["s"] = "none",
 					},
 
 					fuzzy_finder_mappings = {
@@ -244,14 +241,17 @@ return {
 
 			window = {
 				mappings = {
+					["<c-s>"] = "open_split",
+					["<c-v>"] = "open_vsplit",
 					["<cr>"] = "open_nofocus",
-					["h"] = "node_close_or_goto_parent",
-					["l"] = "node_open_or_file_open",
-					["Y"] = "copy_selector",
-					["O"] = "system_open",
-					["P"] = { "toggle_preview", config = { use_float = false } },
 					["<s-h>"] = "prev_source",
 					["<s-l>"] = "next_source",
+					["h"] = "node_close_or_goto_parent",
+					["l"] = "node_open_or_file_open",
+					["O"] = "system_open",
+					["P"] = { "toggle_preview", config = { use_float = false } },
+					["s"] = "none",
+					["Y"] = "copy_selector",
 				},
 			},
 
