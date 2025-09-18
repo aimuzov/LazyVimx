@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.3](https://github.com/aimuzov/LazyVimx/compare/v0.5.2...v0.5.3) (2025-09-18)
+
+### Bug Fixes
+
+* rename some deps ([2fb443e](https://github.com/aimuzov/LazyVimx/commit/2fb443eec650471f9b9b0ee9111a825d42525473))
+* **ui:** fix height for lazygit ([6c6253a](https://github.com/aimuzov/LazyVimx/commit/6c6253aa637bac1a2d6a816256ae31257f6025e2))
+* **ui:** fix neotree visible & hidden filters ([bf2bce6](https://github.com/aimuzov/LazyVimx/commit/bf2bce62c8e182fc6515058dbcc9c4c016e3f8f8))
+
 ## [0.5.2](https://github.com/aimuzov/LazyVimx/compare/v0.5.1...v0.5.2) (2025-09-10)
 
 ### Bug Fixes
