@@ -67,21 +67,21 @@ return {
 
 			formats = {
 				icon = function(item)
-					return { item.icon, width = 2, hl = "icon" }
+					return { item.icon, width = 5, hl = "icon" }
 				end,
 				key = function(item)
 					return {
 						{ "▌", hl = "key" },
-						{ " " .. button_icons[item.key] .. " ", hl = "key" },
+						{ " " .. button_icons[item.key] .. "  ", hl = "key" },
 						{ "▐", hl = "key" },
 					}
 				end,
 			},
 
 			sections = sections_mixin_header({
-				{ text = { { "▁▁▁▁▁", hl = "SnacksDashboardBorder" } }, indent = 37 },
+				{ text = { { "▁▁▁▁▁▁", hl = "SnacksDashboardBorder" } }, indent = 36 },
 				{ section = "keys" },
-				{ text = { { "▔▔▔▔▔", hl = "SnacksDashboardBorder" } }, indent = 37 },
+				{ text = { { "▔▔▔▔▔▔", hl = "SnacksDashboardBorder" } }, indent = 36 },
 				{ section = "startup" },
 			}),
 		},
