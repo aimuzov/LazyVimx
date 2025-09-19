@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.4](https://github.com/aimuzov/LazyVimx/compare/v0.5.3...v0.5.4) (2025-09-19)
+
+### Bug Fixes
+
+* **ui:** fix dashboard keys alignment ([0da40e7](https://github.com/aimuzov/LazyVimx/commit/0da40e72d6379661121ead782f36cb388f6eb3f5))
+* **ui:** fix mapping for neo-tree ([f0e5138](https://github.com/aimuzov/LazyVimx/commit/f0e513845e8b5a6f8b44a6f60ea9a70ee1de571e))
+* **ui:** small fixes for dashboard ([bae941d](https://github.com/aimuzov/LazyVimx/commit/bae941d9d2e41b89776509f7bd48622301762c7e))
+
 ## [0.5.3](https://github.com/aimuzov/LazyVimx/compare/v0.5.2...v0.5.3) (2025-09-18)
 
 ### Bug Fixes
