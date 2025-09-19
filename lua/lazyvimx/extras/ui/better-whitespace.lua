@@ -3,6 +3,7 @@ local disabled_ft = {
 	"lazy",
 	"mason",
 	"neo-tree",
+	"snacks_dashboard",
 	"snacks_terminal",
 }
 
