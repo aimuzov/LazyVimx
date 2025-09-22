@@ -29,7 +29,7 @@ return {
 
 		format = {
 			spinner = {
-				name = "triangle",
+				name = "toggle4",
 			},
 		},
 
