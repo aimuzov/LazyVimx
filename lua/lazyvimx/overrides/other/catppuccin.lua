@@ -25,7 +25,7 @@ local override_all = function(c)
 		EdgyNormal = { link = "NormalFloat" },
 		EdgyTitle = { bg = c.none, fg = c.text },
 		FlashBackdrop = { fg = blend(c.base, c.blue, 35) },
-		FlashPrompt = { bg = c.crust },
+		FlashPrompt = { bg = blend(c.base, c.crust, 65) },
 		FlashPromptSep = { fg = blend(c.crust, c.text, 50) },
 		FloatBorder = { bg = c.base },
 		FloatTitle = { bg = c.base, fg = c.lavender, style = { "bold" } },

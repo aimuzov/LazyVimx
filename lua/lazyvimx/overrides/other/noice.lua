@@ -1,71 +1,100 @@
 return {
-	"folke/noice.nvim",
-	opts = {
-		presets = { bottom_search = false },
+	{
+		"folke/noice.nvim",
+		opts = {
+			cmdline = {
+				-- view = "cmdline_popup",
+				-- opts = {
+				-- 	win_options = {
+				-- 		winhighlight = {
+				-- 			Normal = "NormalFloat",
+				-- 			FloatBorder = "FloatBorder",
+				-- 			FloatTitle = "FloatTitle",
+				-- 		},
+				-- 	},
+				-- },
 
-		cmdline = {
-			opts = {
-				win_options = {
-					winhighlight = {
-						Normal = "NormalFloat",
-						FloatBorder = "FloatBorder",
-						FloatTitle = "FloatTitle",
-					},
-				},
-			},
-		},
-
-		lsp = {
-			documentation = {
+				view = "cmdline",
 				opts = {
 					win_options = {
+						winblend = 0,
 						winhighlight = {
-							NormalFloat = "CmpDocFloat",
+							Normal = "FlashPrompt",
 						},
 					},
 				},
 			},
-		},
 
-		format = {
-			spinner = {
-				name = "toggle4",
+			lsp = {
+				documentation = {
+					opts = {
+						win_options = {
+							winhighlight = {
+								NormalFloat = "CmpDocFloat",
+							},
+						},
+					},
+				},
 			},
-		},
 
-		routes = {
-			{
-				view = "mini",
-				opts = { skip = true },
-				filter = {
-					event = "msg_show",
-					any = {
-						{ find = "%d+L, %d+B" },
-						{ find = "; after #%d+" },
-						{ find = "; before #%d+" },
-						{ find = "%d fewer lines" },
-						{ find = "%d more lines" },
-					},
+			format = {
+				spinner = {
+					name = "toggle4",
 				},
 			},
-			{
-				view = "notify",
-				filter = {
-					any = {
-						{ find = "Reloading" },
-						{ find = "No items, skipping git ignored/status lookups" },
+
+			routes = {
+				{
+					view = "mini",
+					opts = { skip = true },
+					filter = {
+						event = "msg_show",
+						any = {
+							{ find = "%d+L, %d+B" },
+							{ find = "; after #%d+" },
+							{ find = "; before #%d+" },
+							{ find = "%d fewer lines" },
+							{ find = "%d more lines" },
+						},
 					},
 				},
-				opts = { skip = true },
-			},
-			{
-				filter = {
-					any = {
-						{ find = "No information available" },
+				{
+					view = "notify",
+					filter = {
+						any = {
+							{ find = "Reloading" },
+							{ find = "No items, skipping git ignored/status lookups" },
+						},
 					},
+					opts = { skip = true },
 				},
-				opts = { stop = true },
+				{
+					filter = {
+						any = {
+							{ find = "No information available" },
+						},
+					},
+					opts = { stop = true },
+				},
 			},
 		},
+	},
+
+	{
+		"folke/noice.nvim",
+		opts = function()
+			local defaults_orig = require("noice.config").defaults
+			local defaults_override = function()
+				local defaults = defaults_orig()
+
+				for _, value in pairs(defaults.cmdline.format) do
+					value.icon = " " .. value.icon .. " "
+				end
+
+				return defaults
+			end
+
+			require("noice.config").defaults = defaults_override
+		end,
 	},
 }
