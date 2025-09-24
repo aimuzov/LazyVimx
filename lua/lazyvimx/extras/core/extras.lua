@@ -20,7 +20,6 @@ return {
 	{ import = "lazyvimx.extras.motions.sibling-move" },
 	{ import = "lazyvimx.extras.motions.sibling-swap" },
 	{ import = "lazyvimx.extras.motions.splitting-joining-blocks" },
-	{ import = "lazyvimx.extras.perf.auto-update-third-party-tools" },
 	{ import = "lazyvimx.extras.perf.local-config" },
 	{ import = "lazyvimx.extras.perf.stop-inactive-lsp" },
 	{ import = "lazyvimx.extras.test.jest" },

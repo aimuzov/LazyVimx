@@ -7,7 +7,7 @@ return {
 
 		prompt = {
 			prefix = {
-				{ "  ", "FlashPromptIcon" },
+				{ "   ", "FlashPromptIcon" },
 				{ " ", "FlashPromptSep" },
 			},
 		},

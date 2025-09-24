@@ -7,6 +7,9 @@ local override_highlights = function(hl, c)
 	hl.EdgyTitle = { bg = c.bg_dark, fg = c.bg_dark }
 	hl.FloatBorder = { fg = blend(c.bg, c.blue2, 50) }
 	hl.FloatTitle = { fg = blend(c.bg, c.blue2, 50) }
+	hl.FlashBackdrop = { fg = blend(c.bg, c.blue2, 15) }
+	hl.FlashPrompt = { bg = c.bg_dark }
+	hl.FlashPromptSep = { fg = blend(c.bg_dark, c.fg, 50) }
 	hl.LspReferenceRead = { bg = "none", fg = blend(c.fg, c.magenta2, 50), bold = true }
 	hl.LspReferenceText = { bg = "none", fg = blend(c.fg, c.magenta2, 50), bold = true }
 	hl.LspReferenceWrite = { bg = "none", fg = blend(c.fg, c.magenta2, 50), bold = true, underline = true }

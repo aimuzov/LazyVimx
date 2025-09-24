@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.5](https://github.com/aimuzov/LazyVimx/compare/v0.5.4...v0.5.5) (2025-09-24)
+
+### Bug Fixes
+
+* **perf:** remove autoinstall tool for mason ([3c1b544](https://github.com/aimuzov/LazyVimx/commit/3c1b544185ece5ba0c5ec5fa896fb133fc7d5f59))
+* **ui:** replace spinner ([971f918](https://github.com/aimuzov/LazyVimx/commit/971f918813a2ad36ec6e140c667a465e211196fd))
+* **ui:** some fixes for cmdline ([b0959f0](https://github.com/aimuzov/LazyVimx/commit/b0959f06e897e2dc3e21314d0061b5b62c85bb57))
+
 ## [0.5.4](https://github.com/aimuzov/LazyVimx/compare/v0.5.3...v0.5.4) (2025-09-19)
 
 ### Bug Fixes
