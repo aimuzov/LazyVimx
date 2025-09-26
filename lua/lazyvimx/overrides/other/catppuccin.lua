@@ -322,8 +322,8 @@ return {
 
 				opts = function(_, opts)
 					function highlights_create()
-						local catppuccin_bufferline = require("catppuccin.groups.integrations.bufferline")
-						local highlights = catppuccin_bufferline.get({
+						local catppuccin_bufferline = require("catppuccin.special.bufferline")
+						local highlights = catppuccin_bufferline.get_theme({
 							styles = { "bold" },
 							custom = {
 								frappe = override_bufferline_hls(colors_get("frappe")),
@@ -397,15 +397,5 @@ return {
 				end,
 			},
 		},
-	},
-
-	{
-		"catppuccin/nvim",
-		optional = true,
-		opts = function()
-			-- https://github.com/LazyVim/LazyVim/pull/6354
-			local bufferline = require("catppuccin.groups.integrations.bufferline")
-			bufferline.get = bufferline.get or bufferline.get_theme
-		end,
 	},
 }
