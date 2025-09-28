@@ -9,6 +9,7 @@ end
 return {
 	"dnlhc/glance.nvim",
 	desc = "A pretty preview window for Neovim that provides VSCode-like peek preview functionality for LSP locations",
+	cmd = "Glance",
 
 	opts = {
 		theme = { enable = false },

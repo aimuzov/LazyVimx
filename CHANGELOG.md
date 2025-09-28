@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/aimuzov/LazyVimx/compare/v0.5.5...v0.6.0) (2025-09-28)
+
+### Bug Fixes
+
+* **keys:** replace keymap for reference (glance) ([41d0f4d](https://github.com/aimuzov/LazyVimx/commit/41d0f4d06aeeb8fbecbf7ad40fd2808ecdea0a37))
+* **ui:** migrate to new ver of catppuccin ([6a7202d](https://github.com/aimuzov/LazyVimx/commit/6a7202d70acf28cb0aba2147b13601e8ade4a07f)), closes [catppuccin/nvim#931](https://github.com/catppuccin/nvim/issues/931)
+
 ## [0.5.5](https://github.com/aimuzov/LazyVimx/compare/v0.5.4...v0.5.5) (2025-09-24)
 
 ### Bug Fixes

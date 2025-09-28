@@ -60,12 +60,16 @@ return {
 		{ "<leader>fY", "Yazi toggle", desc = "Find files (yazi prev session)" },
 	}),
 
-	create("dnlhc/glance.nvim", {
-		{ "<leader>gd", "Glance definitions", desc = "Show definitions (peek window)" },
-		{ "<leader>gm", "Glance implementations", desc = "Show implementations (peek window)" },
-		{ "<leader>gr", "Glance references", desc = "Show references (peek window)" },
-		{ "<leader>gy", "Glance type_definitions", desc = "Show type definitions (peek window)" },
-	}),
+	create("dnlhc/glance.nvim", {}, function()
+		local keys = require("lazyvim.plugins.lsp.keymaps").get()
+
+		keys[#keys + 1] = {
+			"<leader>cr",
+			"<cmd>Glance references<cr>",
+			desc = "Rename",
+			has = "rename",
+		}
+	end),
 
 	create("folke/snacks.nvim", {
 		{ "<leader><space>", { LazyVim.pick("smart") }, desc = "Find files (smart)" },
@@ -128,22 +132,22 @@ return {
 	}),
 
 	create("harrisoncramer/gitlab.nvim", {
-		{ "<leader>glA", "lua require('gitlab').approve()", desc = "Approve" },
-		{ "<leader>glc", "lua require('gitlab').create_comment()", desc = "Create comment" },
+		{ "<leader>gLA", "lua require('gitlab').approve()", desc = "Approve" },
+		{ "<leader>gLc", "lua require('gitlab').create_comment()", desc = "Create comment" },
 		-- stylua: ignore
-		{ "<leader>glC", "lua require('gitlab').create_comment_suggestion()", mode = { "v" }, desc = "Create comment suggestion" },
-		{ "<leader>glc", "lua require('gitlab').create_multiline_comment()", mode = { "v" }, desc = "Create comment" },
-		{ "<leader>gld", "lua require('gitlab').toggle_discussions()", desc = "Toggle discussion" },
-		{ "<leader>gle", "lua require('gitlab').choose_merge_request()", desc = "Choose merge request" },
-		{ "<leader>glM", "lua require('gitlab').merge()", desc = "Merge" },
+		{ "<leader>gLC", "lua require('gitlab').create_comment_suggestion()", mode = { "v" }, desc = "Create comment suggestion" },
+		{ "<leader>gLc", "lua require('gitlab').create_multiline_comment()", mode = { "v" }, desc = "Create comment" },
+		{ "<leader>gLd", "lua require('gitlab').toggle_discussions()", desc = "Toggle discussion" },
+		{ "<leader>gLe", "lua require('gitlab').choose_merge_request()", desc = "Choose merge request" },
+		{ "<leader>gLM", "lua require('gitlab').merge()", desc = "Merge" },
 		-- stylua: ignore
-		{ "<leader>glm", "lua require('gitlab').move_to_discussion_tree_from_diagnostic()", desc = "Move to discussion" },
-		{ "<leader>gln", "lua require('gitlab').create_note()", desc = "create note" },
-		{ "<leader>glo", "lua require('gitlab').open_in_browser()", desc = "Open in browser" },
-		{ "<leader>glp", "lua require('gitlab').pipeline()", desc = "Pipeline" },
-		{ "<leader>glr", "lua require('gitlab').review()", desc = "Review" },
-		{ "<leader>glR", "lua require('gitlab').revoke()", desc = "Revoke" },
-		{ "<leader>gls", "lua require('gitlab').summary()", desc = "Summary" },
+		{ "<leader>gLm", "lua require('gitlab').move_to_discussion_tree_from_diagnostic()", desc = "Move to discussion" },
+		{ "<leader>gLn", "lua require('gitlab').create_note()", desc = "create note" },
+		{ "<leader>gLo", "lua require('gitlab').open_in_browser()", desc = "Open in browser" },
+		{ "<leader>gLp", "lua require('gitlab').pipeline()", desc = "Pipeline" },
+		{ "<leader>gLr", "lua require('gitlab').review()", desc = "Review" },
+		{ "<leader>gLR", "lua require('gitlab').revoke()", desc = "Revoke" },
+		{ "<leader>gLs", "lua require('gitlab').summary()", desc = "Summary" },
 	}),
 
 	create("tpope/vim-fugitive", {
