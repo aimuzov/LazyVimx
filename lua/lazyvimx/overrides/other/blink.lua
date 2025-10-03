@@ -4,6 +4,9 @@ return {
 	dependencies = { "xzbdmw/colorful-menu.nvim" },
 	opts = {
 		completion = {
+			documentation = {
+				auto_show_delay_ms = 500,
+			},
 			menu = {
 				auto_show = false,
 				draw = {
