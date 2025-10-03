@@ -5,11 +5,11 @@ local override_highlights = function(hl, c)
 	hl.BufferLineCustomGroupSep = { bg = c.bg_dark, fg = c.blue }
 	hl.CursorLine = { bg = blend(c.bg, c.blue, 10) }
 	hl.EdgyTitle = { bg = c.bg_dark, fg = c.bg_dark }
-	hl.FloatBorder = { fg = blend(c.bg, c.blue2, 50) }
-	hl.FloatTitle = { fg = blend(c.bg, c.blue2, 50) }
 	hl.FlashBackdrop = { fg = blend(c.bg, c.blue2, 15) }
 	hl.FlashPrompt = { bg = c.bg_dark }
 	hl.FlashPromptSep = { fg = blend(c.bg_dark, c.fg, 50) }
+	hl.FloatBorder = { fg = blend(c.bg, c.blue2, 50) }
+	hl.FloatTitle = { fg = blend(c.bg, c.blue2, 50) }
 	hl.LspReferenceRead = { bg = "none", fg = blend(c.fg, c.magenta2, 50), bold = true }
 	hl.LspReferenceText = { bg = "none", fg = blend(c.fg, c.magenta2, 50), bold = true }
 	hl.LspReferenceWrite = { bg = "none", fg = blend(c.fg, c.magenta2, 50), bold = true, underline = true }
@@ -46,6 +46,10 @@ local override_highlights = function(hl, c)
 	hl.SnacksPickerBoxTitle = { link = "FloatBorder" }
 	hl.SnacksPickerInputBorder = { fg = blend(c.bg, c.blue2, 25) }
 	hl.SnacksPickerInputCursorLine = { bg = c.bg }
+	hl.SymbolUsageContent = { fg = blend(c.fg_gutter, c.fg, 10) }
+	hl.SymbolUsageDef = { fg = c.red }
+	hl.SymbolUsageImpl = { fg = c.yellow }
+	hl.SymbolUsageRef = { fg = c.blue }
 	hl.TabLineFill = { bg = c.bg_dark }
 	hl.TreesitterContext = { bg = c.bg, blend = 10 }
 	hl.TreesitterContextBottom = { fg = blend(c.bg, c.fg, 15), blend = 0, underline = true }
@@ -53,15 +57,11 @@ local override_highlights = function(hl, c)
 	hl.TroubleNormal = { bg = c.bg }
 	hl.TroubleNormalNC = { bg = c.bg }
 	hl.Visual = { bg = blend(c.bg, c.blue, 10) }
+	hl.VisualWhitespace = { bg = blend(c.bg, c.blue, 10), fg = blend(c.fg_gutter, c.fg, 10) }
 	hl.VisualWhitespace = { link = "Visual" }
 	hl.WhichKeyBorder = { link = "FloatBorder" }
 	hl.WhichKeyNormal = { link = "FloatNormal" }
 	hl.WinSeparator = { fg = blend(c.bg, c.bg_dark, 60) }
-	hl.SymbolUsageDef = { fg = c.red }
-	hl.SymbolUsageImpl = { fg = c.yellow }
-	hl.SymbolUsageRef = { fg = c.blue }
-	hl.VisualWhitespace = { bg = blend(c.bg, c.blue, 10), fg = blend(c.fg_gutter, c.fg, 10) }
-	hl.SymbolUsageContent = { fg = blend(c.fg_gutter, c.fg, 10) }
 end
 
 local override_bufferline_hls = function(c)
