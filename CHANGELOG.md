@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.0](https://github.com/aimuzov/LazyVimx/compare/v0.6.0...v1.0.0) (2025-10-06)
+
+### Bug Fixes
+
+* **motions:** fix keys for live-rename plug ([70588de](https://github.com/aimuzov/LazyVimx/commit/70588dea486050f8cca9c60cb6221906a9710931))
+* **ui:** add delay for opening blink doc ([3639164](https://github.com/aimuzov/LazyVimx/commit/3639164dfb6a8e08513c20de742f6193744f5842))
+* **ui:** fix border highlight for blink doc ([e1aaef9](https://github.com/aimuzov/LazyVimx/commit/e1aaef9be333c5ae1cd9054bcaeb3cead8422408))
+* **ui:** fix buftab style ([271cbec](https://github.com/aimuzov/LazyVimx/commit/271cbece9956a0f4f168cd4900c14dd961102666))
+* **ui:** fix highlights for blink (tokyonight) ([de958a0](https://github.com/aimuzov/LazyVimx/commit/de958a0e6545441cb0d64dee3c5851d970966a96))
+
 ## [0.6.0](https://github.com/aimuzov/LazyVimx/compare/v0.5.5...v0.6.0) (2025-09-28)
 
 ### Bug Fixes
