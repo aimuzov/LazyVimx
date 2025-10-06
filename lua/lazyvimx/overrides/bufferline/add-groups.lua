@@ -3,7 +3,7 @@ local function separator_style(group)
 		sep_start = {
 			{ highlight = "BufferLineCustomGroupSep", text = "   " },
 			{ highlight = "BufferLineCustomGroupLabel", text = group.name },
-			{ highlight = "BufferLineCustomGroupSep", text = group.hidden and "  " or "  " },
+			{ highlight = "BufferLineCustomGroupSep", text = group.hidden and "   " or "   " },
 		},
 		sep_end = {},
 	}
