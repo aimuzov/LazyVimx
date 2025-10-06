@@ -24,7 +24,6 @@
 return {
   spec = {
     { import = "lazyvimx.boot" },
-    { import = "plugins" },
   },
 }
 ```
@@ -39,7 +38,6 @@ return {
   spec = {
     { import = "lazyvimx.boot" },
     { import = "lazyvimx.extras.core.all" },  -- Enable all enhancements
-    { import = "plugins" },
   },
 }
 ```
@@ -681,7 +679,6 @@ print(has_extra)
 return {
   spec = {
     { import = "lazyvimx.boot" },
-    { import = "plugins" },
   },
 }
 ```
@@ -694,7 +691,6 @@ return {
   spec = {
     { import = "lazyvimx.boot" },
     { import = "lazyvimx.extras.core.all" },
-    { import = "plugins" },
   },
 }
 
@@ -712,7 +708,6 @@ return {
   spec = {
     { import = "lazyvimx.boot" },
     { import = "lazyvimx.extras.core.all" },
-    { import = "plugins" },
   },
 }
 
@@ -753,8 +748,6 @@ return {
 
     -- Git
     { import = "lazyvimx.extras.git.conflicts" },
-
-    { import = "plugins" },
   },
 }
 ```

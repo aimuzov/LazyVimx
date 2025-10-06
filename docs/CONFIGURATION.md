@@ -23,8 +23,7 @@ Complete guide to configuring LazyVimx.
 -- In your lua/config/lazy.lua
 return {
   spec = {
-    { import = "lazyvimx.boot" },
-    { import = "plugins" },
+    { "aimuzov/LazyVimx", import = "lazyvimx.boot" }
   },
 }
 ```
@@ -37,9 +36,8 @@ This gives you LazyVimx with default settings and makes all extras available via
 -- In your lua/config/lazy.lua
 return {
   spec = {
-    { import = "lazyvimx.boot" },
+    { "aimuzov/LazyVimx", import = "lazyvimx.boot" }
     { import = "lazyvimx.extras.core.all" },  -- Enable all enhancements
-    { import = "plugins" },
   },
 }
 ```
@@ -680,8 +678,7 @@ print(has_extra)
 -- lua/config/lazy.lua
 return {
   spec = {
-    { import = "lazyvimx.boot" },
-    { import = "plugins" },
+    { "aimuzov/LazyVimx", import = "lazyvimx.boot" }
   },
 }
 ```
@@ -692,9 +689,8 @@ return {
 -- lua/config/lazy.lua
 return {
   spec = {
-    { import = "lazyvimx.boot" },
-    { import = "lazyvimx.extras.core.all" },
-    { import = "plugins" },
+    { "aimuzov/LazyVimx", import = "lazyvimx.boot" }
+    { import = "lazyvimx.extras.core.all" },  -- Enable all enhancements
   },
 }
 
@@ -711,8 +707,7 @@ require("lazyvimx").setup({
 return {
   spec = {
     { import = "lazyvimx.boot" },
-    { import = "lazyvimx.extras.core.all" },
-    { import = "plugins" },
+    { import = "lazyvimx.extras.core.all" },  -- Enable all enhancements
   },
 }
 
@@ -753,8 +748,6 @@ return {
 
     -- Git
     { import = "lazyvimx.extras.git.conflicts" },
-
-    { import = "plugins" },
   },
 }
 ```
