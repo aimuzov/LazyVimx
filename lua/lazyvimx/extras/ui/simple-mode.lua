@@ -17,6 +17,8 @@ local function is_not_simple_mode()
 end
 
 return {
+	desc = "Minimal UI mode for viewing man pages and documentation with disabled statusline, bufferline, and line numbers",
+
 	{ "nvim-neo-tree/neo-tree.nvim", optional = true, cond = is_not_simple_mode },
 	{ "akinsho/bufferline.nvim", optional = true, cond = is_not_simple_mode },
 	{ "nvim-lualine/lualine.nvim", optional = true, cond = is_not_simple_mode },

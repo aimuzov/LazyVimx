@@ -1,6 +1,6 @@
 local function insert_extras()
 	table.insert(require("lazyvim.util.extras").sources, {
-		name = "[ 󰬟 ]",
+		name = "󰬟 ",
 		desc = "Some recipes (extras) for enhance lazyvim",
 		module = "lazyvimx.extras",
 	})

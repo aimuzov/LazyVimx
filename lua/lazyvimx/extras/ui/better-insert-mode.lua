@@ -1,4 +1,6 @@
 return {
+	desc = "Automatically hide distracting UI elements (context, indent, symbols, column) during insert mode",
+
 	{
 		"nvim-treesitter/nvim-treesitter-context",
 		optional = true,
