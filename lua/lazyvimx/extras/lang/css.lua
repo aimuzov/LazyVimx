@@ -8,6 +8,8 @@ local cssls_setup = function()
 end
 
 return {
+	desc = "CSS/SCSS language support with LSP, treesitter, and formatting via Prettier and Stylelint",
+
 	{
 		"neovim/nvim-lspconfig",
 		opts = {

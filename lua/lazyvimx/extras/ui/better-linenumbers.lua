@@ -1,5 +1,6 @@
 return {
 	"LazyVim/LazyVim",
+	desc = "Smart line number display that disables relative numbers in command-line mode and all numbers in terminals",
 	opts = function()
 		local function set_relnum_back(win)
 			vim.api.nvim_create_autocmd("CmdlineLeave", {

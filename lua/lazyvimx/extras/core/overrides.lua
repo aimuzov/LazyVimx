@@ -1,4 +1,5 @@
 return {
+	desc = "Plugin overrides including LazyVim core, Snacks, Bufferline, and other customizations",
 	recommended = true,
 
 	{ import = "lazyvimx.overrides.lazyvim" },

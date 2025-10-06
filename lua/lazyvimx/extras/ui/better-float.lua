@@ -1,4 +1,6 @@
 return {
+	desc = "Consistent rounded borders for all floating windows including DAP, Mason, LSP, Neo-tree, and terminals",
+
 	{
 		"rcarriga/nvim-dap-ui",
 		optional = true,
