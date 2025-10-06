@@ -54,12 +54,6 @@ return {
 
 		opts = {
 			presets = { lsp_doc_border = true },
-
-			lsp = {
-				documentation = {
-					opts = { win_options = { winhighlight = "NormalFloat:Float" } },
-				},
-			},
 		},
 	},
 

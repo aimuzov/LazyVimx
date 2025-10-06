@@ -12,6 +12,7 @@ local override_all = function(c)
 		AvanteSidebarWinHorizontalSeparator = { fg = c.surface1 },
 		AvanteSidebarWinSeparator = { link = "WinSeparator" },
 		BlinkCmpDoc = { bg = c.mantle, blend = 15 },
+		BlinkCmpDocBorder = { link = "BlinkCmpDoc" },
 		BlinkCmpDocSeparator = { fg = blend(c.mantle, c.text, 10) },
 		BufferLineCustomGroupLabel = { bg = c.mantle, fg = c.text, style = { "bold" } },
 		BufferLineCustomGroupSep = { bg = c.mantle, fg = c.maroon },

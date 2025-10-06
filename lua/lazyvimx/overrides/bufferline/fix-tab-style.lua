@@ -10,8 +10,9 @@ return {
 			separator_style = "thin",
 			left_trunc_marker = "",
 			right_trunc_marker = "",
-			modified_icon = "",
-			close_icon = "󰅖",
+			modified_icon = " ",
+			close_icon = "󰅖 ",
+			buffer_close_icon = "󰅖 ",
 		},
 	},
 }
