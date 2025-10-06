@@ -64,8 +64,18 @@ return {
 		local keys = require("lazyvim.plugins.lsp.keymaps").get()
 
 		keys[#keys + 1] = {
-			"<leader>cr",
+			"gr",
 			"<cmd>Glance references<cr>",
+			desc = "Go to references",
+		}
+	end),
+
+	create("saecki/live-rename.nvim", {}, function()
+		local keys = require("lazyvim.plugins.lsp.keymaps").get()
+
+		keys[#keys + 1] = {
+			"<leader>cr",
+			require("live-rename").rename,
 			desc = "Rename",
 			has = "rename",
 		}
