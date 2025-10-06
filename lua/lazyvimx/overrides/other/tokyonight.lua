@@ -1,6 +1,13 @@
 local blend = require("lazyvimx.util.general").color_blend
 
 local override_highlights = function(hl, c)
+	hl.BlinkCmpDoc = { bg = c.bg_dark, blend = 15 }
+	hl.BlinkCmpDocBorder = { link = "BlinkCmpDoc" }
+	hl.BlinkCmpDocSeparator = { fg = blend(c.bg_dark, c.fg, 10) }
+	hl.BlinkCmpMenu = { link = "Pmenu" }
+	hl.BlinkCmpMenuSelection = { bg = blend(c.bg_dark, c.fg_dark, 10) }
+	hl.BlinkCmpScrollBarGutter = { bg = blend(c.bg_dark, c.fg_dark, 15) }
+	hl.BlinkCmpScrollBarThumb = { bg = blend(c.bg_dark, c.fg_dark, 25) }
 	hl.BufferLineCustomGroupLabel = { bg = c.bg_dark, fg = c.fg }
 	hl.BufferLineCustomGroupSep = { bg = c.bg_dark, fg = c.blue }
 	hl.CursorLine = { bg = blend(c.bg, c.blue, 10) }
