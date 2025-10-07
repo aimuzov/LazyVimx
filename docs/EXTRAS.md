@@ -28,16 +28,19 @@ Extras are optional feature modules that enhance LazyVim functionality. All extr
 ### Enabling Extras
 
 **Via UI:**
+
 ```vim
 :LazyExtras
 ```
 
 **Via Configuration:**
+
 ```lua
 { import = "lazyvimx.extras.category.extra-name" }
 ```
 
 **Enable All:**
+
 ```lua
 { import = "lazyvimx.extras.core.all" }
 ```
@@ -55,18 +58,21 @@ Core extras provide orchestration and fundamental enhancements.
 Complete LazyVimx experience with all features enabled.
 
 **Includes:**
+
 - All overrides
 - All extras
 - Custom keybindings
 - Recommended extras notifications
 
 **Usage:**
+
 ```lua
 { import = "lazyvimx.extras.core.all" }
 ```
 
 **Notifications:**
 Checks for recommended LazyVim extras:
+
 - `coding.mini-surround`
 - `coding.yanky`
 - `ui.edgy`
@@ -81,6 +87,7 @@ Checks for recommended LazyVim extras:
 All plugin overrides (33 modules across 4 categories).
 
 **Includes:**
+
 - LazyVim core overrides (8 modules)
 - Snacks.nvim overrides (7 modules)
 - Bufferline overrides (6 modules)
@@ -101,6 +108,7 @@ Registry of all 43 extras. Use this to enable all features at once.
 Custom keybindings for LazyVimx features.
 
 **Key Highlights:**
+
 - `d` - Delete without yanking
 - `<C-S-j/k>` - Move lines up/down
 - `<leader>\` - Split window right
@@ -124,6 +132,7 @@ UI extras enhance the visual experience and interface.
 Inline diagnostic messages displayed at cursor position with icons and colors.
 
 **Features:**
+
 - Single-line diagnostic display
 - Custom arrow icons (→, ↓, ←, ↑)
 - Vertical bar separators
@@ -133,6 +142,7 @@ Inline diagnostic messages displayed at cursor position with icons and colors.
 **Plugin:** `rachartier/tiny-inline-diagnostic.nvim`
 
 **Screenshot Features:**
+
 ```
 function foo() {
   return bar  → Undefined variable 'bar'
@@ -146,12 +156,14 @@ function foo() {
 Automatically hides distracting UI elements during insert mode.
 
 **Hides:**
+
 - Treesitter context
 - Symbol usage indicators
 - Indent guides
 - Virtual column
 
 **Benefits:**
+
 - Cleaner editing experience
 - Less visual clutter
 - Better focus
@@ -163,6 +175,7 @@ Automatically hides distracting UI elements during insert mode.
 Smart line number display based on context.
 
 **Features:**
+
 - Disables relative numbers in command-line mode
 - Disables all numbers in terminal buffers
 - Automatic restoration
@@ -174,6 +187,7 @@ Smart line number display based on context.
 Renders ANSI escape sequences with proper colors.
 
 **Features:**
+
 - `:BaleiaColorize` - Colorize current buffer
 - `:BaleiaLogs` - Show logger
 - Auto-colorize DAP REPL output
@@ -181,6 +195,7 @@ Renders ANSI escape sequences with proper colors.
 **Plugin:** `m00qek/baleia.nvim`
 
 **Use Cases:**
+
 - Viewing logs with colors
 - DAP REPL output
 - Terminal output in buffers
@@ -192,6 +207,7 @@ Renders ANSI escape sequences with proper colors.
 Visual color code indicators in files.
 
 **Features:**
+
 - Highlights hex colors (#RRGGBB)
 - Virtual icon display (󱓻)
 - End-of-line placement
@@ -200,6 +216,7 @@ Visual color code indicators in files.
 **Plugin:** `brenoprata10/nvim-highlight-colors`
 
 **Example:**
+
 ```css
 background: #FF5733;  󱓻
 color: #3498DB;       󱓻
@@ -212,6 +229,7 @@ color: #3498DB;       󱓻
 JetBrains-like reference counters for symbols.
 
 **Features:**
+
 - Shows references (󰌹)
 - Shows definitions (󰳽)
 - Shows implementations (󰡱)
@@ -221,6 +239,7 @@ JetBrains-like reference counters for symbols.
 **Plugin:** `Wansmer/symbol-usage.nvim`
 
 **Example:**
+
 ```typescript
 function calculate() {  󰌹 3 refs  󰳽 1 def
   // ...
@@ -234,6 +253,7 @@ function calculate() {  󰌹 3 refs  󰳽 1 def
 Enhanced diff view with consistent panel sizing.
 
 **Features:**
+
 - File panel on left (width from layout utility)
 - History panel at bottom (height from layout utility)
 - Consistent sizing with other sidebars
@@ -241,6 +261,7 @@ Enhanced diff view with consistent panel sizing.
 **Plugin:** `sindrets/diffview.nvim`
 
 **Commands:**
+
 - `:DiffviewOpen` - Open diff view
 - `:DiffviewFileHistory` - File history
 
@@ -251,6 +272,7 @@ Enhanced diff view with consistent panel sizing.
 Live preview of LSP rename operations.
 
 **Features:**
+
 - Inline editing with preview
 - Submit with Enter (n/v/i modes)
 - Cancel with Ctrl+C
@@ -266,6 +288,7 @@ Live preview of LSP rename operations.
 Yazi file manager integration as primary explorer.
 
 **Features:**
+
 - Full-window floating UI
 - No borders
 - Fast navigation
@@ -283,12 +306,14 @@ Yazi file manager integration as primary explorer.
 Minimal UI mode for viewing (e.g., man pages).
 
 **Features:**
+
 - Detects `+Man!` argument
 - Disables statusline, bufferline, neo-tree
 - Removes line numbers
 - Clean viewing experience
 
 **Triggered By:**
+
 ```bash
 nvim +Man! some-command
 ```
@@ -300,6 +325,7 @@ nvim +Man! some-command
 Virtual column indicator at 120 characters.
 
 **Features:**
+
 - Vertical bar character (│)
 - Snacks indent integration
 - Excluded filetypes: dashboard
@@ -313,6 +339,7 @@ Virtual column indicator at 120 characters.
 Visual scrollbar in current window.
 
 **Features:**
+
 - Current window only
 - Excludes special filetypes
 - Hidden during insert mode
@@ -327,6 +354,7 @@ Visual scrollbar in current window.
 Window bar with file name and icon.
 
 **Features:**
+
 - Filetype icon
 - Pretty path display
 - Bold formatting
@@ -342,6 +370,7 @@ Window bar with file name and icon.
 Heavy Unicode window separators.
 
 **Characters:**
+
 - Horizontal: ━
 - Vertical: ┃
 - Intersections: ┳, ┻, ╋, ┫, ┣
@@ -356,6 +385,7 @@ More prominent window divisions.
 Smart cursorline that follows active window.
 
 **Features:**
+
 - Enabled in insert mode
 - Always highlights line number
 - Excludes special filetypes
@@ -370,6 +400,7 @@ Smart cursorline that follows active window.
 VSCode-like whitespace visualization in visual mode.
 
 **Features:**
+
 - Shows spaces (·)
 - Shows tabs (→)
 - Shows nbsp (␣)
@@ -385,6 +416,7 @@ VSCode-like whitespace visualization in visual mode.
 VSCode-like peek definitions and references.
 
 **Features:**
+
 - Auto-jump for single result
 - Preview window for multiple results
 - Custom borders (▁, ▔)
@@ -401,6 +433,7 @@ VSCode-like peek definitions and references.
 Consistent rounded borders for all floating windows.
 
 **Applies To:**
+
 - DAP UI
 - Mason
 - LSP (hover, signature help)
@@ -410,6 +443,7 @@ Consistent rounded borders for all floating windows.
 - Lazygit
 
 **Features:**
+
 - Rounded border style
 - Custom sizing
 - Backdrop configuration
@@ -428,15 +462,18 @@ Coding extras enhance programming workflows.
 Emmet abbreviation expansion for HTML/CSS.
 
 **Features:**
+
 - Emmet language server
 - `:EmmetWrap` command
 - Works with HTML, CSS, JSX, TSX
 
 **Plugins:**
+
 - `neovim/nvim-lspconfig`
 - `olrtg/nvim-emmet`
 
 **Example:**
+
 ```
 div.container>ul>li*3  →  Expand with Emmet
 ```
@@ -450,21 +487,25 @@ div.container>ul>li*3  →  Expand with Emmet
 Enhanced commenting with documentation generation.
 
 **Features:**
+
 - Tree-sitter context-aware commenting
 - JSDoc/TSDoc generation
 - Multiple doc formats
 - Custom comment strings
 
 **Plugins:**
+
 - `nvim-mini/mini.comment`
 - `JoosepAlviste/nvim-ts-context-commentstring`
 - `kkoomen/vim-doge`
 
 **Keybindings:**
+
 - `gcc` - Toggle comment
 - `gcd` - Generate documentation
 
 **JavaScript Config:**
+
 - No destructuring props
 - Omit redundant types
 - Smart doc generation
@@ -482,6 +523,7 @@ Motion extras improve code navigation.
 Tree-sitter powered block manipulation.
 
 **Features:**
+
 - Split multi-line structures
 - Join into single line
 - Works with: objects, arrays, functions, JSX
@@ -489,6 +531,7 @@ Tree-sitter powered block manipulation.
 **Plugin:** `Wansmer/treesj`
 
 **Example:**
+
 ```javascript
 // Split
 { foo: 'bar', baz: 'qux' }
@@ -508,6 +551,7 @@ Tree-sitter powered block manipulation.
 Prevents cursor movement during shift/filter operations.
 
 **Features:**
+
 - Cursor stays in place when shifting
 - VSCode compatible
 - Predictable behavior
@@ -521,6 +565,7 @@ Prevents cursor movement during shift/filter operations.
 Enhanced w/e/b motions with subword support.
 
 **Features:**
+
 - Subword navigation (camelCase)
 - Skip insignificant punctuation
 - UTF-8 support
@@ -529,12 +574,14 @@ Enhanced w/e/b motions with subword support.
 **Plugin:** `chrisgrieser/nvim-spider`
 
 **Example:**
+
 ```javascript
 camelCaseVariable
 ^    ^    ^        (stops at subwords)
 ```
 
 **Keybindings:**
+
 - `w` - Next word/subword
 - `e` - End of word/subword
 - `b` - Previous word/subword
@@ -546,6 +593,7 @@ camelCaseVariable
 Tree-sitter aware sibling navigation.
 
 **Features:**
+
 - Navigate by syntax nodes
 - Highlight on move (250ms)
 - Smart jumps
@@ -562,6 +610,7 @@ Move between function parameters, array elements, etc.
 Swap siblings using Tree-sitter.
 
 **Features:**
+
 - Swap parameters
 - Swap array elements
 - Swap object properties
@@ -570,6 +619,7 @@ Swap siblings using Tree-sitter.
 **Plugin:** `Wansmer/sibling-swap.nvim`
 
 **Keybindings:**
+
 - `<C-,>` - Swap with previous
 - `<C-.>` - Swap with next
 
@@ -582,6 +632,7 @@ Swap siblings using Tree-sitter.
 Russian keyboard layout support.
 
 **Features:**
+
 - Automatic keymap translation
 - EN/RU layout switching
 - Which-key integration
@@ -606,6 +657,7 @@ Buffer extras improve buffer management.
 Isolate buffers within tabs.
 
 **Features:**
+
 - Each tab has own buffer list
 - Independent buffer navigation per tab
 - Cleaner workspace organization
@@ -619,6 +671,7 @@ Isolate buffers within tabs.
 Auto-delete empty [No Name] buffers.
 
 **Features:**
+
 - Triggers on BufHidden
 - Only unnamed, unmodified buffers
 - Safe deletion via Snacks
@@ -633,6 +686,7 @@ Opening a new file automatically cleans up empty buffers.
 Automatic buffer cleanup for inactive buffers.
 
 **Features:**
+
 - 30-minute inactivity threshold
 - Auto-delete when source file removed
 - Notification on auto-close
@@ -641,6 +695,7 @@ Automatic buffer cleanup for inactive buffers.
 **Plugin:** `chrisgrieser/nvim-early-retirement`
 
 **Benefits:**
+
 - Reduced memory usage
 - Cleaner buffer list
 - Automatic cleanup
@@ -658,17 +713,20 @@ Git extras enhance version control workflows.
 Comprehensive Git integration.
 
 **Features:**
+
 - Full Git command suite
 - GitHub integration (GBrowse)
 - GitLab integration
 - Token authentication
 
 **Plugins:**
+
 - `tpope/vim-fugitive`
 - `tpope/vim-rhubarb` (GitHub)
 - `shumphrey/fugitive-gitlab.vim` (GitLab)
 
 **Commands:**
+
 - `:Git` - Run git commands
 - `:GBrowse` - Open in GitHub/GitLab
 - `:Gdiff` - Show diff
@@ -680,6 +738,7 @@ Comprehensive Git integration.
 Open and browse remote repositories locally.
 
 **Features:**
+
 - Clone and open in new tab
 - README auto-open
 - Neo-tree integration
@@ -688,6 +747,7 @@ Open and browse remote repositories locally.
 **Plugin:** `moyiz/git-dev.nvim`
 
 **Commands:**
+
 - `:GitDevOpen <url>` - Clone and open
 - `:GitDevRemoteOpen` - Open remote
 - `:GitDevRemoteEnterAndOpen` - Enter and open
@@ -699,6 +759,7 @@ Open and browse remote repositories locally.
 GitLab MR review within Neovim.
 
 **Features:**
+
 - Review merge requests
 - Discussion tree
 - Squash merge option
@@ -712,6 +773,7 @@ GitLab MR review within Neovim.
 **Keybindings:** `<leader>gl*` (via core.keys)
 
 **Commands:**
+
 - `:GitLabMRs` - List MRs
 - `:GitLabMRReview` - Review MR
 - `:GitLabMRApprove` - Approve MR
@@ -723,6 +785,7 @@ GitLab MR review within Neovim.
 Visual Git conflict resolution.
 
 **Features:**
+
 - Conflict detection notifications
 - Visual conflict markers
 - Resolution notifications
@@ -731,6 +794,7 @@ Visual Git conflict resolution.
 **Plugin:** `akinsho/git-conflict.nvim`
 
 **Markers:**
+
 ```
 <<<<<<< HEAD
 Current changes
@@ -752,6 +816,7 @@ Language extras add support for specific languages.
 EJS (Embedded JavaScript) template support.
 
 **Features:**
+
 - Registers as eruby filetype
 - Embedded template parser
 - Tree-sitter integration
@@ -768,6 +833,7 @@ EJS (Embedded JavaScript) template support.
 Enhanced CSS/SCSS support.
 
 **Features:**
+
 - CSS LSP with snippets
 - Tree-sitter for CSS/SCSS
 - Prettier formatting (if extra enabled)
@@ -775,11 +841,13 @@ Enhanced CSS/SCSS support.
 - ESLint support
 
 **Plugins:**
+
 - `neovim/nvim-lspconfig`
 - `nvim-treesitter/nvim-treesitter`
 - `stevearc/conform.nvim` (optional)
 
 **Formatters:**
+
 - Prettier (CSS/SCSS)
 - Stylelint (CSS/SCSS)
 
@@ -796,6 +864,7 @@ Linting extras add code quality tools.
 CSpell spell checker integration.
 
 **Features:**
+
 - Auto-enable if cspell found in project
 - Applies to all filetypes
 - Project-local detection
@@ -804,6 +873,7 @@ CSpell spell checker integration.
 
 **Setup:**
 Add `cspell.json` to your project:
+
 ```json
 {
   "version": "0.2",
@@ -819,6 +889,7 @@ Add `cspell.json` to your project:
 Ensures stylelint is installed.
 
 **Features:**
+
 - Auto-install via Mason
 - CSS/SCSS linting
 - Works with lang.css extra
@@ -838,6 +909,7 @@ AI extras integrate AI coding assistants.
 Cursor AI IDE emulation for Neovim.
 
 **Features:**
+
 - OpenAI GPT-4o integration
 - Inline code suggestions
 - Chat interface
@@ -848,18 +920,20 @@ Cursor AI IDE emulation for Neovim.
 **Plugin:** `yetone/avante.nvim`
 
 **Configuration:**
+
 ```lua
 {
-  provider = "openai",
-  model = "gpt-4o",
-  temperature = 0,
-  max_tokens = 8192,
+	provider = "openai",
+	model = "gpt-4o",
+	temperature = 0,
+	max_tokens = 8192,
 }
 ```
 
 **Keybindings:** `<leader>a*` (via core.keys)
 
 **Requirements:**
+
 - OpenAI API key
 - Internet connection
 
@@ -876,6 +950,7 @@ DAP extras add debugging capabilities.
 JavaScript/TypeScript debugger.
 
 **Features:**
+
 - Chrome debugging
 - Node.js debugging
 - Source map support
@@ -883,15 +958,18 @@ JavaScript/TypeScript debugger.
 - Svelte support
 
 **Plugins:**
+
 - `mxsdev/nvim-dap-vscode-js`
 - `microsoft/vscode-js-debug`
 
 **Configurations:**
+
 1. Chrome (port 8080)
 2. Attach to node --inspect
 3. Launch file in node (JS only)
 
 **Keybindings:**
+
 - `<F5>` - Continue
 - `<F10>` - Step over
 - `<F11>` - Step into
@@ -914,6 +992,7 @@ Performance extras optimize Neovim.
 Garbage collector for inactive LSP clients.
 
 **Features:**
+
 - Auto-stop unused LSP clients
 - Free RAM
 - Configurable thresholds
@@ -929,6 +1008,7 @@ Garbage collector for inactive LSP clients.
 Load project-local configuration.
 
 **Features:**
+
 - Supports `.nvim.lua` and `.config/nvim.lua`
 - Silent mode (no notifications)
 - Per-project customization
@@ -936,12 +1016,13 @@ Load project-local configuration.
 **Plugin:** `klen/nvim-config-local`
 
 **Example `.nvim.lua`:**
+
 ```lua
 vim.opt_local.shiftwidth = 2
 vim.opt_local.expandtab = true
 
 require("lspconfig").tsserver.setup({
-  -- Project-specific LSP config
+	-- Project-specific LSP config
 })
 ```
 
@@ -958,16 +1039,19 @@ Test extras integrate testing frameworks.
 Jest testing framework for Neotest.
 
 **Features:**
+
 - Jest test discovery
 - Run tests from editor
 - Test output in Neotest
 - CI environment variable
 
 **Plugins:**
+
 - `nvim-neotest/neotest`
 - `haydenmeade/neotest-jest`
 
 **Commands:**
+
 - `:Neotest run` - Run nearest test
 - `:Neotest run file` - Run file tests
 - `:Neotest summary` - Show summary
@@ -978,21 +1062,21 @@ Jest testing framework for Neotest.
 
 ## Extras Summary
 
-| Category | Count | Description |
-|----------|-------|-------------|
-| Core | 4 | Orchestration and core functionality |
-| UI | 18 | Visual enhancements and interface |
-| Coding | 2 | Coding tools and workflows |
-| Motions | 6 | Navigation improvements |
-| Buffer | 3 | Buffer management |
-| Git | 4 | Version control integration |
-| Language | 2 | Language support |
-| Linting | 2 | Code quality tools |
-| AI | 1 | AI coding assistants |
-| DAP | 1 | Debugging support |
-| Performance | 2 | Optimization |
-| Test | 1 | Testing frameworks |
-| **Total** | **47** | |
+| Category    | Count  | Description                          |
+| ----------- | ------ | ------------------------------------ |
+| Core        | 4      | Orchestration and core functionality |
+| UI          | 18     | Visual enhancements and interface    |
+| Coding      | 2      | Coding tools and workflows           |
+| Motions     | 6      | Navigation improvements              |
+| Buffer      | 3      | Buffer management                    |
+| Git         | 4      | Version control integration          |
+| Language    | 2      | Language support                     |
+| Linting     | 2      | Code quality tools                   |
+| AI          | 1      | AI coding assistants                 |
+| DAP         | 1      | Debugging support                    |
+| Performance | 2      | Optimization                         |
+| Test        | 1      | Testing frameworks                   |
+| **Total**   | **47** |                                      |
 
 ## Recommended Extras
 

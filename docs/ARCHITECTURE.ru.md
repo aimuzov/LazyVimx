@@ -6,6 +6,7 @@
 Этот документ описывает техническую архитектуру и детали реализации LazyVimx.
 
 ## Содержание
+
 - [Обзор](#обзор)
 - [Процесс загрузки](#процесс-загрузки)
 - [Система модулей](#система-модулей)
@@ -62,6 +63,7 @@ return {
 ### 3. Функции инициализации
 
 #### Настройка глобальных переменных
+
 ```lua:13
 local function set_global()
   vim.g.lazyvim_check_order = false
@@ -72,6 +74,7 @@ end
 ```
 
 #### Конфигурация опций Vim
+
 ```lua:21
 local function vimopts_set_values()
   vim.o.autochdir = false
@@ -82,12 +85,14 @@ end
 ```
 
 Ключевые конфигурации:
+
 - **Отступы**: Табы с шириной 4 (без expandtab)
 - **Прозрачность UI**: `pumblend = 15`, `winblend = 5`
 - **Таймауты**: 500ms для маппингов, 0ms для кодов клавиш
 - **Backup**: Включен с пользовательской директорией
 
 #### Интеграция Extras
+
 ```lua:1
 local function insert_extras()
   table.insert(require("lazyvim.util.extras").sources, {
@@ -101,6 +106,7 @@ end
 Это регистрирует LazyVimx extras в UI extras LazyVim (`:LazyExtras`).
 
 #### Выбор цветовой схемы
+
 ```lua:9
 local function set_colorscheme(_, opts)
   opts.colorscheme = require("lazyvimx.util.general").get_flavor()
@@ -122,6 +128,7 @@ end
 ```
 
 #### Конфигурация по умолчанию
+
 ```lua:3
 local defaults = {
   colorscheme = "catppuccin",
@@ -168,7 +175,7 @@ end
 ```lua
 colorscheme = "catppuccin"  -- Базовое имя цветовой схемы
 colorscheme_flavors = {
-  [colorscheme_name] = { dark_variant, light_variant }
+	[colorscheme_name] = { dark_variant, light_variant }
 }
 ```
 
@@ -198,7 +205,7 @@ end
 
 ```lua
 bufferline_groups = {
-  ["Group Name"] = "pattern",  -- Сопоставление с паттерном Lua
+	["Group Name"] = "pattern",  -- Сопоставление с паттерном Lua
 }
 ```
 
@@ -233,12 +240,12 @@ extras/
 ```lua
 -- Стандартная структура extra
 return {
-  {
-    "plugin/name",
-    opts = { ... },
-    keys = { ... },
-    dependencies = { ... },
-  },
+	{
+		"plugin/name",
+		opts = { ... },
+		keys = { ... },
+		dependencies = { ... },
+	},
 }
 ```
 
@@ -288,12 +295,12 @@ Extras используют условную загрузку для избеж�
 ```lua
 -- Пример из ui/simple-mode.lua
 local function is_not_simple_mode()
-  return not is_simple_mode()
+	return not is_simple_mode()
 end
 
 return {
-  { "nvim-neo-tree/neo-tree.nvim", optional = true, cond = is_not_simple_mode },
-  { "akinsho/bufferline.nvim", optional = true, cond = is_not_simple_mode },
+	{ "nvim-neo-tree/neo-tree.nvim", optional = true, cond = is_not_simple_mode },
+	{ "akinsho/bufferline.nvim", optional = true, cond = is_not_simple_mode },
 }
 ```
 
@@ -333,14 +340,14 @@ overrides/
 
 ```lua
 return {
-  {
-    "plugin/name",
-    optional = true,
-    opts = {
-      option1 = value1,
-      option2 = value2,
-    },
-  },
+	{
+		"plugin/name",
+		optional = true,
+		opts = {
+			option1 = value1,
+			option2 = value2,
+		},
+	},
 }
 ```
 
@@ -351,16 +358,16 @@ return {
 ```lua
 -- Пример из overrides/lazyvim/lualine-pretty-path.lua
 return {
-  {
-    "LazyVim/LazyVim",
-    opts = function()
-      local lualine = require("lualine_require").require("lualine.components.filetype")
+	{
+		"LazyVim/LazyVim",
+		opts = function()
+			local lualine = require("lualine_require").require("lualine.components.filetype")
 
-      LazyVim.lualine.pretty_path = function(opts)
-        -- Пользовательская реализация
-      end
-    end,
-  },
+			LazyVim.lualine.pretty_path = function(opts)
+				-- Пользовательская реализация
+			end
+		end,
+	},
 }
 ```
 
@@ -371,16 +378,16 @@ return {
 ```lua
 -- Пример из overrides/lazyvim/auto-switch-colorscheme-on-signal.lua
 return {
-  {
-    "LazyVim/LazyVim",
-    opts = function()
-      vim.api.nvim_create_autocmd("Signal", {
-        callback = function()
-          -- Переключение темы на основе системной
-        end,
-      })
-    end,
-  },
+	{
+		"LazyVim/LazyVim",
+		opts = function()
+			vim.api.nvim_create_autocmd("Signal", {
+				callback = function()
+					-- Переключение темы на основе системной
+				end,
+			})
+		end,
+	},
 }
 ```
 
@@ -393,9 +400,9 @@ return {
 local original_open = Snacks.lazygit.open
 
 Snacks.lazygit.open = function(opts)
-  -- Установка окружения перед вызовом оригинала
-  vim.env.LG_CONFIG_FILE = config_path
-  return original_open(opts)
+	-- Установка окружения перед вызовом оригинала
+	vim.env.LG_CONFIG_FILE = config_path
+	return original_open(opts)
 end
 ```
 
@@ -412,6 +419,7 @@ overrides/
 ```
 
 Импортируется как:
+
 ```lua
 { import = "lazyvimx.overrides.lazyvim" }
 ```
@@ -517,11 +525,11 @@ end
 ```lua
 -- overrides/lazyvim/auto-apply-chezmoi-on-lazy-update.lua
 vim.api.nvim_create_autocmd("User", {
-  pattern = "LazyUpdate",
-  callback = function()
-    local dotfiles_path = require("lazyvimx.util.general").get_dotfiles_path()
-    -- Добавление файлов в chezmoi
-  end,
+	pattern = "LazyUpdate",
+	callback = function()
+		local dotfiles_path = require("lazyvimx.util.general").get_dotfiles_path()
+		-- Добавление файлов в chezmoi
+	end,
 })
 ```
 
@@ -532,12 +540,12 @@ vim.api.nvim_create_autocmd("User", {
 ```lua
 -- overrides/lazyvim/vscode.lua
 if vim.g.vscode then
-  -- Синхронизация индикатора режима
-  vim.api.nvim_create_autocmd("ModeChanged", {
-    callback = function()
-      vim.fn.VSCodeNotify("nvim-mode-indicator.update", vim.fn.mode())
-    end,
-  })
+	-- Синхронизация индикатора режима
+	vim.api.nvim_create_autocmd("ModeChanged", {
+		callback = function()
+			vim.fn.VSCodeNotify("nvim-mode-indicator.update", vim.fn.mode())
+		end,
+	})
 end
 ```
 
@@ -577,10 +585,10 @@ end
 ```lua
 -- lua/lazyvimx/extras/category/my-extra.lua
 return {
-  {
-    "plugin/name",
-    opts = { ... },
-  },
+	{
+		"plugin/name",
+		opts = { ... },
+	},
 }
 ```
 
@@ -597,11 +605,11 @@ return {
 ```lua
 -- lua/lazyvimx/overrides/category/my-override.lua
 return {
-  {
-    "plugin/name",
-    optional = true,
-    opts = { ... },
-  },
+	{
+		"plugin/name",
+		optional = true,
+		opts = { ... },
+	},
 }
 ```
 
@@ -613,8 +621,8 @@ return {
 
 ```lua
 require("lazyvimx").setup({
-  colorscheme = "tokyonight",
-  custom_option = "value",  -- Доступно как require("lazyvimx").config.custom_option
+	colorscheme = "tokyonight",
+	custom_option = "value",  -- Доступно как require("lazyvimx").config.custom_option
 })
 ```
 
