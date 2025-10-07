@@ -6,6 +6,7 @@
 This document describes the technical architecture and implementation details of LazyVimx.
 
 ## Table of Contents
+
 - [Overview](#overview)
 - [Bootstrap Process](#bootstrap-process)
 - [Module System](#module-system)
@@ -62,6 +63,7 @@ return {
 ### 3. Initialization Functions
 
 #### Global Variables Setup
+
 ```lua:13
 local function set_global()
   vim.g.lazyvim_check_order = false
@@ -72,6 +74,7 @@ end
 ```
 
 #### Vim Options Configuration
+
 ```lua:21
 local function vimopts_set_values()
   vim.o.autochdir = false
@@ -82,12 +85,14 @@ end
 ```
 
 Key configurations:
+
 - **Indentation**: Tabs with width 4 (no expandtab)
 - **UI blending**: `pumblend = 15`, `winblend = 5`
 - **Timeouts**: 500ms for mappings, 0ms for key codes
 - **Backup**: Enabled with custom directory
 
 #### Extras Integration
+
 ```lua:1
 local function insert_extras()
   table.insert(require("lazyvim.util.extras").sources, {
@@ -101,6 +106,7 @@ end
 This registers LazyVimx extras in the LazyVim extras UI (`:LazyExtras`).
 
 #### Colorscheme Selection
+
 ```lua:9
 local function set_colorscheme(_, opts)
   opts.colorscheme = require("lazyvimx.util.general").get_flavor()
@@ -122,6 +128,7 @@ end
 ```
 
 #### Default Configuration
+
 ```lua:3
 local defaults = {
   colorscheme = "catppuccin",
@@ -168,7 +175,7 @@ This allows user plugins to coexist with LazyVimx.
 ```lua
 colorscheme = "catppuccin"  -- Base colorscheme name
 colorscheme_flavors = {
-  [colorscheme_name] = { dark_variant, light_variant }
+	[colorscheme_name] = { dark_variant, light_variant }
 }
 ```
 
@@ -198,7 +205,7 @@ end
 
 ```lua
 bufferline_groups = {
-  ["Group Name"] = "pattern",  -- Lua pattern matching
+	["Group Name"] = "pattern",  -- Lua pattern matching
 }
 ```
 
@@ -233,12 +240,12 @@ Each extra is a Lua module that returns a plugin specification:
 ```lua
 -- Standard extra structure
 return {
-  {
-    "plugin/name",
-    opts = { ... },
-    keys = { ... },
-    dependencies = { ... },
-  },
+	{
+		"plugin/name",
+		opts = { ... },
+		keys = { ... },
+		dependencies = { ... },
+	},
 }
 ```
 
@@ -288,12 +295,12 @@ Extras use conditional loading to avoid errors:
 ```lua
 -- Example from ui/simple-mode.lua
 local function is_not_simple_mode()
-  return not is_simple_mode()
+	return not is_simple_mode()
 end
 
 return {
-  { "nvim-neo-tree/neo-tree.nvim", optional = true, cond = is_not_simple_mode },
-  { "akinsho/bufferline.nvim", optional = true, cond = is_not_simple_mode },
+	{ "nvim-neo-tree/neo-tree.nvim", optional = true, cond = is_not_simple_mode },
+	{ "akinsho/bufferline.nvim", optional = true, cond = is_not_simple_mode },
 }
 ```
 
@@ -333,14 +340,14 @@ Most common pattern - extends plugin options:
 
 ```lua
 return {
-  {
-    "plugin/name",
-    optional = true,
-    opts = {
-      option1 = value1,
-      option2 = value2,
-    },
-  },
+	{
+		"plugin/name",
+		optional = true,
+		opts = {
+			option1 = value1,
+			option2 = value2,
+		},
+	},
 }
 ```
 
@@ -351,16 +358,16 @@ Replace specific functions:
 ```lua
 -- Example from overrides/lazyvim/lualine-pretty-path.lua
 return {
-  {
-    "LazyVim/LazyVim",
-    opts = function()
-      local lualine = require("lualine_require").require("lualine.components.filetype")
+	{
+		"LazyVim/LazyVim",
+		opts = function()
+			local lualine = require("lualine_require").require("lualine.components.filetype")
 
-      LazyVim.lualine.pretty_path = function(opts)
-        -- Custom implementation
-      end
-    end,
-  },
+			LazyVim.lualine.pretty_path = function(opts)
+				-- Custom implementation
+			end
+		end,
+	},
 }
 ```
 
@@ -371,16 +378,16 @@ Dynamic runtime modifications:
 ```lua
 -- Example from overrides/lazyvim/auto-switch-colorscheme-on-signal.lua
 return {
-  {
-    "LazyVim/LazyVim",
-    opts = function()
-      vim.api.nvim_create_autocmd("Signal", {
-        callback = function()
-          -- Switch theme based on system
-        end,
-      })
-    end,
-  },
+	{
+		"LazyVim/LazyVim",
+		opts = function()
+			vim.api.nvim_create_autocmd("Signal", {
+				callback = function()
+					-- Switch theme based on system
+				end,
+			})
+		end,
+	},
 }
 ```
 
@@ -393,9 +400,9 @@ Modify plugin behavior by wrapping functions:
 local original_open = Snacks.lazygit.open
 
 Snacks.lazygit.open = function(opts)
-  -- Set environment before calling original
-  vim.env.LG_CONFIG_FILE = config_path
-  return original_open(opts)
+	-- Set environment before calling original
+	vim.env.LG_CONFIG_FILE = config_path
+	return original_open(opts)
 end
 ```
 
@@ -412,6 +419,7 @@ overrides/
 ```
 
 Imported as:
+
 ```lua
 { import = "lazyvimx.overrides.lazyvim" }
 ```
@@ -517,11 +525,11 @@ Auto-sync on LazyVim updates:
 ```lua
 -- overrides/lazyvim/auto-apply-chezmoi-on-lazy-update.lua
 vim.api.nvim_create_autocmd("User", {
-  pattern = "LazyUpdate",
-  callback = function()
-    local dotfiles_path = require("lazyvimx.util.general").get_dotfiles_path()
-    -- Add files to chezmoi
-  end,
+	pattern = "LazyUpdate",
+	callback = function()
+		local dotfiles_path = require("lazyvimx.util.general").get_dotfiles_path()
+		-- Add files to chezmoi
+	end,
 })
 ```
 
@@ -532,12 +540,12 @@ Special mode when running in VSCode:
 ```lua
 -- overrides/lazyvim/vscode.lua
 if vim.g.vscode then
-  -- Sync mode indicator
-  vim.api.nvim_create_autocmd("ModeChanged", {
-    callback = function()
-      vim.fn.VSCodeNotify("nvim-mode-indicator.update", vim.fn.mode())
-    end,
-  })
+	-- Sync mode indicator
+	vim.api.nvim_create_autocmd("ModeChanged", {
+		callback = function()
+			vim.fn.VSCodeNotify("nvim-mode-indicator.update", vim.fn.mode())
+		end,
+	})
 end
 ```
 
@@ -577,10 +585,10 @@ Create a new extra module:
 ```lua
 -- lua/lazyvimx/extras/category/my-extra.lua
 return {
-  {
-    "plugin/name",
-    opts = { ... },
-  },
+	{
+		"plugin/name",
+		opts = { ... },
+	},
 }
 ```
 
@@ -597,11 +605,11 @@ Create override module:
 ```lua
 -- lua/lazyvimx/overrides/category/my-override.lua
 return {
-  {
-    "plugin/name",
-    optional = true,
-    opts = { ... },
-  },
+	{
+		"plugin/name",
+		optional = true,
+		opts = { ... },
+	},
 }
 ```
 
@@ -613,8 +621,8 @@ Extend the main config:
 
 ```lua
 require("lazyvimx").setup({
-  colorscheme = "tokyonight",
-  custom_option = "value",  -- Available as require("lazyvimx").config.custom_option
+	colorscheme = "tokyonight",
+	custom_option = "value",  -- Available as require("lazyvimx").config.custom_option
 })
 ```
 

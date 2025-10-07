@@ -25,51 +25,57 @@
 Инициализирует LazyVimx с пользовательской конфигурацией.
 
 **Сигнатура:**
+
 ```lua
 function M.setup(opts?: table)
 ```
 
 **Параметры:**
+
 - `opts` (table, optional) - Параметры конфигурации
 
 **Схема конфигурации:**
+
 ```lua
 {
-  colorscheme?: string,                    -- Base colorscheme name
-  colorscheme_flavors?: {
-    [string]: { string, string }           -- { dark_variant, light_variant }
-  },
-  bufferline_groups?: {
-    [string]: string                       -- { group_name: pattern }
-  }
+	colorscheme?: string,                    -- Base colorscheme name
+	colorscheme_flavors?: {
+		[string]: { string, string }           -- { dark_variant, light_variant }
+	},
+	bufferline_groups?: {
+		[string]: string                       -- { group_name: pattern }
+	}
 }
 ```
 
 **Конфигурация по умолчанию:**
+
 ```lua
 {
-  colorscheme = "catppuccin",
-  colorscheme_flavors = {
-    catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-    tokyonight = { "tokyonight-storm", "tokyonight-day" },
-  },
-  bufferline_groups = {},
+	colorscheme = "catppuccin",
+	colorscheme_flavors = {
+		catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
+		tokyonight = { "tokyonight-storm", "tokyonight-day" },
+	},
+	bufferline_groups = {},
 }
 ```
 
 **Использование:**
+
 ```lua
 require("lazyvimx").setup({
-  colorscheme = "tokyonight",
-  bufferline_groups = {
-    ["React"] = "%.tsx$",
-  },
+	colorscheme = "tokyonight",
+	bufferline_groups = {
+		["React"] = "%.tsx$",
+	},
 })
 ```
 
 **Возвращает:** None
 
 **Побочные эффекты:**
+
 - Устанавливает `M.config` с объединенной конфигурацией
 - Доступна глобально как `require("lazyvimx").config`
 
@@ -80,6 +86,7 @@ require("lazyvimx").setup({
 **Тип:** `table`
 
 **Использование:**
+
 ```lua
 local config = require("lazyvimx").config
 print(config.colorscheme)  -- "catppuccin"
@@ -97,15 +104,17 @@ print(config.colorscheme)  -- "catppuccin"
 Смешивает два hex-цвета по проценту.
 
 **Сигнатура:**
+
 ```lua
 function M.color_blend(
-  color_first: string,
-  color_second: string,
-  percentage: number
+	color_first: string,
+	color_second: string,
+	percentage: number
 ): string
 ```
 
 **Параметры:**
+
 - `color_first` (string) - Первый hex-цвет (например, "#FF0000")
 - `color_second` (string) - Второй hex-цвет (например, "#0000FF")
 - `percentage` (number) - Процент смешивания (0-100)
@@ -113,6 +122,7 @@ function M.color_blend(
 **Возвращает:** (string) - Смешанный hex-цвет
 
 **Пример:**
+
 ```lua
 local util = require("lazyvimx.util.general")
 
@@ -126,6 +136,7 @@ local light_red = util.color_blend("#FF0000", "#FFFFFF", 25)
 ```
 
 **Варианты использования:**
+
 - Настройка темы
 - Динамическая генерация подсветки
 - Интерполяция цветов
@@ -138,16 +149,19 @@ local light_red = util.color_blend("#FF0000", "#FFFFFF", 25)
 Выполняет команду оболочки и возвращает обрезанный вывод.
 
 **Сигнатура:**
+
 ```lua
 function M.popen_get_result(cmd: string): string
 ```
 
 **Параметры:**
+
 - `cmd` (string) - Команда оболочки для выполнения
 
 **Возвращает:** (string) - Вывод команды (обрезанный, без переводов строк)
 
 **Пример:**
+
 ```lua
 local util = require("lazyvimx.util.general")
 
@@ -166,6 +180,7 @@ local theme = util.popen_get_result("defaults read -g AppleInterfaceStyle 2>&1")
 Проверяет, включен ли темный режим в macOS.
 
 **Сигнатура:**
+
 ```lua
 function M.theme_is_dark(): boolean
 ```
@@ -173,19 +188,21 @@ function M.theme_is_dark(): boolean
 **Возвращает:** (boolean) - `true` если темный режим, `false` в противном случае
 
 **Пример:**
+
 ```lua
 local util = require("lazyvimx.util.general")
 
 if util.theme_is_dark() then
-  print("Dark mode active")
+	print("Dark mode active")
 else
-  print("Light mode active")
+	print("Light mode active")
 end
 ```
 
 **Платформа:** только macOS
 
 **Реализация:**
+
 ```lua
 defaults read -g AppleInterfaceStyle
 -- Returns "Dark" in dark mode
@@ -197,6 +214,7 @@ defaults read -g AppleInterfaceStyle
 Получает путь к исходным dotfiles из окружения.
 
 **Сигнатура:**
+
 ```lua
 function M.get_dotfiles_path(): string
 ```
@@ -204,23 +222,25 @@ function M.get_dotfiles_path(): string
 **Возвращает:** (string) - Путь к dotfiles или пустая строка
 
 **Пример:**
+
 ```lua
 local util = require("lazyvimx.util.general")
 
 local path = util.get_dotfiles_path()
 if path ~= "" then
-  print("Dotfiles at:", path)
+	print("Dotfiles at:", path)
 end
 ```
 
 **Переменная окружения:** `DOTFILES_SRC_PATH`
 
 **Использование в коде:**
+
 ```lua
 local dotfiles = util.get_dotfiles_path()
 if dotfiles ~= "" then
-  local lazy_lock = vim.fn.stdpath("config") .. "/lazy-lock.json"
-  vim.fn.system(string.format("chezmoi add %s", lazy_lock))
+	local lazy_lock = vim.fn.stdpath("config") .. "/lazy-lock.json"
+	vim.fn.system(string.format("chezmoi add %s", lazy_lock))
 end
 ```
 
@@ -229,16 +249,19 @@ end
 Получает подходящий вариант цветовой схемы на основе системной темы.
 
 **Сигнатура:**
+
 ```lua
 function M.get_flavor(colorscheme?: string): string
 ```
 
 **Параметры:**
+
 - `colorscheme` (string, optional) - Название цветовой схемы (по умолчанию значение из конфигурации)
 
 **Возвращает:** (string) - Название варианта цветовой схемы
 
 **Пример:**
+
 ```lua
 local util = require("lazyvimx.util.general")
 
@@ -255,6 +278,7 @@ local flavor = util.get_flavor()
 ```
 
 **Логика:**
+
 1. Проверяет системную тему с помощью `theme_is_dark()`
 2. Выбирает индекс 1 (темная) или 2 (светлая)
 3. Возвращает вариант из `config.colorscheme_flavors`
@@ -264,30 +288,34 @@ local flavor = util.get_flavor()
 Проверяет, загружен ли конкретный extra.
 
 **Сигнатура:**
+
 ```lua
 function M.has_extra(extra: string): boolean
 ```
 
 **Параметры:**
+
 - `extra` (string) - Название extra (например, "ui.winbar")
 
 **Возвращает:** (boolean) - `true` если extra загружен
 
 **Пример:**
+
 ```lua
 local util = require("lazyvimx.util.general")
 
 if util.has_extra("ui.winbar") then
-  print("Winbar is enabled")
+	print("Winbar is enabled")
 end
 
 -- Conditional configuration:
 if util.has_extra("ui.edgy") then
-  -- Configure edgy integration
+	-- Configure edgy integration
 end
 ```
 
 **Проверяет:**
+
 - Загруженные модули Lazy.nvim
 - JSON-данные extras LazyVim
 
@@ -296,24 +324,27 @@ end
 Создает callback, который предупреждает об отсутствии extra.
 
 **Сигнатура:**
+
 ```lua
 function M.warn_missing_extra(extra_name: string): function
 ```
 
 **Параметры:**
+
 - `extra_name` (string) - Название extra для проверки
 
 **Возвращает:** (function) - Callback-функция
 
 **Пример:**
+
 ```lua
 local util = require("lazyvimx.util.general")
 
 return {
-  {
-    "plugin/name",
-    init = util.warn_missing_extra("ui.diff-view"),
-  }
+	{
+		"plugin/name",
+		init = util.warn_missing_extra("ui.diff-view"),
+	}
 }
 
 -- Shows notification if ui.diff-view is not loaded:
@@ -335,12 +366,13 @@ return {
 ### Конфигурация
 
 **Внутреннее состояние:**
+
 ```lua
 local size = {
-  left = 40,
-  right = 40,
-  top = 10,
-  bottom = 10,
+	left = 40,
+	right = 40,
+	top = 10,
+	bottom = 10,
 }
 
 M.step = 3  -- Resize step size
@@ -351,16 +383,19 @@ M.step = 3  -- Resize step size
 Получает текущий размер для позиции.
 
 **Сигнатура:**
+
 ```lua
 function M.get_size(pos: string): number
 ```
 
 **Параметры:**
+
 - `pos` (string) - Позиция: "left", "right", "top", или "bottom"
 
 **Возвращает:** (number) - Значение размера
 
 **Пример:**
+
 ```lua
 local layout = require("lazyvimx.util.layout")
 
@@ -376,32 +411,35 @@ local bottom_height = layout.get_size("bottom")
 Создает функцию, которая возвращает размер для позиции.
 
 **Сигнатура:**
+
 ```lua
 function M.get_size_create(pos: string): function
 ```
 
 **Параметры:**
+
 - `pos` (string) - Позиция: "left", "right", "top", или "bottom"
 
 **Возвращает:** (function) - Функция, возвращающая размер
 
 **Пример:**
+
 ```lua
 local layout = require("lazyvimx.util.layout")
 
 -- Used in plugin configuration:
 {
-  "plugin/name",
-  opts = {
-    width = layout.get_size_create("left"),
-  }
+	"plugin/name",
+	opts = {
+		width = layout.get_size_create("left"),
+	}
 }
 
 -- Equivalent to:
 {
-  opts = {
-    width = function() return 40 end,
-  }
+	opts = {
+		width = function() return 40 end,
+	}
 }
 ```
 
@@ -413,29 +451,33 @@ Edgy.nvim и другие плагины, которые принимают фу
 Создает функцию, которая увеличивает размер окна.
 
 **Сигнатура:**
+
 ```lua
 function M.increase_create(dir: string): function
 ```
 
 **Параметры:**
+
 - `dir` (string) - Направление: "width" или "height"
 
 **Возвращает:** (function) - Функция, которая увеличивает размер
 
 **Пример:**
+
 ```lua
 local layout = require("lazyvimx.util.layout")
 
 -- Used in keybinding:
 vim.keymap.set("n", "<C-w>+", function()
-  local win = require("edgy").get_win()
-  if win then
-    layout.increase_create("height")(win)
-  end
+	local win = require("edgy").get_win()
+	if win then
+		layout.increase_create("height")(win)
+	end
 end)
 ```
 
 **Поведение:**
+
 - Увеличивает размер на `M.step` (по умолчанию: 3)
 - Обновляет внутреннее состояние
 - Изменяет размер окна
@@ -445,29 +487,33 @@ end)
 Создает функцию, которая уменьшает размер окна.
 
 **Сигнатура:**
+
 ```lua
 function M.decrease_create(dir: string): function
 ```
 
 **Параметры:**
+
 - `dir` (string) - Направление: "width" или "height"
 
 **Возвращает:** (function) - Функция, которая уменьшает размер
 
 **Пример:**
+
 ```lua
 local layout = require("lazyvimx.util.layout")
 
 -- Used in keybinding:
 vim.keymap.set("n", "<C-w>-", function()
-  local win = require("edgy").get_win()
-  if win then
-    layout.decrease_create("height")(win)
-  end
+	local win = require("edgy").get_win()
+	if win then
+		layout.decrease_create("height")(win)
+	end
 end)
 ```
 
 **Поведение:**
+
 - Уменьшает размер на `M.step` (по умолчанию: 3)
 - Обновляет внутреннее состояние
 - Изменяет размер окна
@@ -476,25 +522,25 @@ end)
 
 ```lua
 {
-  "folke/edgy.nvim",
-  opts = function()
-    local layout = require("lazyvimx.util.layout")
+	"folke/edgy.nvim",
+	opts = function()
+		local layout = require("lazyvimx.util.layout")
 
-    return {
-      left = {
-        size = layout.get_size_create("left"),
-      },
-      bottom = {
-        size = layout.get_size_create("bottom"),
-      },
-      keys = {
-        ["<c-Left>"] = function(win) layout.decrease_create("width")(win) end,
-        ["<c-Right>"] = function(win) layout.increase_create("width")(win) end,
-        ["<c-Up>"] = function(win) layout.increase_create("height")(win) end,
-        ["<c-Down>"] = function(win) layout.decrease_create("height")(win) end,
-      },
-    }
-  end,
+		return {
+			left = {
+				size = layout.get_size_create("left"),
+			},
+			bottom = {
+				size = layout.get_size_create("bottom"),
+			},
+			keys = {
+				["<c-Left>"] = function(win) layout.decrease_create("width")(win) end,
+				["<c-Right>"] = function(win) layout.increase_create("width")(win) end,
+				["<c-Up>"] = function(win) layout.increase_create("height")(win) end,
+				["<c-Down>"] = function(win) layout.decrease_create("height")(win) end,
+			},
+		}
+	end,
 }
 ```
 
@@ -514,6 +560,7 @@ end)
 **Внутренняя функция**
 
 **Устанавливает:**
+
 ```lua
 vim.g.lazyvim_check_order = false
 vim.g.xtras_prios = {}
@@ -535,11 +582,12 @@ vim.g.lazyvim_explorer = "neo-tree"
 **Внутренняя функция**
 
 **Добавляет источник:**
+
 ```lua
 {
-  name = "[ 󰬟 ]",
-  desc = "Some recipes (extras) for enhance lazyvim",
-  module = "lazyvimx.extras",
+	name = "[ 󰬟 ]",
+	desc = "Some recipes (extras) for enhance lazyvim",
+	module = "lazyvimx.extras",
 }
 ```
 
@@ -550,6 +598,7 @@ vim.g.lazyvim_explorer = "neo-tree"
 **Внутренняя функция**
 
 **Использование:**
+
 ```lua
 opts.colorscheme = require("lazyvimx.util.general").get_flavor()
 ```
@@ -576,21 +625,23 @@ opts.colorscheme = require("lazyvimx.util.general").get_flavor()
 **Возвращает:** (table) - Конфигурация групп Bufferline
 
 **Использование в конфигурации:**
+
 ```lua
 require("lazyvimx").setup({
-  bufferline_groups = {
-    ["React"] = "%.tsx$",
-  },
+	bufferline_groups = {
+		["React"] = "%.tsx$",
+	},
 })
 ```
 
 **Сгенерированные группы:**
+
 ```lua
 {
-  name = "React",
-  matcher = function(buf)
-    return buf.path:match("%.tsx$")
-  end,
+	name = "React",
+	matcher = function(buf)
+		return buf.path:match("%.tsx$")
+	end,
 }
 ```
 
@@ -625,28 +676,28 @@ require("lazyvimx").setup({
 ```lua
 -- lua/config/lazyvimx.lua
 require("lazyvimx").setup({
-  colorscheme = "catppuccin",
-  colorscheme_flavors = {
-    catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-  },
+	colorscheme = "catppuccin",
+	colorscheme_flavors = {
+		catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
+	},
 })
 
 -- lua/plugins/theme.lua
 local util = require("lazyvimx.util.general")
 
 return {
-  {
-    "catppuccin/nvim",
-    opts = {
-      custom_highlights = function(colors)
-        -- Use color blending
-        local subtle = util.color_blend(colors.base, colors.overlay0, 30)
-        return {
-          Comment = { fg = subtle },
-        }
-      end,
-    },
-  },
+	{
+		"catppuccin/nvim",
+		opts = {
+			custom_highlights = function(colors)
+				-- Use color blending
+				local subtle = util.color_blend(colors.base, colors.overlay0, 30)
+				return {
+					Comment = { fg = subtle },
+				}
+			end,
+		},
+	},
 }
 ```
 
@@ -657,15 +708,15 @@ return {
 local util = require("lazyvimx.util.general")
 
 return {
-  {
-    "plugin/name",
-    cond = function()
-      return util.has_extra("ui.winbar")
-    end,
-    opts = {
-      -- Configuration
-    },
-  },
+	{
+		"plugin/name",
+		cond = function()
+			return util.has_extra("ui.winbar")
+		end,
+		opts = {
+			-- Configuration
+		},
+	},
 }
 ```
 
@@ -676,16 +727,16 @@ return {
 local layout = require("lazyvimx.util.layout")
 
 return {
-  {
-    "sidebar/plugin",
-    opts = {
-      width = layout.get_size_create("left"),
-      resize_keys = {
-        ["<C-w>>"] = layout.increase_create("width"),
-        ["<C-w><"] = layout.decrease_create("width"),
-      },
-    },
-  },
+	{
+		"sidebar/plugin",
+		opts = {
+			width = layout.get_size_create("left"),
+			resize_keys = {
+				["<C-w>>"] = layout.increase_create("width"),
+				["<C-w><"] = layout.decrease_create("width"),
+			},
+		},
+	},
 }
 ```
 
@@ -696,15 +747,15 @@ return {
 local util = require("lazyvimx.util.general")
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = "*/nvim/lua/**/*.lua",
-  callback = function()
-    local dotfiles = util.get_dotfiles_path()
-    if dotfiles ~= "" then
-      local file = vim.fn.expand("%:p")
-      vim.fn.system(string.format("chezmoi add %s", file))
-      print("Added to chezmoi:", vim.fn.fnamemodify(file, ":t"))
-    end
-  end,
+	pattern = "*/nvim/lua/**/*.lua",
+	callback = function()
+		local dotfiles = util.get_dotfiles_path()
+		if dotfiles ~= "" then
+			local file = vim.fn.expand("%:p")
+			vim.fn.system(string.format("chezmoi add %s", file))
+			print("Added to chezmoi:", vim.fn.fnamemodify(file, ":t"))
+		end
+	end,
 })
 ```
 
@@ -720,7 +771,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 local util = require("lazyvimx.util.general")
 
 if util.has_extra("ui.edgy") then
-  -- Configure edgy integration
+	-- Configure edgy integration
 end
 ```
 
@@ -743,11 +794,11 @@ opts = { width = layout.get_size_create("left") }
 
 ```lua
 local ok, config = pcall(function()
-  return require("lazyvimx").config
+	return require("lazyvimx").config
 end)
 
 if ok then
-  -- Use config
+	-- Use config
 end
 ```
 
@@ -769,11 +820,11 @@ local highlight_fg = util.color_blend(base_fg, accent, 30)
 
 ## Сводка API
 
-| Модуль | Функции | Назначение |
-|--------|---------|-----------|
-| `lazyvimx` | `setup()`, `config` | Основная конфигурация |
-| `util.general` | `color_blend()`, `theme_is_dark()`, `get_flavor()`, `has_extra()`, `warn_missing_extra()` | Общие утилиты |
-| `util.layout` | `get_size()`, `get_size_create()`, `increase_create()`, `decrease_create()` | Управление компоновкой |
+| Модуль         | Функции                                                                                   | Назначение             |
+| -------------- | ----------------------------------------------------------------------------------------- | ---------------------- |
+| `lazyvimx`     | `setup()`, `config`                                                                       | Основная конфигурация  |
+| `util.general` | `color_blend()`, `theme_is_dark()`, `get_flavor()`, `has_extra()`, `warn_missing_extra()` | Общие утилиты          |
+| `util.layout`  | `get_size()`, `get_size_create()`, `increase_create()`, `decrease_create()`               | Управление компоновкой |
 
 ## См. также
 

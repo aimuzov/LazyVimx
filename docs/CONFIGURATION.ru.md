@@ -6,6 +6,7 @@
 Полное руководство по настройке LazyVimx.
 
 ## Содержание
+
 - [Быстрый старт](#быстрый-старт)
 - [Функция Setup](#функция-setup)
 - [Конфигурация цветовой схемы](#конфигурация-цветовой-схемы)
@@ -22,9 +23,9 @@
 ```lua
 -- In your lua/config/lazy.lua
 return {
-  spec = {
-    { import = "lazyvimx.boot" },
-  },
+	spec = {
+		{ import = "lazyvimx.boot" },
+	},
 }
 ```
 
@@ -35,10 +36,10 @@ return {
 ```lua
 -- In your lua/config/lazy.lua
 return {
-  spec = {
-    { import = "lazyvimx.boot" },
-    { import = "lazyvimx.extras.core.all" },  -- Enable all enhancements
-  },
+	spec = {
+		{ import = "lazyvimx.boot" },
+		{ import = "lazyvimx.extras.core.all" },  -- Enable all enhancements
+	},
 }
 ```
 
@@ -47,13 +48,13 @@ return {
 ```lua
 -- Create lua/config/lazyvimx.lua
 require("lazyvimx").setup({
-  colorscheme = "catppuccin",
-  colorscheme_flavors = {
-    catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-  },
-  bufferline_groups = {
-    ["React"] = "%.tsx$",
-  },
+	colorscheme = "catppuccin",
+	colorscheme_flavors = {
+		catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
+	},
+	bufferline_groups = {
+		["React"] = "%.tsx$",
+	},
 })
 ```
 
@@ -71,18 +72,18 @@ require("lazyvimx").setup(opts?: table)
 
 ```lua
 {
-  -- Base colorscheme name
-  colorscheme: string,
+	-- Base colorscheme name
+	colorscheme: string,
 
-  -- Light/dark variants for each colorscheme
-  colorscheme_flavors: {
-    [colorscheme_name: string]: { dark_variant: string, light_variant: string }
-  },
+	-- Light/dark variants for each colorscheme
+	colorscheme_flavors: {
+		[colorscheme_name: string]: { dark_variant: string, light_variant: string }
+	},
 
-  -- Custom buffer groups for bufferline
-  bufferline_groups: {
-    [group_name: string]: pattern: string  -- Lua pattern
-  }
+	-- Custom buffer groups for bufferline
+	bufferline_groups: {
+		[group_name: string]: pattern: string  -- Lua pattern
+	}
 }
 ```
 
@@ -90,16 +91,16 @@ require("lazyvimx").setup(opts?: table)
 
 ```lua
 {
-  colorscheme = "catppuccin",
+	colorscheme = "catppuccin",
 
-  colorscheme_flavors = {
-    catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-    tokyonight = { "tokyonight-storm", "tokyonight-day" },
-  },
+	colorscheme_flavors = {
+		catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
+		tokyonight = { "tokyonight-storm", "tokyonight-day" },
+	},
 
-  bufferline_groups = {
-    -- Empty by default
-  },
+	bufferline_groups = {
+		-- Empty by default
+	},
 }
 ```
 
@@ -111,7 +112,7 @@ LazyVimx поддерживает автоматическое переключ�
 
 ```lua
 require("lazyvimx").setup({
-  colorscheme = "catppuccin",
+	colorscheme = "catppuccin",
 })
 ```
 
@@ -121,17 +122,18 @@ require("lazyvimx").setup({
 
 ```lua
 require("lazyvimx").setup({
-  colorscheme = "catppuccin",
-  colorscheme_flavors = {
-    catppuccin = {
-      "catppuccin-macchiato",  -- [1] Dark variant
-      "catppuccin-latte",      -- [2] Light variant
-    },
-  },
+	colorscheme = "catppuccin",
+	colorscheme_flavors = {
+		catppuccin = {
+			"catppuccin-macchiato",  -- [1] Dark variant
+			"catppuccin-latte",      -- [2] Light variant
+		},
+	},
 })
 ```
 
 Система автоматически выбирает:
+
 - Индекс 1 (темный) когда macOS в темном режиме
 - Индекс 2 (светлый) когда macOS в светлом режиме
 
@@ -141,14 +143,15 @@ require("lazyvimx").setup({
 
 ```lua
 colorscheme_flavors = {
-  catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-  -- Or use other variants:
-  -- catppuccin = { "catppuccin-mocha", "catppuccin-latte" },
-  -- catppuccin = { "catppuccin-frappe", "catppuccin-latte" },
+	catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
+	-- Or use other variants:
+	-- catppuccin = { "catppuccin-mocha", "catppuccin-latte" },
+	-- catppuccin = { "catppuccin-frappe", "catppuccin-latte" },
 }
 ```
 
 Доступные варианты:
+
 - `catppuccin-mocha` (самый темный)
 - `catppuccin-macchiato` (темный)
 - `catppuccin-frappe` (средне-темный)
@@ -158,14 +161,15 @@ colorscheme_flavors = {
 
 ```lua
 colorscheme_flavors = {
-  tokyonight = { "tokyonight-storm", "tokyonight-day" },
-  -- Or use other variants:
-  -- tokyonight = { "tokyonight-night", "tokyonight-day" },
-  -- tokyonight = { "tokyonight-moon", "tokyonight-day" },
+	tokyonight = { "tokyonight-storm", "tokyonight-day" },
+	-- Or use other variants:
+	-- tokyonight = { "tokyonight-night", "tokyonight-day" },
+	-- tokyonight = { "tokyonight-moon", "tokyonight-day" },
 }
 ```
 
 Доступные варианты:
+
 - `tokyonight-night` (самый темный)
 - `tokyonight-storm` (темный)
 - `tokyonight-moon` (средне-темный)
@@ -177,10 +181,10 @@ colorscheme_flavors = {
 
 ```lua
 require("lazyvimx").setup({
-  colorscheme = "gruvbox",
-  colorscheme_flavors = {
-    gruvbox = { "gruvbox-dark", "gruvbox-light" },
-  },
+	colorscheme = "gruvbox",
+	colorscheme_flavors = {
+		gruvbox = { "gruvbox-dark", "gruvbox-light" },
+	},
 })
 ```
 
@@ -213,9 +217,9 @@ require("lazyvimx").setup({
 
 ```lua
 require("lazyvimx").setup({
-  bufferline_groups = {
-    ["Group Name"] = "pattern",  -- Lua pattern matching
-  },
+	bufferline_groups = {
+		["Group Name"] = "pattern",  -- Lua pattern matching
+	},
 })
 ```
 
@@ -225,10 +229,10 @@ require("lazyvimx").setup({
 
 ```lua
 bufferline_groups = {
-  ["TypeScript"] = "%.tsx?$",      -- .ts or .tsx files
-  ["JavaScript"] = "%.jsx?$",      -- .js or .jsx files
-  ["Styles"] = "%.s?css$",         -- .css or .scss files
-  ["Markdown"] = "%.md$",          -- .md files
+	["TypeScript"] = "%.tsx?$",      -- .ts or .tsx files
+	["JavaScript"] = "%.jsx?$",      -- .js or .jsx files
+	["Styles"] = "%.s?css$",         -- .css or .scss files
+	["Markdown"] = "%.md$",          -- .md files
 }
 ```
 
@@ -236,9 +240,9 @@ bufferline_groups = {
 
 ```lua
 bufferline_groups = {
-  ["Components"] = "components/",
-  ["Pages"] = "pages/",
-  ["Utils"] = "utils/",
+	["Components"] = "components/",
+	["Pages"] = "pages/",
+	["Utils"] = "utils/",
 }
 ```
 
@@ -246,9 +250,9 @@ bufferline_groups = {
 
 ```lua
 bufferline_groups = {
-  ["Tests"] = "%.test%.",          -- Any .test. file
-  ["Specs"] = "%.spec%.",          -- Any .spec. file
-  ["Config"] = "config%.",         -- Files starting with config.
+	["Tests"] = "%.test%.",          -- Any .test. file
+	["Specs"] = "%.spec%.",          -- Any .spec. file
+	["Config"] = "config%.",         -- Files starting with config.
 }
 ```
 
@@ -256,17 +260,18 @@ bufferline_groups = {
 
 ```lua
 bufferline_groups = {
-  ["React"] = "%.tsx$",
-  ["Styles"] = "%.s?css$",
-  ["Tests"] = "%.test%.tsx?$",
-  ["API"] = "api/",
-  ["Components"] = "components/.*%.tsx$",
+	["React"] = "%.tsx$",
+	["Styles"] = "%.s?css$",
+	["Tests"] = "%.test%.tsx?$",
+	["API"] = "api/",
+	["Components"] = "components/.*%.tsx$",
 }
 ```
 
 ### Встроенные группы
 
 LazyVimx предоставляет эти группы по умолчанию:
+
 - **Pinned**: Вручную закрепленные буферы
 - **Ungrouped**: Буферы, не соответствующие ни одному шаблону
 - **Terminal**: Терминальные буферы
@@ -274,6 +279,7 @@ LazyVimx предоставляет эти группы по умолчанию:
 ### Отображение групп
 
 Группы появляются в bufferline с:
+
 - Разделителем перед группой
 - Меткой группы
 - Сгруппированными буферами
@@ -305,9 +311,9 @@ LazyVimx предоставляет эти группы по умолчанию:
 ```lua
 -- In lua/plugins/lazyvimx.lua
 return {
-  { import = "lazyvimx.extras.ui.better-diagnostic" },
-  { import = "lazyvimx.extras.ui.winbar" },
-  { import = "lazyvimx.extras.motions.langmapper" },
+	{ import = "lazyvimx.extras.ui.better-diagnostic" },
+	{ import = "lazyvimx.extras.ui.winbar" },
+	{ import = "lazyvimx.extras.motions.langmapper" },
 }
 ```
 
@@ -335,6 +341,7 @@ return {
 ```
 
 Это включает:
+
 - Все переопределения
 - Все дополнения
 - Пользовательские горячие клавиши
@@ -391,13 +398,13 @@ vim.o.smoothscroll = true    -- Smooth scrolling
 
 ```lua
 vim.opt.listchars = {
-  eol = " ",                 -- Hidden end of line
-  space = " ",               -- Hidden spaces
-  tab = "  "                 -- Hidden tabs
+	eol = " ",                 -- Hidden end of line
+	space = " ",               -- Hidden spaces
+	tab = "  "                 -- Hidden tabs
 }
 vim.opt.fillchars:append({
-  diff = " ",                -- Empty diff filler
-  eob = " "                  -- Empty end of buffer
+	diff = " ",                -- Empty diff filler
+	eob = " "                  -- Empty end of buffer
 })
 ```
 
@@ -424,11 +431,11 @@ vim.o.tabstop = 2
 
 ```lua
 vim.api.nvim_create_autocmd("User", {
-  pattern = "LazyVimOptionsDefaults",
-  callback = function()
-    vim.o.expandtab = true
-    vim.o.shiftwidth = 2
-  end,
+	pattern = "LazyVimOptionsDefaults",
+	callback = function()
+		vim.o.expandtab = true
+		vim.o.shiftwidth = 2
+	end,
 })
 ```
 
@@ -455,6 +462,7 @@ export DOTFILES_SRC_PATH="$HOME/.local/share/chezmoi"
 #### Что синхронизируется
 
 При выполнении `:LazyUpdate`, эти файлы добавляются в chezmoi:
+
 - `~/.config/nvim/lazy-lock.json`
 - `~/.config/nvim/lazyvim.json`
 
@@ -483,6 +491,7 @@ LazyVimx автоматически синхронизирует режим Neov
 #### Настройка горячих клавиш
 
 Некоторые горячие клавиши отключены в режиме VSCode:
+
 - Переименование использует нативное переименование VSCode
 - Терминал использует LazyVim.terminal вместо Snacks
 - Некоторые клавиши навигации изменены
@@ -512,6 +521,7 @@ defaults read -g AppleInterfaceStyle
 #### Операции с файлами
 
 Neo-tree использует специфичные для macOS команды:
+
 - команда `trash` для безопасного удаления (если доступна)
 - команда `open` для открытия файлов в приложении по умолчанию
 
@@ -553,7 +563,7 @@ vim.opt_local.expandtab = true
 
 -- Project-specific settings
 require("lspconfig").tsserver.setup({
-  -- Project-specific LSP config
+	-- Project-specific LSP config
 })
 ```
 
@@ -563,12 +573,12 @@ require("lspconfig").tsserver.setup({
 
 ```lua
 return {
-  {
-    import = "lazyvimx.extras.ui.winbar",
-    cond = function()
-      return not vim.g.vscode
-    end,
-  },
+	{
+		import = "lazyvimx.extras.ui.winbar",
+		cond = function()
+			return not vim.g.vscode
+		end,
+	},
 }
 ```
 
@@ -579,16 +589,16 @@ return {
 ```lua
 -- lua/plugins/keys.lua
 return {
-  {
-    "LazyVim/LazyVim",
-    keys = {
-      -- Disable LazyVimx keybinding
-      { "<leader>\\", false },
+	{
+		"LazyVim/LazyVim",
+		keys = {
+			-- Disable LazyVimx keybinding
+			{ "<leader>\\", false },
 
-      -- Add your own
-      { "<leader>|", "<cmd>vsplit<cr>", desc = "Vertical Split" },
-    },
-  },
+			-- Add your own
+			{ "<leader>|", "<cmd>vsplit<cr>", desc = "Vertical Split" },
+		},
+	},
 }
 ```
 
@@ -599,17 +609,17 @@ return {
 ```lua
 -- lua/config/lazyvimx.lua
 require("lazyvimx").setup({
-  colorscheme = "catppuccin",
+	colorscheme = "catppuccin",
 
-  -- Custom options
-  my_custom_option = "value",
-  my_feature_enabled = true,
+	-- Custom options
+	my_custom_option = "value",
+	my_feature_enabled = true,
 })
 
 -- Access in your plugins
 local config = require("lazyvimx").config
 if config.my_feature_enabled then
-  -- Do something
+	-- Do something
 end
 ```
 
@@ -620,17 +630,17 @@ end
 ```lua
 -- lua/plugins/colorscheme.lua
 return {
-  {
-    "catppuccin/nvim",
-    opts = {
-      custom_highlights = function(colors)
-        return {
-          Comment = { fg = colors.overlay1 },
-          -- More custom highlights
-        }
-      end,
-    },
-  },
+	{
+		"catppuccin/nvim",
+		opts = {
+			custom_highlights = function(colors)
+				return {
+					Comment = { fg = colors.overlay1 },
+					-- More custom highlights
+				}
+			end,
+		},
+	},
 }
 ```
 
@@ -641,11 +651,11 @@ return {
 ```lua
 -- Import overrides manually, skipping some
 return {
-  { import = "lazyvimx.overrides.lazyvim" },
-  { import = "lazyvimx.overrides.snacks" },
-  -- Skip bufferline overrides
-  -- { import = "lazyvimx.overrides.bufferline" },
-  { import = "lazyvimx.overrides.other" },
+	{ import = "lazyvimx.overrides.lazyvim" },
+	{ import = "lazyvimx.overrides.snacks" },
+	-- Skip bufferline overrides
+	-- { import = "lazyvimx.overrides.bufferline" },
+	{ import = "lazyvimx.overrides.other" },
 }
 ```
 
@@ -677,9 +687,9 @@ print(has_extra)
 ```lua
 -- lua/config/lazy.lua
 return {
-  spec = {
-    { import = "lazyvimx.boot" },
-  },
+	spec = {
+		{ import = "lazyvimx.boot" },
+	},
 }
 ```
 
@@ -688,15 +698,15 @@ return {
 ```lua
 -- lua/config/lazy.lua
 return {
-  spec = {
-    { import = "lazyvimx.boot" },
-    { import = "lazyvimx.extras.core.all" },
-  },
+	spec = {
+		{ import = "lazyvimx.boot" },
+		{ import = "lazyvimx.extras.core.all" },
+	},
 }
 
 -- lua/config/lazyvimx.lua
 require("lazyvimx").setup({
-  colorscheme = "catppuccin",
+	colorscheme = "catppuccin",
 })
 ```
 
@@ -705,24 +715,24 @@ require("lazyvimx").setup({
 ```lua
 -- lua/config/lazy.lua
 return {
-  spec = {
-    { import = "lazyvimx.boot" },
-    { import = "lazyvimx.extras.core.all" },
-  },
+	spec = {
+		{ import = "lazyvimx.boot" },
+		{ import = "lazyvimx.extras.core.all" },
+	},
 }
 
 -- lua/config/lazyvimx.lua
 require("lazyvimx").setup({
-  colorscheme = "catppuccin",
-  colorscheme_flavors = {
-    catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-  },
-  bufferline_groups = {
-    ["React"] = "%.tsx$",
-    ["Styles"] = "%.s?css$",
-    ["Tests"] = "%.test%.",
-    ["API"] = "api/",
-  },
+	colorscheme = "catppuccin",
+	colorscheme_flavors = {
+		catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
+	},
+	bufferline_groups = {
+		["React"] = "%.tsx$",
+		["Styles"] = "%.s?css$",
+		["Tests"] = "%.test%.",
+		["API"] = "api/",
+	},
 })
 ```
 
@@ -731,24 +741,24 @@ require("lazyvimx").setup({
 ```lua
 -- lua/config/lazy.lua
 return {
-  spec = {
-    { import = "lazyvimx.boot" },
+	spec = {
+		{ import = "lazyvimx.boot" },
 
-    -- Core
-    { import = "lazyvimx.extras.core.overrides" },
-    { import = "lazyvimx.extras.core.keys" },
+		-- Core
+		{ import = "lazyvimx.extras.core.overrides" },
+		{ import = "lazyvimx.extras.core.keys" },
 
-    -- UI
-    { import = "lazyvimx.extras.ui.better-diagnostic" },
-    { import = "lazyvimx.extras.ui.winbar" },
-    { import = "lazyvimx.extras.ui.better-float" },
+		-- UI
+		{ import = "lazyvimx.extras.ui.better-diagnostic" },
+		{ import = "lazyvimx.extras.ui.winbar" },
+		{ import = "lazyvimx.extras.ui.better-float" },
 
-    -- Motions
-    { import = "lazyvimx.extras.motions.langmapper" },
+		-- Motions
+		{ import = "lazyvimx.extras.motions.langmapper" },
 
-    -- Git
-    { import = "lazyvimx.extras.git.conflicts" },
-  },
+		-- Git
+		{ import = "lazyvimx.extras.git.conflicts" },
+	},
 }
 ```
 
@@ -771,53 +781,59 @@ return {
 ### Тема не переключается
 
 1. Проверьте систему macOS:
+
    ```bash
    defaults read -g AppleInterfaceStyle
    ```
 
 2. Проверьте конфигурацию вариантов:
+
    ```vim
    :lua vim.print(require("lazyvimx").config.colorscheme_flavors)
    ```
 
 3. Проверьте, что переопределение загружено:
    ```lua
-   { import = "lazyvimx.overrides.lazyvim.auto-switch-colorscheme-on-signal" }
-   ```
+	 { import = "lazyvimx.overrides.lazyvim.auto-switch-colorscheme-on-signal" }
+	 ```
 
 ### Группы буферов не работают
 
 1. Включите переопределение:
+
    ```lua
-   { import = "lazyvimx.overrides.bufferline.add-groups" }
-   ```
+	 { import = "lazyvimx.overrides.bufferline.add-groups" }
+	 ```
 
 2. Проверьте конфигурацию:
+
    ```vim
    :lua vim.print(require("lazyvimx").config.bufferline_groups)
    ```
 
 3. Проверьте шаблон:
    ```lua
-   :lua print(vim.fn.expand("%"):match("%.tsx$"))
-   ```
+	 :lua print(vim.fn.expand("%"):match("%.tsx$"))
+	 ```
 
 ### Chezmoi не синхронизируется
 
 1. Проверьте переменную окружения:
+
    ```bash
    echo $DOTFILES_SRC_PATH
    ```
 
 2. Проверьте, что путь существует:
+
    ```bash
    ls -la $DOTFILES_SRC_PATH
    ```
 
 3. Проверьте, что переопределение загружено:
    ```lua
-   { import = "lazyvimx.overrides.lazyvim.auto-apply-chezmoi-on-lazy-update" }
-   ```
+	 { import = "lazyvimx.overrides.lazyvim.auto-apply-chezmoi-on-lazy-update" }
+	 ```
 
 ## Следующие шаги
 
