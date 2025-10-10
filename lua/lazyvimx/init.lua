@@ -3,9 +3,15 @@ local M = {}
 local defaults = {
 	colorscheme = "catppuccin",
 
-	colorscheme_flavors = {
-		catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-		tokyonight = { "tokyonight-storm", "tokyonight-day" },
+	colorscheme_households = {
+		catppuccin = {
+			{ "catppuccin-macchiato", "catppuccin-frappe", "catppuccin-mocha", "catppuccin" },
+			{ "catppuccin-latte" },
+		},
+		tokyonight = {
+			{ "tokyonight-storm", "tokyonight-moon", "tokyonight-light" },
+			{ "tokyonight-day" },
+		},
 	},
 
 	bufferline_groups = {
