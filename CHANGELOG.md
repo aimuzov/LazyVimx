@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.0](https://github.com/aimuzov/LazyVimx/compare/v1.0.1...v1.1.0) (2025-10-10)
+
+### Features
+
+* **ui:** autorestore last colorscheme ([c644f79](https://github.com/aimuzov/LazyVimx/commit/c644f799de449bd9c3c2266522bc6bcdb3699b17))
+
+### Bug Fixes
+
+* keys ([132ada9](https://github.com/aimuzov/LazyVimx/commit/132ada9a4051d470343050d41b88f5751f2e27cb))
+* **perf:** enable garbage (lsp) ([e8f302a](https://github.com/aimuzov/LazyVimx/commit/e8f302ac524c10a572b47fdbef5b31eccde7d115))
+
 ## [1.0.1](https://github.com/aimuzov/LazyVimx/compare/v1.0.0...v1.0.1) (2025-10-10)
 
 ### Bug Fixes
