@@ -34,6 +34,8 @@ local function create(plugin_name, keys, opts)
 end
 
 return {
+	desc = "Custom keybindings for LazyVimx features including DAP, motions, and enhanced navigation",
+
 	create("LazyVim/LazyVim", {
 		{ "d", { [["_d]] }, mode = { "n", "v" }, desc = "Delete text without yanking" },
 

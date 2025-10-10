@@ -1,5 +1,6 @@
 return {
 	"m00qek/baleia.nvim",
+	desc = "Render ANSI escape sequences with proper colors in buffers and DAP REPL output",
 
 	config = function(_, opts)
 		local baleia = require("baleia").setup(opts)
