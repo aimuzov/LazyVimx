@@ -1,4 +1,6 @@
 return {
+	desc = "Registry of all LazyVimx extras for enabling all features at once",
+
 	{ import = "lazyvimx.extras.ai.avante" },
 	{ import = "lazyvimx.extras.buf.delete-inactive" },
 	{ import = "lazyvimx.extras.buf.delete-no-name" },

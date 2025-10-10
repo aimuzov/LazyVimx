@@ -71,17 +71,17 @@ return {
 				end,
 				key = function(item)
 					return {
-						{ "▌", hl = "key" },
-						{ " " .. button_icons[item.key] .. "  ", hl = "key" },
-						{ "▐", hl = "key" },
+						{ "▌", hl = "SnacksDashboardKeyBorder" },
+						{ " " .. button_icons[item.key] .. " ", hl = "key" },
+						{ "▐", hl = "SnacksDashboardKeyBorder" },
 					}
 				end,
 			},
 
 			sections = sections_mixin_header({
-				{ text = { { "▁▁▁▁▁▁", hl = "SnacksDashboardBorder" } }, indent = 36 },
+				{ text = { { "▁▁▁▁▁", hl = "SnacksDashboardBorder" } }, indent = 37 },
 				{ section = "keys" },
-				{ text = { { "▔▔▔▔▔▔", hl = "SnacksDashboardBorder" } }, indent = 36 },
+				{ text = { { "▔▔▔▔▔", hl = "SnacksDashboardBorder" } }, indent = 37 },
 				{ section = "startup" },
 			}),
 		},

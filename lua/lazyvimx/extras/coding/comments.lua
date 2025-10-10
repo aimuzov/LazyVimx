@@ -1,4 +1,6 @@
 return {
+	desc = "Enhanced commenting with context-aware comment strings and JSDoc generation",
+
 	{
 		"nvim-mini/mini.comment",
 		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },

@@ -46,7 +46,8 @@ local override_highlights = function(hl, c)
 	hl.SnacksDashboardHeader7 = { fg = blend(c.bg, c.blue0, 50) }
 	hl.SnacksDashboardHeader8 = { fg = c.fg_dark }
 	hl.SnacksDashboardIcon = { fg = c.yellow }
-	hl.SnacksDashboardKey = { bg = blend(c.bg, c.bg, 50), fg = blend(c.bg, c.fg_gutter, 50) }
+	hl.SnacksDashboardKey = { bg = blend(c.bg, c.bg, 50), fg = c.orange }
+	hl.SnacksDashboardKeyBorder = { bg = blend(c.bg, c.bg, 50), fg = blend(c.bg, c.fg_gutter, 50) }
 	hl.SnacksDashboardSpecial = { fg = blend(c.bg, c.magenta, 50) }
 	hl.SnacksIndent = { fg = blend(c.bg, c.fg, 5) }
 	hl.SnacksIndentScope = { fg = blend(c.bg, c.fg, 15) }

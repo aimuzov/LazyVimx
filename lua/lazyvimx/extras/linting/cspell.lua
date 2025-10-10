@@ -1,4 +1,6 @@
 return {
+	desc = "CSpell spell checker linter integration for all file types",
+
 	"mfussenegger/nvim-lint",
 	opts = function(_, opts)
 		local cspell_path = require("lazyvimx.util.general").popen_get_result("which cspell")

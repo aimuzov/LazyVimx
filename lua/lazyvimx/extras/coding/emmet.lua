@@ -1,4 +1,6 @@
 return {
+	desc = "Emmet abbreviation expansion for HTML/CSS with language server and wrap command",
+
 	{
 		"neovim/nvim-lspconfig",
 		opts = { servers = { emmet_language_server = {} } },

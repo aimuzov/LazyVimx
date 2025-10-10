@@ -158,6 +158,8 @@ return {
 				indent = {
 					indent_marker = "│",
 					last_indent_marker = "╰",
+					expander_collapsed = "",
+					expander_expanded = "",
 				},
 				icon = { folder_empty = "󰉖", default = "" },
 				modified = { symbol = "" },

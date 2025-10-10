@@ -1,5 +1,6 @@
 return {
 	"mikavilpas/yazi.nvim",
+	desc = "Yazi file manager integration with full-window floating UI and rich file previews",
 	event = "VeryLazy",
 	dependencies = { "folke/snacks.nvim" },
 
