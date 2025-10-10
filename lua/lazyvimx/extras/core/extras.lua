@@ -23,6 +23,7 @@ return {
 	{ import = "lazyvimx.extras.motions.sibling-swap" },
 	{ import = "lazyvimx.extras.motions.splitting-joining-blocks" },
 	{ import = "lazyvimx.extras.perf.local-config" },
+	{ import = "lazyvimx.extras.perf.restore-last-colorscheme" },
 	{ import = "lazyvimx.extras.perf.stop-inactive-lsp" },
 	{ import = "lazyvimx.extras.test.jest" },
 	{ import = "lazyvimx.extras.ui.better-colorcolumn" },
