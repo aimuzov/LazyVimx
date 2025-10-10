@@ -57,31 +57,27 @@ return {
 		{ "<leader>lx", "LazyExtras", desc = "Open popup with lazy extras" },
 	} or {}),
 
+	create("neovim/nvim-lspconfig", {}, function()
+		local lazyvim_override_key = function(plug_name, key_value, key_cmd)
+			local keys = require("lazyvim.plugins.lsp.keymaps").get()
+
+			if LazyVim.has(plug_name) then
+				for _, key in pairs(keys) do
+					if key[1] == key_value then
+						key[2] = key_cmd
+					end
+				end
+			end
+		end
+
+		lazyvim_override_key("live-rename.nvim", "<leader>cr", [[<cmd>lua require("live-rename").rename()<cr>]])
+		lazyvim_override_key("glance.nvim", "gr", [[<cmd>Glance references<cr>]])
+	end),
+
 	create("mikavilpas/yazi.nvim", {
 		{ "<leader>fy", "Yazi", desc = "Find files (yazi)" },
 		{ "<leader>fY", "Yazi toggle", desc = "Find files (yazi prev session)" },
 	}),
-
-	create("dnlhc/glance.nvim", {}, function()
-		local keys = require("lazyvim.plugins.lsp.keymaps").get()
-
-		keys[#keys + 1] = {
-			"gr",
-			"<cmd>Glance references<cr>",
-			desc = "Go to references",
-		}
-	end),
-
-	create("saecki/live-rename.nvim", {}, function()
-		local keys = require("lazyvim.plugins.lsp.keymaps").get()
-
-		keys[#keys + 1] = {
-			"<leader>cr",
-			require("live-rename").rename,
-			desc = "Rename",
-			has = "rename",
-		}
-	end),
 
 	create("folke/snacks.nvim", {
 		{ "<leader><space>", { LazyVim.pick("smart") }, desc = "Find files (smart)" },
