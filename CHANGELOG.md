@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/aimuzov/LazyVimx/compare/v1.0.0...v1.0.1) (2025-10-10)
+
+### Bug Fixes
+
+* **ui:** colorize keys for dashboard ([33bdcfc](https://github.com/aimuzov/LazyVimx/commit/33bdcfc837497620155083074aa61f7692a93830))
+* **ui:** replace chevron icons ([f0fea38](https://github.com/aimuzov/LazyVimx/commit/f0fea381b36f8ba16380fd3e408e38ba2d15759a))
+
 ## [1.0.0](https://github.com/aimuzov/LazyVimx/compare/v0.6.0...v1.0.0) (2025-10-06)
 
 ### Bug Fixes
