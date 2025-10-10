@@ -49,11 +49,28 @@ function M.get_dotfiles_path()
 	return dotfiles_path ~= vim.NIL and dotfiles_path or ""
 end
 
-function M.get_flavor(colorscheme)
+function M.get_flavor(colorscheme_household_last)
 	local config = require("lazyvimx").config
 	local flavor_index = require("lazyvimx.util.general").theme_is_dark() and 1 or 2
-	local flavor_list = config.colorscheme_flavors[colorscheme or config.colorscheme]
-	local flavor_name = flavor_list[flavor_index]
+
+	if LazyVim.has("last-color.nvim") then
+		local colorscheme_name_last = require("last-color").recall()
+
+		if colorscheme_name_last ~= nil then
+			colorscheme_household_last = colorscheme_name_last:match("^[^-]+")
+
+			for _, colorscheme_name_current in
+				pairs(config.colorscheme_households[colorscheme_household_last][flavor_index])
+			do
+				if colorscheme_name_current == colorscheme_name_last then
+					return colorscheme_name_current
+				end
+			end
+		end
+	end
+
+	local flavor_list = config.colorscheme_households[colorscheme_household_last or config.colorscheme]
+	local flavor_name = flavor_list[flavor_index][1]
 
 	return flavor_name
 end
