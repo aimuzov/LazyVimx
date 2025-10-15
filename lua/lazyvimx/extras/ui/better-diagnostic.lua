@@ -18,8 +18,7 @@ return {
 			opts.preset = "custom"
 
 			local build_orig = require("tiny-inline-diagnostic.presets").build
-
-			require("tiny-inline-diagnostic.presets").build = function(name, transparent_bg)
+			local build_overrided = function(name, transparent_bg)
 				local preset = build_orig(name == "custom" and "classic" or name, transparent_bg)
 
 				if name == "custom" then
@@ -33,6 +32,9 @@ return {
 
 				return preset
 			end
+
+			require("tiny-inline-diagnostic.presets").build = build_overrided
+			vim.diagnostic.open_float = require("tiny-inline-diagnostic.override").open_float -- https://github.com/rachartier/tiny-inline-diagnostic.nvim/issues/134
 		end,
 	},
 
