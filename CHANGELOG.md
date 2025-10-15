@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.0](https://github.com/aimuzov/LazyVimx/compare/v1.1.0...v1.2.0) (2025-10-15)
+
+### Bug Fixes
+
+* **ui:** hide inline diagnostic when float popup is opened ([9d6080c](https://github.com/aimuzov/LazyVimx/commit/9d6080c6867b8a0d9c316e3d4e4ac4b667ae9e4c)), closes [rachartier/tiny-inline-diagnostic.nvim#134](https://github.com/rachartier/tiny-inline-diagnostic.nvim/issues/134)
+
 ## [1.1.0](https://github.com/aimuzov/LazyVimx/compare/v1.0.1...v1.1.0) (2025-10-10)
 
 ### Features
