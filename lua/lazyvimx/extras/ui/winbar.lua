@@ -27,6 +27,9 @@ return {
 	desc = "Displays a winbar with the name of the current file and an icon",
 
 	opts = function(_, opts)
+		local hl_normal = vim.api.nvim_get_hl(0, { name = "Normal" })
+		local bg_color = string.format("#%06x", hl_normal.bg)
+
 		local winbar_filetype = {
 			lualine_c = {
 				{
@@ -34,12 +37,12 @@ return {
 					icon_only = true,
 					separator = "",
 					padding = { left = 3, right = 1 },
-					color = { bg = "none" },
+					color = { bg = bg_color },
 				},
 
 				{
 					LazyVim.lualine.pretty_path({ length = 6, relative = "root" }),
-					color = { bg = "none", gui = "bold" },
+					color = { bg = bg_color, gui = "bold" },
 				},
 			},
 		}
