@@ -3,13 +3,13 @@
 > [!TIP]
 > **🇷🇺 Русская версия:** [EXTRAS.ru.md](EXTRAS.ru.md)
 
-Complete guide to all 47 LazyVimx extras modules.
+Complete guide to all 48 LazyVimx extras modules.
 
 ## Table of Contents
 
 - [Overview](#overview)
 - [Core Extras](#core-extras)
-- [UI Extras (18)](#ui-extras)
+- [UI Extras (19)](#ui-extras)
 - [Coding Extras (2)](#coding-extras)
 - [Motion Extras (6)](#motion-extras)
 - [Buffer Extras (3)](#buffer-extras)
@@ -18,7 +18,7 @@ Complete guide to all 47 LazyVimx extras modules.
 - [Linting Extras (2)](#linting-extras)
 - [AI Extras (1)](#ai-extras)
 - [DAP Extras (1)](#dap-extras)
-- [Performance Extras (2)](#performance-extras)
+- [Performance Extras (3)](#performance-extras)
 - [Test Extras (1)](#test-extras)
 
 ## Overview
@@ -280,6 +280,28 @@ Live preview of LSP rename operations.
 **Plugin:** `saecki/live-rename.nvim`
 
 **Keybinding:** `<leader>cr` - Rename (via core.keys)
+
+### ui.better-reference-highlight
+
+**Import:** `lazyvimx.extras.ui.better-reference-highlight`
+
+Enhanced LSP reference highlighting with better visibility.
+
+**Features:**
+
+- Bold foreground highlighting instead of background
+- Distinct colors for read/write references
+- Works with Catppuccin (rosewater color)
+- Works with Tokyo Night (magenta blend)
+- No background clutter
+
+**Highlights:**
+
+- `LspReferenceRead` - Bold rosewater/magenta
+- `LspReferenceText` - Bold rosewater/magenta
+- `LspReferenceWrite` - Bold rosewater/magenta with underline (Tokyo Night)
+
+**Themes:** Catppuccin, Tokyo Night (overrides theme defaults)
 
 ### ui.better-explorer
 
@@ -1025,6 +1047,23 @@ require("lspconfig").tsserver.setup({
 	-- Project-specific LSP config
 })
 ```
+
+### perf.restore-last-colorscheme
+
+**Import:** `lazyvimx.extras.perf.restore-last-colorscheme`
+
+Automatically restore the last used colorscheme on startup.
+
+**Features:**
+
+- Remembers colorscheme across sessions
+- Fast restoration on startup
+- No manual configuration needed
+- Integrates with LazyVimx theme switching
+
+**Plugin:** `raddari/last-color.nvim`
+
+**Use Case:** Useful when frequently switching colorschemes and wanting to preserve your preference between Neovim sessions.
 
 ---
 
