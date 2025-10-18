@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.3.0](https://github.com/aimuzov/LazyVimx/compare/v1.2.0...v1.3.0) (2025-10-18)
+
+### Features
+
+* **ui:** add new extra for better lsp reference hl ([6cc0f9d](https://github.com/aimuzov/LazyVimx/commit/6cc0f9d4c61e029796daad744384171b39f62b5a))
+
+### Bug Fixes
+
+* **core:** fix typo (incorrect colorscheme name from config) ([b59593f](https://github.com/aimuzov/LazyVimx/commit/b59593fe384350b9946a3ff9b882332820dcde2c))
+* **ui:** fix hl for winbar (tokyonight hack) ([57d782f](https://github.com/aimuzov/LazyVimx/commit/57d782ffc5aedcd0d37a75f75cce4341f6bc91e2))
+
 ## [1.2.0](https://github.com/aimuzov/LazyVimx/compare/v1.1.0...v1.2.0) (2025-10-15)
 
 ### Bug Fixes
