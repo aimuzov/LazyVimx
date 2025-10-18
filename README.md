@@ -5,7 +5,7 @@
 
 **Enhanced LazyVim configuration with extensive customizations, UI improvements, and workflow optimizations.**
 
-LazyVimx is a comprehensive enhancement layer built on top of [LazyVim](https://github.com/LazyVim/LazyVim) that provides 47 optional extras and 33 override modules to create a highly polished, feature-rich Neovim experience.
+LazyVimx is a comprehensive enhancement layer built on top of [LazyVim](https://github.com/LazyVim/LazyVim) that provides 48 optional extras and 33 override modules to create a highly polished, feature-rich Neovim experience.
 
 ## ✨ Features
 
@@ -153,9 +153,9 @@ LazyVimx/
 ├── lua/lazyvimx/
 │   ├── boot.lua              # Bootstrap configuration
 │   ├── init.lua              # Main module with setup function
-│   ├── extras/               # Optional feature modules (47 total)
+│   ├── extras/               # Optional feature modules (48 total)
 │   │   ├── core/            # Core enhancements (overrides, keys)
-│   │   ├── ui/              # UI improvements (18 modules)
+│   │   ├── ui/              # UI improvements (19 modules)
 │   │   ├── coding/          # Coding tools (2 modules)
 │   │   ├── motions/         # Motion enhancements (6 modules)
 │   │   ├── buf/             # Buffer management (3 modules)
@@ -164,7 +164,7 @@ LazyVimx/
 │   │   ├── linting/         # Linting tools (2 modules)
 │   │   ├── ai/              # AI assistants (1 module)
 │   │   ├── dap/             # Debugging (1 module)
-│   │   ├── perf/            # Performance (2 modules)
+│   │   ├── perf/            # Performance (3 modules)
 │   │   └── test/            # Testing (1 module)
 │   ├── overrides/           # Plugin customizations (33 total)
 │   │   ├── lazyvim/         # LazyVim core overrides (8 modules)
@@ -417,7 +417,7 @@ LazyVimx enhances LazyVim by:
 
 ## 📊 Stats
 
-- **47 optional extras** across 11 categories
+- **48 optional extras** across 11 categories
 - **33 override modules** for deep customization
 - **150+ custom highlights** for Catppuccin theme
 - **70+ custom highlights** for Tokyo Night theme

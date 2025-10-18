@@ -9,7 +9,7 @@ local defaults = {
 			{ "catppuccin-latte" },
 		},
 		tokyonight = {
-			{ "tokyonight-storm", "tokyonight-moon", "tokyonight-light" },
+			{ "tokyonight-storm", "tokyonight-moon", "tokyonight-night" },
 			{ "tokyonight-day" },
 		},
 	},

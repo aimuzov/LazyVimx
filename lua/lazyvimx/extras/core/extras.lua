@@ -34,6 +34,7 @@ return {
 	{ import = "lazyvimx.extras.ui.better-insert-mode" },
 	{ import = "lazyvimx.extras.ui.better-linenumbers" },
 	{ import = "lazyvimx.extras.ui.better-live-rename" },
+	{ import = "lazyvimx.extras.ui.better-reference-highlight" },
 	{ import = "lazyvimx.extras.ui.better-whitespace" },
 	{ import = "lazyvimx.extras.ui.bolder-separators" },
 	{ import = "lazyvimx.extras.ui.highlighted-ansi-escape" },

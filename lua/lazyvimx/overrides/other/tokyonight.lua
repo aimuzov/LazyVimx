@@ -1,5 +1,15 @@
 local blend = require("lazyvimx.util.general").color_blend
 
+local function colors_get(style)
+	local colors = require("tokyonight.colors").setup({
+		style = style ~= "" and style or "moon",
+		on_colors = function() end,
+		on_highlights = override_highlights,
+	})
+
+	return colors
+end
+
 local override_highlights = function(hl, c)
 	hl.BlinkCmpDoc = { bg = c.bg_dark, blend = 15 }
 	hl.BlinkCmpDocBorder = { link = "BlinkCmpDoc" }
@@ -72,7 +82,9 @@ local override_highlights = function(hl, c)
 	hl.WinSeparator = { fg = blend(c.bg, c.bg_dark, 60) }
 end
 
-local override_bufferline_hls = function(c)
+local override_bufferline_hls = function(colorscheme_name)
+	local c = colors_get(colorscheme_name:sub(12))
+
 	return function()
 		local hls = {
 			background = { bg = c.bg_dark },
@@ -163,14 +175,16 @@ local lualine_theme_create = function(c)
 	return theme
 end
 
-local function colors_get(style)
-	local colors = require("tokyonight.colors").setup({
-		style = style ~= "" and style or "moon",
-		on_colors = function() end,
-		on_highlights = override_highlights,
-	})
+local lualine_opts_override = function(opts, colorscheme_name)
+	local colors = colors_get(colorscheme_name:sub(12))
 
-	return colors
+	opts.options.theme = lualine_theme_create(colors)
+
+	for _, wb in pairs({ opts.inactive_winbar, opts.winbar }) do
+		for _, section in pairs(wb.lualine_c) do
+			section.color.bg = colors.bg
+		end
+	end
 end
 
 return {
@@ -184,6 +198,7 @@ return {
 				keywords = { italic = false },
 				floats = "normal",
 			},
+
 			plugins = {
 				auto = true,
 				bufferline = false,
@@ -201,25 +216,14 @@ return {
 
 		opts = function(_, opts)
 			if vim.g.colors_name:find("tokyonight", 1, true) then
-				local colors = colors_get()
-				opts.options.theme = lualine_theme_create(colors)
+				lualine_opts_override(opts, vim.g.colors_name)
 			end
 
 			vim.api.nvim_create_autocmd("ColorScheme", {
 				desc = "Setup lualine theme after colorscheme changed",
 				pattern = "tokyonight*",
 				callback = function(data)
-					local style = data.match:sub(12)
-					local colors = colors_get(style)
-
-					for _, wb in pairs({ opts.inactive_winbar, opts.winbar }) do
-						for _, section in pairs(wb.lualine_c) do
-							section.color.bg = colors.bg
-						end
-					end
-
-					opts.options.theme = lualine_theme_create(colors)
-
+					lualine_opts_override(opts, data.match)
 					require("lualine").setup(opts)
 				end,
 			})
@@ -233,17 +237,14 @@ return {
 
 		opts = function(_, opts)
 			if vim.g.colors_name and vim.g.colors_name:find("tokyonight", 1, true) then
-				opts.highlights = override_bufferline_hls(colors_get())
+				opts.highlights = override_bufferline_hls(vim.g.colors_name)
 			end
 
 			vim.api.nvim_create_autocmd("ColorScheme", {
 				desc = "Setup bufferline theme after colorscheme changed",
 				pattern = "tokyonight*",
 				callback = function(data)
-					local style = data.match:sub(12)
-					local colors = colors_get(style)
-
-					opts.highlights = override_bufferline_hls(colors)
+					opts.highlights = override_bufferline_hls(data.match)
 
 					require("bufferline.highlights").reset_icon_hl_cache()
 					require("bufferline").setup(opts)
