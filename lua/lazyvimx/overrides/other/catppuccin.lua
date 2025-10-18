@@ -62,9 +62,6 @@ local override_all = function(c)
 		LazyReasonKeys = { fg = c.overlay0 },
 		LineNr = { fg = c.surface2 },
 		LspInlayHint = { bg = c.none },
-		LspReferenceRead = { bg = c.none, fg = c.rosewater, style = { "bold" } },
-		LspReferenceText = { bg = c.none, fg = c.rosewater, style = { "bold" } },
-		LspReferenceWrite = { bg = c.none, fg = c.rosewater, style = { "bold", "underline" } },
 		MiniIconsAzure = { fg = blend(c.sapphire, c.mantle, 25) },
 		MiniIconsBlue = { fg = blend(c.blue, c.mantle, 25) },
 		MiniIconsCyan = { fg = blend(c.teal, c.mantle, 25) },
@@ -296,108 +293,106 @@ local dashboard_header_animate = function()
 end
 
 return {
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		optional = true,
+	"catppuccin/nvim",
+	name = "catppuccin",
+	optional = true,
 
-		opts = {
-			integrations = {
-				navic = false,
-				treesitter_context = true,
-				dap = { enabled = true, enable_ui = true },
-			},
-
-			highlight_overrides = {
-				all = override_all,
-				frappe = override_dark,
-				macchiato = override_dark,
-				mocha = override_dark,
-				latte = override_light,
-			},
+	opts = {
+		integrations = {
+			navic = false,
+			treesitter_context = true,
+			dap = { enabled = true, enable_ui = true },
 		},
 
-		specs = {
-			{
-				"akinsho/bufferline.nvim",
-				optional = true,
+		highlight_overrides = {
+			all = override_all,
+			frappe = override_dark,
+			macchiato = override_dark,
+			mocha = override_dark,
+			latte = override_light,
+		},
+	},
 
-				opts = function(_, opts)
-					function highlights_create()
-						local catppuccin_bufferline = require("catppuccin.special.bufferline")
-						local highlights = catppuccin_bufferline.get_theme({
-							styles = { "bold" },
-							custom = {
-								frappe = override_bufferline_hls(colors_get("frappe")),
-								macchiato = override_bufferline_hls(colors_get("macchiato")),
-								mocha = override_bufferline_hls(colors_get("mocha")),
-								latte = override_bufferline_hls(colors_get("latte")),
-							},
-						})
+	specs = {
+		{
+			"akinsho/bufferline.nvim",
+			optional = true,
 
-						return highlights
-					end
+			opts = function(_, opts)
+				function highlights_create()
+					local catppuccin_bufferline = require("catppuccin.special.bufferline")
+					local highlights = catppuccin_bufferline.get_theme({
+						styles = { "bold" },
+						custom = {
+							frappe = override_bufferline_hls(colors_get("frappe")),
+							macchiato = override_bufferline_hls(colors_get("macchiato")),
+							mocha = override_bufferline_hls(colors_get("mocha")),
+							latte = override_bufferline_hls(colors_get("latte")),
+						},
+					})
 
-					if vim.g.colors_name and vim.g.colors_name:find("catppuccin", 1, true) then
+					return highlights
+				end
+
+				if vim.g.colors_name and vim.g.colors_name:find("catppuccin", 1, true) then
+					opts.highlights = highlights_create()
+				end
+
+				vim.api.nvim_create_autocmd("ColorScheme", {
+					desc = "Setup bufferline theme after colorscheme changed",
+					pattern = "catppuccin*",
+					callback = function()
 						opts.highlights = highlights_create()
-					end
 
-					vim.api.nvim_create_autocmd("ColorScheme", {
-						desc = "Setup bufferline theme after colorscheme changed",
-						pattern = "catppuccin*",
-						callback = function()
-							opts.highlights = highlights_create()
+						require("bufferline.highlights").reset_icon_hl_cache()
+						require("bufferline").setup(opts)
+					end,
+				})
+			end,
+		},
 
-							require("bufferline.highlights").reset_icon_hl_cache()
-							require("bufferline").setup(opts)
-						end,
-					})
-				end,
-			},
+		{
+			"nvim-lualine/lualine.nvim",
+			dependencies = { "catppuccin/nvim" },
+			optional = true,
 
-			{
-				"nvim-lualine/lualine.nvim",
-				dependencies = { "catppuccin/nvim" },
-				optional = true,
+			opts = function(_, opts)
+				if vim.g.colors_name:find("catppuccin", 1, true) then
+					opts.options.theme = lualine_theme_create(colors_get())
+				end
 
-				opts = function(_, opts)
-					if vim.g.colors_name:find("catppuccin", 1, true) then
-						opts.options.theme = lualine_theme_create(colors_get())
-					end
-
-					vim.api.nvim_create_autocmd("ColorScheme", {
-						desc = "Setup lualine theme after colorscheme changed",
-						pattern = "catppuccin*",
-						callback = function(data)
-							for _, wb in pairs({ opts.inactive_winbar, opts.winbar }) do
-								for _, section in pairs(wb.lualine_c) do
-									section.color.bg = "none"
-								end
+				vim.api.nvim_create_autocmd("ColorScheme", {
+					desc = "Setup lualine theme after colorscheme changed",
+					pattern = "catppuccin*",
+					callback = function(data)
+						for _, wb in pairs({ opts.inactive_winbar, opts.winbar }) do
+							for _, section in pairs(wb.lualine_c) do
+								section.color.bg = "none"
 							end
+						end
 
-							opts.options.theme = lualine_theme_create(colors_get())
+						opts.options.theme = lualine_theme_create(colors_get())
 
-							require("lualine").setup(opts)
-						end,
+						require("lualine").setup(opts)
+					end,
+				})
+			end,
+		},
+
+		{
+			"folke/snacks.nvim",
+			dependencies = { "catppuccin/nvim" },
+			optional = true,
+
+			opts = function()
+				if vim.g.colors_name:find("catppuccin", 1, true) then
+					vim.api.nvim_create_autocmd("User", {
+						once = true,
+						pattern = "LazyVimStarted",
+						callback = dashboard_header_animate,
 					})
-				end,
-			},
-
-			{
-				"folke/snacks.nvim",
-				dependencies = { "catppuccin/nvim" },
-				optional = true,
-
-				opts = function()
-					if vim.g.colors_name:find("catppuccin", 1, true) then
-						vim.api.nvim_create_autocmd("User", {
-							once = true,
-							pattern = "LazyVimStarted",
-							callback = dashboard_header_animate,
-						})
-					end
-				end,
-			},
+				end
+			end,
 		},
 	},
 }
