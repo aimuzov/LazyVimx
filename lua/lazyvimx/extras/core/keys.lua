@@ -57,21 +57,15 @@ return {
 		{ "<leader>lx", "LazyExtras", desc = "Open popup with lazy extras" },
 	} or {}),
 
-	create("neovim/nvim-lspconfig", {}, function()
-		local lazyvim_override_key = function(plug_name, key_value, key_cmd)
-			local keys = require("lazyvim.plugins.lsp.keymaps").get()
-
+	create("neovim/nvim-lspconfig", {}, function(_, opts)
+		local lazyvim_override_key = function(plug_name, key)
 			if LazyVim.has(plug_name) then
-				for _, key in pairs(keys) do
-					if key[1] == key_value then
-						key[2] = key_cmd
-					end
-				end
+				table.insert(opts.servers["*"].keys, key)
 			end
 		end
 
-		lazyvim_override_key("live-rename.nvim", "<leader>cr", [[<cmd>lua require("live-rename").rename()<cr>]])
-		lazyvim_override_key("glance.nvim", "gr", [[<cmd>Glance references<cr>]])
+		lazyvim_override_key("live-rename.nvim", { "<leader>cr", [[<cmd>lua require("live-rename").rename()<cr>]] })
+		lazyvim_override_key("glance.nvim", { "gr", [[<cmd>Glance references<cr>]], nowait = true })
 	end),
 
 	create("mikavilpas/yazi.nvim", {
