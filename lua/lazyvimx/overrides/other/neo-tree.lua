@@ -257,15 +257,7 @@ return {
 				},
 			},
 
-			event_handlers = {
-				{
-					event = "neo_tree_popup_input_ready",
-					handler = function()
-						vim.api.nvim_win_set_cursor(0, { 1, 2 })
-						vim.cmd("stopinsert")
-					end,
-				},
-			},
+			event_handlers = {},
 		},
 	},
 
@@ -294,16 +286,38 @@ return {
 		optional = true,
 
 		opts = function(_, opts)
-			local function on_move(data)
-				Snacks.rename.on_rename_file(data.source, data.destination)
+			local function input_normal_pos_start()
+				vim.api.nvim_win_set_cursor(0, { 1, 2 })
+				vim.cmd("stopinsert")
 			end
 
-			local events = require("neo-tree.events")
-
-			opts.event_handlers = opts.event_handlers or {}
 			vim.list_extend(opts.event_handlers, {
-				{ event = events.FILE_MOVED, handler = on_move },
-				{ event = events.FILE_RENAMED, handler = on_move },
+				{
+					event = require("neo-tree.events").NEO_TREE_POPUP_INPUT_READY,
+					handler = input_normal_pos_start,
+				},
+			})
+		end,
+	},
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		optional = true,
+
+		opts = function(_, opts)
+			local events = require("neo-tree.events")
+			local guicursor = vim.opt_local.guicursor
+
+			local function cursor_hide()
+				vim.cmd("setlocal guicursor=n-v-c:ver1,i-ci-ve:ver1,r-cr:ver1,o:ver1")
+			end
+
+			local function cursor_revert()
+				vim.opt_local.guicursor = guicursor
+			end
+
+			vim.list_extend(opts.event_handlers, {
+				{ event = events.NEO_TREE_BUFFER_ENTER, handler = cursor_hide },
+				{ event = events.NEO_TREE_BUFFER_LEAVE, handler = cursor_revert },
 			})
 		end,
 	},
