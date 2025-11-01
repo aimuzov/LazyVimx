@@ -299,6 +299,7 @@ return {
 			})
 		end,
 	},
+
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		optional = true,
@@ -318,6 +319,25 @@ return {
 			vim.list_extend(opts.event_handlers, {
 				{ event = events.NEO_TREE_BUFFER_ENTER, handler = cursor_hide },
 				{ event = events.NEO_TREE_BUFFER_LEAVE, handler = cursor_revert },
+			})
+		end,
+	},
+
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		optional = true,
+
+		opts = function(_, opts)
+			local function remove_left_padding()
+				vim.opt_local.statuscolumn = ""
+				vim.opt_local.signcolumn = "no"
+			end
+
+			vim.list_extend(opts.event_handlers, {
+				{
+					event = require("neo-tree.events").NEO_TREE_BUFFER_ENTER,
+					handler = remove_left_padding,
+				},
 			})
 		end,
 	},
