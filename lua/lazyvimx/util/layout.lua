@@ -2,7 +2,7 @@ local M = {}
 
 local size = {
 	left = 40,
-	right = 40,
+	right = 60,
 	top = 10,
 	bottom = 10,
 }
