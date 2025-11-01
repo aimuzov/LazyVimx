@@ -26,8 +26,11 @@ return {
 			},
 		},
 	},
+
 	{
 		"folke/edgy.nvim",
+		optional = true,
+
 		opts = function(_, opts)
 			table.insert(opts.bottom, { ft = "dap-repl" })
 			table.insert(opts.right, { ft = "neotest-summary" })
