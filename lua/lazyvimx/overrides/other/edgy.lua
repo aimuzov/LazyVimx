@@ -34,6 +34,7 @@ return {
 		opts = function(_, opts)
 			table.insert(opts.bottom, { ft = "dap-repl" })
 			table.insert(opts.right, { ft = "neotest-summary" })
+			table.insert(opts.right, { ft = "sidekick_terminal" })
 		end,
 	},
 }
