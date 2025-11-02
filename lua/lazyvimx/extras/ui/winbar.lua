@@ -17,6 +17,7 @@ local disabled_ft = {
 	"neotest-summary",
 	"noice",
 	"qf",
+	"sidekick_terminal",
 	"snacks_dashboard",
 	"snacks_terminal",
 	"trouble",

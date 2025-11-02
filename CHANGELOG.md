@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/aimuzov/LazyVimx/compare/v1.3.0...v1.4.0) (2025-11-02)
+
+### Features
+
+* **ai:** add sidekick conf ([5c0f068](https://github.com/aimuzov/LazyVimx/commit/5c0f068521155d34554b14c60ca73f2fc92eaa00))
+* **ui:** hide cursor for neo-tree ([fcd5915](https://github.com/aimuzov/LazyVimx/commit/fcd59150b66b893a27754007c4550950c7846e2d))
+* **ui:** some improves for neo-tree ([5310b69](https://github.com/aimuzov/LazyVimx/commit/5310b69e37c9e6c4ee90cd971aa42ef784ed0ef2))
+
+### Bug Fixes
+
+* **motions:** fix lspkeys after migration ([f03a18a](https://github.com/aimuzov/LazyVimx/commit/f03a18ae7fb353fb602edcee7db8b76a0eb21d5a))
+* **ui:** remove indent for next source ([45b82bd](https://github.com/aimuzov/LazyVimx/commit/45b82bd32f37b3bb75e3022fc3a53f2ef5953a26))
+
 ## [1.3.0](https://github.com/aimuzov/LazyVimx/compare/v1.2.0...v1.3.0) (2025-10-18)
 
 ### Features
