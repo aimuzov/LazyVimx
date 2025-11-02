@@ -266,11 +266,11 @@ return {
 		optional = true,
 
 		opts = function(_, opts)
-			local renderer = require("neo-tree.ui.renderer")
-			local manager = require("neo-tree.sources.manager")
-
 			vim.api.nvim_create_autocmd({ "TermOpen", "TermClose" }, {
 				callback = vim.schedule_wrap(function()
+					local renderer = require("neo-tree.ui.renderer")
+					local manager = require("neo-tree.sources.manager")
+
 					local ok, state = pcall(manager.get_state, "buffers")
 
 					if ok and renderer.window_exists(state) then
@@ -292,10 +292,7 @@ return {
 			end
 
 			vim.list_extend(opts.event_handlers, {
-				{
-					event = require("neo-tree.events").NEO_TREE_POPUP_INPUT_READY,
-					handler = input_normal_pos_start,
-				},
+				{ event = "neo_tree_popup_input_ready", handler = input_normal_pos_start },
 			})
 		end,
 	},
@@ -305,7 +302,6 @@ return {
 		optional = true,
 
 		opts = function(_, opts)
-			local events = require("neo-tree.events")
 			local guicursor = vim.opt_local.guicursor
 
 			local function cursor_hide()
@@ -317,8 +313,24 @@ return {
 			end
 
 			vim.list_extend(opts.event_handlers, {
-				{ event = events.NEO_TREE_BUFFER_ENTER, handler = cursor_hide },
-				{ event = events.NEO_TREE_BUFFER_LEAVE, handler = cursor_revert },
+				{ event = "neo_tree_popup_input_ready", handler = cursor_revert },
+				{ event = "neo_tree_popup_buffer_enter", handler = cursor_revert },
+			})
+
+			vim.api.nvim_create_autocmd("BufEnter", {
+				callback = function(args)
+					if vim.bo[args.buf].filetype == "neo-tree" then
+						cursor_hide()
+					end
+				end,
+			})
+
+			vim.api.nvim_create_autocmd("BufLeave", {
+				callback = function(args)
+					if vim.bo[args.buf].filetype == "neo-tree" then
+						cursor_revert()
+					end
+				end,
 			})
 		end,
 	},
@@ -334,10 +346,7 @@ return {
 			end
 
 			vim.list_extend(opts.event_handlers, {
-				{
-					event = require("neo-tree.events").NEO_TREE_BUFFER_ENTER,
-					handler = remove_left_padding,
-				},
+				{ event = "neo_tree_buffer_enter", handler = remove_left_padding },
 			})
 		end,
 	},
