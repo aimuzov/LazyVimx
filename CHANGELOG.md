@@ -1,41 +1,10 @@
 # Changelog
 
-## [1.5.0](https://github.com/aimuzov/LazyVimx/compare/v1.0.0...v1.5.0) (2025-11-05)
+## [1.5.0](https://github.com/aimuzov/LazyVimx/compare/v1.4.0...v1.5.0) (2025-11-05)
 
 ### Features
 
-* **ai:** add sidekick conf ([fe3b54c](https://github.com/aimuzov/LazyVimx/commit/fe3b54c2f90a9bbefc7a5f823354009613993e04))
-* **ai:** add sidekick conf ([ad3bacf](https://github.com/aimuzov/LazyVimx/commit/ad3bacfcd91b4c30f1c48faba06da39f31f49209))
 * **core:** add cross-platform dark theme detection ([f54565b](https://github.com/aimuzov/LazyVimx/commit/f54565be52fec71dec842edc88ef1cf5863fc1a6))
-* **ui:** add new extra for better lsp reference hl ([90d7cab](https://github.com/aimuzov/LazyVimx/commit/90d7cabc089ce4ebc6c0eab4068721964c40bc31))
-* **ui:** add new extra for better lsp reference hl ([3066565](https://github.com/aimuzov/LazyVimx/commit/30665650f9c5cf9e2b7a5fbf51a8c820158d2741))
-* **ui:** autorestore last colorscheme ([697873a](https://github.com/aimuzov/LazyVimx/commit/697873a9f60f877b26e05876b344758a99f2fe08))
-* **ui:** autorestore last colorscheme ([7ec3709](https://github.com/aimuzov/LazyVimx/commit/7ec3709336dcf7b1302f969cb00560ce9a7689c5))
-* **ui:** hide cursor for neo-tree ([e52edee](https://github.com/aimuzov/LazyVimx/commit/e52edee64be56fd48e2809f17706eeeb53e1d952))
-* **ui:** hide cursor for neo-tree ([5b20fe6](https://github.com/aimuzov/LazyVimx/commit/5b20fe6ec2ec7d8faf15b58e7ccc1e8108ba509e))
-* **ui:** some improves for neo-tree ([971261d](https://github.com/aimuzov/LazyVimx/commit/971261d69f375873505dfc01d1e1f85367846159))
-* **ui:** some improves for neo-tree ([5756e54](https://github.com/aimuzov/LazyVimx/commit/5756e544496c409d084e4f82e86ec4962a8f3d51))
-
-### Bug Fixes
-
-* **core:** fix typo (incorrect colorscheme name from config) ([6d8bf35](https://github.com/aimuzov/LazyVimx/commit/6d8bf35dbdf8a1251696658ad9f3de0d4023208d))
-* **core:** fix typo (incorrect colorscheme name from config) ([6b6dc0e](https://github.com/aimuzov/LazyVimx/commit/6b6dc0e427c4692afcd1694bdf5817d8b30ced5a))
-* keys ([1ff8cec](https://github.com/aimuzov/LazyVimx/commit/1ff8cec4962ebde918ebf30bfea159cfd6459801))
-* keys ([bf99573](https://github.com/aimuzov/LazyVimx/commit/bf995738be5494ed8efd89352e821119eec4f3d5))
-* **motions:** fix lspkeys after migration ([2b57fca](https://github.com/aimuzov/LazyVimx/commit/2b57fca128eafa0ef1de25aca6f91d4e44d87d9a))
-* **motions:** fix lspkeys after migration ([25d6e68](https://github.com/aimuzov/LazyVimx/commit/25d6e68f1442bc11476b2fb0c3d4ee8aff10fc60))
-* **perf:** enable garbage (lsp) ([8be9081](https://github.com/aimuzov/LazyVimx/commit/8be908111cb963b00b261c48682be7d49713af4b))
-* **perf:** enable garbage (lsp) ([cac838d](https://github.com/aimuzov/LazyVimx/commit/cac838d1d56626780f10cf86a7a00b9fead0a63c))
-* **ui:** colorize keys for dashboard ([4cb61fc](https://github.com/aimuzov/LazyVimx/commit/4cb61fca1ee8500e9a4aafc98c19a9a1dc3de7d0))
-* **ui:** colorize keys for dashboard ([132005b](https://github.com/aimuzov/LazyVimx/commit/132005bf0e969f52dadf6b64f02b8a8db337afaf))
-* **ui:** fix hl for winbar (tokyonight hack) ([4749f54](https://github.com/aimuzov/LazyVimx/commit/4749f546523ecf3ea71ae8c754eedbc3198cc074))
-* **ui:** fix hl for winbar (tokyonight hack) ([c7ff539](https://github.com/aimuzov/LazyVimx/commit/c7ff5392da785f0fc7e65d86e758ce20ca04c93e))
-* **ui:** hide inline diagnostic when float popup is opened ([2186a90](https://github.com/aimuzov/LazyVimx/commit/2186a905238ecff75e4d32cd7d882941e6f550b4)), closes [rachartier/tiny-inline-diagnostic.nvim#134](https://github.com/rachartier/tiny-inline-diagnostic.nvim/issues/134)
-* **ui:** hide inline diagnostic when float popup is opened ([bff2dac](https://github.com/aimuzov/LazyVimx/commit/bff2dacafddd0beaf391b78993c203c666f70865)), closes [rachartier/tiny-inline-diagnostic.nvim#134](https://github.com/rachartier/tiny-inline-diagnostic.nvim/issues/134)
-* **ui:** remove indent for next source ([9c95f33](https://github.com/aimuzov/LazyVimx/commit/9c95f33e3d937061b0afb0d8b91eef7778e3c025))
-* **ui:** remove indent for next source ([0a24d4e](https://github.com/aimuzov/LazyVimx/commit/0a24d4eb6d11219a3df8495f28bf95071615d6d8))
-* **ui:** replace chevron icons ([6abbc29](https://github.com/aimuzov/LazyVimx/commit/6abbc29d192e293e30ab046f156e483d58da4f03))
-* **ui:** replace chevron icons ([9db4695](https://github.com/aimuzov/LazyVimx/commit/9db4695ce1cbee51cf3e32e9e087f33de8238243))
 
 ## [1.4.0](https://github.com/aimuzov/LazyVimx/compare/v1.3.0...v1.4.0) (2025-11-02)
 
