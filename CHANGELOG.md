@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.5.0](https://github.com/aimuzov/LazyVimx/compare/v0.6.0...v1.5.0) (2025-11-05)
+
+### Features
+
+* **ai:** add sidekick conf ([fe3b54c](https://github.com/aimuzov/LazyVimx/commit/fe3b54c2f90a9bbefc7a5f823354009613993e04))
+* **core:** add cross-platform dark theme detection ([f54565b](https://github.com/aimuzov/LazyVimx/commit/f54565be52fec71dec842edc88ef1cf5863fc1a6))
+* **ui:** add new extra for better lsp reference hl ([90d7cab](https://github.com/aimuzov/LazyVimx/commit/90d7cabc089ce4ebc6c0eab4068721964c40bc31))
+* **ui:** autorestore last colorscheme ([697873a](https://github.com/aimuzov/LazyVimx/commit/697873a9f60f877b26e05876b344758a99f2fe08))
+* **ui:** hide cursor for neo-tree ([e52edee](https://github.com/aimuzov/LazyVimx/commit/e52edee64be56fd48e2809f17706eeeb53e1d952))
+* **ui:** some improves for neo-tree ([971261d](https://github.com/aimuzov/LazyVimx/commit/971261d69f375873505dfc01d1e1f85367846159))
+
+### Bug Fixes
+
+* **core:** fix typo (incorrect colorscheme name from config) ([6d8bf35](https://github.com/aimuzov/LazyVimx/commit/6d8bf35dbdf8a1251696658ad9f3de0d4023208d))
+* keys ([1ff8cec](https://github.com/aimuzov/LazyVimx/commit/1ff8cec4962ebde918ebf30bfea159cfd6459801))
+* **motions:** fix keys for live-rename plug ([70588de](https://github.com/aimuzov/LazyVimx/commit/70588dea486050f8cca9c60cb6221906a9710931))
+* **motions:** fix lspkeys after migration ([2b57fca](https://github.com/aimuzov/LazyVimx/commit/2b57fca128eafa0ef1de25aca6f91d4e44d87d9a))
+* **perf:** enable garbage (lsp) ([8be9081](https://github.com/aimuzov/LazyVimx/commit/8be908111cb963b00b261c48682be7d49713af4b))
+* **ui:** add delay for opening blink doc ([3639164](https://github.com/aimuzov/LazyVimx/commit/3639164dfb6a8e08513c20de742f6193744f5842))
+* **ui:** colorize keys for dashboard ([4cb61fc](https://github.com/aimuzov/LazyVimx/commit/4cb61fca1ee8500e9a4aafc98c19a9a1dc3de7d0))
+* **ui:** fix border highlight for blink doc ([e1aaef9](https://github.com/aimuzov/LazyVimx/commit/e1aaef9be333c5ae1cd9054bcaeb3cead8422408))
+* **ui:** fix buftab style ([271cbec](https://github.com/aimuzov/LazyVimx/commit/271cbece9956a0f4f168cd4900c14dd961102666))
+* **ui:** fix highlights for blink (tokyonight) ([de958a0](https://github.com/aimuzov/LazyVimx/commit/de958a0e6545441cb0d64dee3c5851d970966a96))
+* **ui:** fix hl for winbar (tokyonight hack) ([4749f54](https://github.com/aimuzov/LazyVimx/commit/4749f546523ecf3ea71ae8c754eedbc3198cc074))
+* **ui:** hide inline diagnostic when float popup is opened ([2186a90](https://github.com/aimuzov/LazyVimx/commit/2186a905238ecff75e4d32cd7d882941e6f550b4)), closes [rachartier/tiny-inline-diagnostic.nvim#134](https://github.com/rachartier/tiny-inline-diagnostic.nvim/issues/134)
+* **ui:** remove indent for next source ([9c95f33](https://github.com/aimuzov/LazyVimx/commit/9c95f33e3d937061b0afb0d8b91eef7778e3c025))
+* **ui:** replace chevron icons ([6abbc29](https://github.com/aimuzov/LazyVimx/commit/6abbc29d192e293e30ab046f156e483d58da4f03))
+
 ## [1.4.0](https://github.com/aimuzov/LazyVimx/compare/v1.3.0...v1.4.0) (2025-11-02)
 
 ### Features
