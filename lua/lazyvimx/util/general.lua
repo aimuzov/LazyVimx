@@ -38,10 +38,22 @@ function M.popen_get_result(cmd)
 end
 
 function M.theme_is_dark()
-	local cmd_result = M.popen_get_result("defaults read -g AppleInterfaceStyle 2>&1")
-	local theme_is_dark = cmd_result == "Dark"
+	local is_mac = vim.fn.has("mac") == 1 or vim.fn.has("macunix") == 1
+	local cmd_result
 
-	return theme_is_dark
+	if is_mac then
+		cmd_result = M.popen_get_result("defaults read -g AppleInterfaceStyle 2>&1")
+		return cmd_result == "Dark"
+	else
+		cmd_result = M.popen_get_result("gsettings get org.gnome.desktop.interface gtk-theme 2>&1")
+
+		if cmd_result:match("command not found") or cmd_result:match("No such schema") then
+			cmd_result = M.popen_get_result("gsettings get org.gnome.desktop.interface color-scheme 2>&1")
+			return cmd_result:match("dark") ~= nil
+		end
+
+		return cmd_result:lower():match("dark") ~= nil
+	end
 end
 
 function M.get_dotfiles_path()
