@@ -8,7 +8,10 @@ return {
 		opts = {
 			animate = { enabled = false },
 			exit_when_last = true,
-			wo = { winfixwidth = false, winbar = false },
+			wo = {
+				winfixwidth = false,
+				winbar = false,
+			},
 
 			options = {
 				left = { size = layout.get_size_create("left") },
@@ -34,7 +37,9 @@ return {
 		opts = function(_, opts)
 			table.insert(opts.bottom, { ft = "dap-repl" })
 			table.insert(opts.right, { ft = "neotest-summary" })
-			table.insert(opts.right, { ft = "sidekick_terminal" })
+			table.insert(opts.right, { ft = "sidekick_terminal", size = { width = 0.35 } })
+
+			opts.wo.fillchars = vim.o.fillchars
 		end,
 	},
 }
