@@ -2,6 +2,10 @@ return {
 	"folke/sidekick.nvim",
 	optional = true,
 
+	opts = {
+		nes = { debounce = 1000 },
+	},
+
 	specs = {
 		{
 			"saghen/blink.cmp",
