@@ -1,5 +1,14 @@
 # LazyVimx
 
+<div align="center">
+
+![Версия](https://img.shields.io/badge/версия-1.5.0-blue.svg)
+![Neovim](https://img.shields.io/badge/Neovim-0.10+-green.svg)
+![Лицензия](https://img.shields.io/badge/лицензия-Apache--2.0-orange.svg)
+![Extras](https://img.shields.io/badge/extras-48-purple.svg)
+
+</div>
+
 > [!TIP]
 > **🇬🇧 English version:** [README.md](README.md)
 
@@ -43,6 +52,8 @@ LazyVimx — это комплексный слой улучшений, пост
 - Neovim >= 0.10.0
 
 ### Быстрый старт
+
+> **💡 Реальный пример**: См. [конфигурацию автора](https://github.com/aimuzov/dotfiles/blob/main/dot_config/nvim/init.lua) для production setup.
 
 1. **Создайте `~/.config/nvim/init.lua` со следующим содержимым:**
 

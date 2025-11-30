@@ -1113,9 +1113,9 @@ Jest testing framework for Neotest.
 | Linting     | 2      | Code quality tools                   |
 | AI          | 1      | AI coding assistants                 |
 | DAP         | 1      | Debugging support                    |
-| Performance | 2      | Optimization                         |
+| Performance | 3      | Optimization                         |
 | Test        | 1      | Testing frameworks                   |
-| **Total**   | **47** |                                      |
+| **Total**   | **48** |                                      |
 
 ## Recommended Extras
 

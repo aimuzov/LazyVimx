@@ -282,7 +282,7 @@ return {
 
 #### `extras/core/extras.lua`
 
-Central registry of all 43 extras - single import point for all features.
+Central registry of all 48 extras - single import point for all features.
 
 #### `extras/core/keys.lua`
 

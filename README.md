@@ -1,5 +1,14 @@
 # LazyVimx
 
+<div align="center">
+
+![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)
+![Neovim](https://img.shields.io/badge/Neovim-0.10+-green.svg)
+![License](https://img.shields.io/badge/license-Apache--2.0-orange.svg)
+![Extras](https://img.shields.io/badge/extras-48-purple.svg)
+
+</div>
+
 > [!TIP]
 > **🇷🇺 Русская версия:** [README.ru.md](README.ru.md)
 
@@ -42,7 +51,18 @@ LazyVimx is a comprehensive enhancement layer built on top of [LazyVim](https://
 
 - Neovim >= 0.10.0
 
+### 🚀 Choose Your Setup
+
+**New to LazyVimx?** Check out ready-to-use configurations in [examples/](examples/):
+
+- **[Minimal](examples/minimal/)** - Essential overrides only (~55-85ms startup)
+- **[Full-Featured](examples/full-featured/)** - All 48 extras enabled (~80-120ms startup)
+- **[VSCode User](examples/vscode-user/)** - Optimized for VSCode Neovim
+- **[Russian Keyboard](examples/russian-keyboard/)** - With langmapper support
+
 ### Quick Start
+
+> **💡 Real Example**: See [author's configuration](https://github.com/aimuzov/dotfiles/blob/main/dot_config/nvim/init.lua) for a production setup.
 
 1. **Create `~/.config/nvim/init.lua` with the following content:**
 
@@ -206,7 +226,7 @@ This includes:
 
 - **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - Technical architecture and implementation details ([🇷🇺](docs/ARCHITECTURE.ru.md))
 - **[CONFIGURATION.md](docs/CONFIGURATION.md)** - Configuration guide and options ([🇷🇺](docs/CONFIGURATION.ru.md))
-- **[EXTRAS.md](docs/EXTRAS.md)** - Complete guide to all 47 extras ([🇷🇺](docs/EXTRAS.ru.md))
+- **[EXTRAS.md](docs/EXTRAS.md)** - Complete guide to all 48 extras ([🇷🇺](docs/EXTRAS.ru.md))
 - **[API.md](docs/API.md)** - API reference and utility functions ([🇷🇺](docs/API.ru.md))
 
 ## 🎨 Highlighted Extras
@@ -244,116 +264,28 @@ This includes:
 
 ## ⌨️ Key Mappings
 
-LazyVimx adds numerous custom keybindings:
+LazyVimx adds 30+ custom keybindings. Here are the highlights:
 
-### Basic Operations
+**Most Used**:
+- `<leader><space>` - Find files
+- `<leader>cr` - LSP rename (live preview)
+- `gr` - Go to references (peek view)
+- `H` / `L` - Previous/Next buffer
+- `<leader>fy` - Open Yazi file explorer
+- `w` / `b` / `e` - Smart word motions (subword aware)
 
-| Key              | Mode    | Description                      |
-| ---------------- | ------- | -------------------------------- |
-| `d`              | n, v    | Delete without yanking           |
-| `<C-S-j>`        | n, i, v | Move line/selection down         |
-| `<C-S-k>`        | n, i, v | Move line/selection up           |
-| `<leader>\`      | n       | Split window right               |
-| `<leader>ch`     | n       | Open shell (cht.sh)              |
-| `<leader>ll`     | n       | Open Lazy dashboard              |
-| `<leader>lx`     | n       | Open Lazy extras                 |
-| `<leader>uz`     | n       | Toggle zen mode                  |
-| `<leader>uq`     | n       | Open dashboard                   |
-| `<leader><tab>r` | n       | Rename tab                       |
+**Productivity**:
+- `d` - Delete without yanking (no clipboard pollution)
+- `<C-S-j>` / `<C-S-k>` - Move lines up/down
+- `<C-.>` / `<C-,>` - Swap function parameters/array elements
+- `<leader>ct` - Smart split/join code blocks
+- `gx` / `gX` - Open/browse remote Git repositories
 
-### Files and Buffers
+**Git & GitLab**:
+- `<leader>gL*` - Full GitLab MR workflow (review, comment, approve, merge)
+- `go` - Open file/selection in GitHub/GitLab browser
 
-| Key               | Mode | Description                   |
-| ----------------- | ---- | ----------------------------- |
-| `<leader><space>` | n    | Find files (smart)            |
-| `<leader>fy`      | n    | Find files (yazi)             |
-| `<leader>fY`      | n    | Find files (yazi prev session)|
-| `<leader>bg`      | n, v | Pick buffer                   |
-| `<leader>bm[`     | n    | Move buffer (prev)            |
-| `<leader>bm]`     | n    | Move buffer (next)            |
-| `<leader>b<tab>`  | n    | Move buffer to another tab    |
-| `H`               | n    | Previous buffer               |
-| `L`               | n    | Next buffer                   |
-
-### Navigation and Motions
-
-| Key       | Mode    | Description                    |
-| --------- | ------- | ------------------------------ |
-| `[x`      | n       | Go to treesitter context       |
-| `w`       | n, o, x | Move forward (spider)          |
-| `b`       | n, o, x | Move backward (spider)         |
-| `e`       | n, o, x | Move to end of word (spider)   |
-| `cw`      | n       | Change word (spider)           |
-| `<C-f>`   | i       | Move forward in insert (spider)|
-| `<C-b>`   | i       | Move backward in insert (spider)|
-| `<C-A-h>` | n       | TreeWalker left                |
-| `<C-A-l>` | n       | TreeWalker right               |
-| `<C-A-j>` | n       | TreeWalker down                |
-| `<C-A-k>` | n       | TreeWalker up                  |
-| `<C-A-.>` | n       | TreeWalker swap down           |
-| `<C-A-,>` | n       | TreeWalker swap up             |
-
-### Window Management
-
-| Key         | Mode    | Description          |
-| ----------- | ------- | -------------------- |
-| `<C-Up>`    | n, v, t | Increase window height|
-| `<C-Down>`  | n, v, t | Decrease window height|
-| `<C-Left>`  | n, v, t | Decrease window width |
-| `<C-Right>` | n, v, t | Increase window width |
-
-### LSP and Code
-
-| Key          | Mode | Description                  |
-| ------------ | ---- | ---------------------------- |
-| `gr`         | n    | Go to references (glance)    |
-| `<leader>cr` | n    | Rename (live-rename)         |
-| `<leader>cw` | n, v | Wrap with emmet abbreviation |
-| `<C-.>`      | n    | Swap sibling node right      |
-| `<C-,>`      | n    | Swap sibling node left       |
-| `<leader>ct` | n    | Split/Join block (autodetect)|
-| `<leader>c\` | n    | Split code block             |
-| `<leader>cj` | n    | Join code block              |
-
-### Git Operations
-
-| Key           | Mode | Description                  |
-| ------------- | ---- | ---------------------------- |
-| `<leader>ghP` | n    | Preview hunk                 |
-| `go`          | n    | Open in browser (fugitive)   |
-| `go`          | v    | Open range in browser        |
-| `gx`          | n    | Open remote git repository   |
-| `gX`          | n    | Enter remote git repository  |
-
-### GitLab Operations
-
-| Key           | Mode | Description                   |
-| ------------- | ---- | ----------------------------- |
-| `<leader>gLA` | n    | Approve MR                    |
-| `<leader>gLc` | n    | Create comment                |
-| `<leader>gLc` | v    | Create multiline comment      |
-| `<leader>gLC` | v    | Create comment suggestion     |
-| `<leader>gLd` | n    | Toggle discussion             |
-| `<leader>gLe` | n    | Choose merge request          |
-| `<leader>gLM` | n    | Merge MR                      |
-| `<leader>gLm` | n    | Move to discussion tree       |
-| `<leader>gLn` | n    | Create note                   |
-| `<leader>gLo` | n    | Open in browser               |
-| `<leader>gLp` | n    | Pipeline                      |
-| `<leader>gLr` | n    | Review                        |
-| `<leader>gLR` | n    | Revoke                        |
-| `<leader>gLs` | n    | Summary                       |
-
-### DAP (Debugging)
-
-| Key     | Mode | Description      |
-| ------- | ---- | ---------------- |
-| `<F5>`  | n    | Continue         |
-| `<F10>` | n    | Step over        |
-| `<F11>` | n    | Step into        |
-| `<F12>` | n    | Step out         |
-
-See [extras/core/keys.lua](./lua/lazyvimx/extras/core/keys.lua) for complete list.
+**📖 Full Reference**: See [KEYBINDINGS.md](docs/KEYBINDINGS.md) for complete list with descriptions and requirements.
 
 ## 🔧 Configuration
 

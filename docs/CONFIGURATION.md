@@ -37,13 +37,36 @@ This gives you LazyVimx with default settings and makes all extras available via
 -- In your lua/config/lazy.lua
 return {
 	spec = {
-		{ "aimuzov/LazyVimx", import = "lazyvimx.boot" }
+		{ "aimuzov/LazyVimx", import = "lazyvimx.boot" },
 		{ import = "lazyvimx.extras.core.all" },  -- Enable all enhancements
 	},
 }
 ```
 
-### Custom Setup
+### Configuration Options
+
+LazyVimx can be configured in two ways:
+
+**Option 1: Using `opts` (Recommended)**
+
+```lua
+-- In your init.lua or lua/plugins/lazyvimx.lua
+{
+	"aimuzov/LazyVimx",
+	import = "lazyvimx.boot",
+	opts = {
+		colorscheme = "catppuccin",
+		colorscheme_flavors = {
+			catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
+		},
+		bufferline_groups = {
+			["React"] = "%.tsx$",
+		},
+	},
+}
+```
+
+**Option 2: Using `setup()` function**
 
 ```lua
 -- Create lua/config/lazyvimx.lua
@@ -57,6 +80,8 @@ require("lazyvimx").setup({
 	},
 })
 ```
+
+Both approaches are equivalent - use whichever fits your workflow better.
 
 ## Setup Function
 
@@ -699,7 +724,7 @@ return {
 -- lua/config/lazy.lua
 return {
 	spec = {
-		{ "aimuzov/LazyVimx", import = "lazyvimx.boot" }
+		{ "aimuzov/LazyVimx", import = "lazyvimx.boot" },
 		{ import = "lazyvimx.extras.core.all" },  -- Enable all enhancements
 	},
 }

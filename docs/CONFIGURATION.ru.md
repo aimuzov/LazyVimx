@@ -37,16 +37,39 @@ return {
 -- In your lua/config/lazy.lua
 return {
 	spec = {
-		{ import = "lazyvimx.boot" },
-		{ import = "lazyvimx.extras.core.all" },  -- Enable all enhancements
+		{ "aimuzov/LazyVimx", import = "lazyvimx.boot" },
+		{ import = "lazyvimx.extras.core.all" },  -- Включить все улучшения
 	},
 }
 ```
 
-### Пользовательская настройка
+### Варианты конфигурации
+
+LazyVimx можно настроить двумя способами:
+
+**Вариант 1: Используя `opts` (Рекомендуется)**
 
 ```lua
--- Create lua/config/lazyvimx.lua
+-- В init.lua или lua/plugins/lazyvimx.lua
+{
+	"aimuzov/LazyVimx",
+	import = "lazyvimx.boot",
+	opts = {
+		colorscheme = "catppuccin",
+		colorscheme_flavors = {
+			catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
+		},
+		bufferline_groups = {
+			["React"] = "%.tsx$",
+		},
+	},
+}
+```
+
+**Вариант 2: Используя функцию `setup()`**
+
+```lua
+-- Создайте lua/config/lazyvimx.lua
 require("lazyvimx").setup({
 	colorscheme = "catppuccin",
 	colorscheme_flavors = {
@@ -57,6 +80,8 @@ require("lazyvimx").setup({
 	},
 })
 ```
+
+Оба подхода эквивалентны - используйте тот, который лучше подходит вашему рабочему процессу.
 
 ## Функция Setup
 
